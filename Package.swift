@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "OpenAPIClient",
+    name: "BestUnitPriceAPIClient",
     platforms: [
         .iOS(.v9),
         .macOS(.v10_11),
