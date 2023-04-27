@@ -201,14 +201,14 @@ open class UnitsAPI {
             "Page": (wrappedValue: page?.encodeToJSON(), isExplode: true),
             "PageSize": (wrappedValue: pageSize?.encodeToJSON(), isExplode: true),
             "OrderBy": (wrappedValue: orderBy?.encodeToJSON(), isExplode: true),
-            "AdvancedSearch.Fields": (wrappedValue: advancedSearchFields?.encodeToJSON(), isExplode: true),
-            "AdvancedSearch.Keyword": (wrappedValue: advancedSearchKeyword?.encodeToJSON(), isExplode: true),
-            "Keyword": (wrappedValue: keyword?.encodeToJSON(), isExplode: true),
-            "AdvancedFilter.Logic": (wrappedValue: advancedFilterLogic?.encodeToJSON(), isExplode: true),
-            "AdvancedFilter.Filters": (wrappedValue: advancedFilterFilters?.encodeToJSON(), isExplode: true),
-            "AdvancedFilter.Field": (wrappedValue: advancedFilterField?.encodeToJSON(), isExplode: true),
-            "AdvancedFilter.Operator": (wrappedValue: advancedFilterOperator?.encodeToJSON(), isExplode: true),
-            "AdvancedFilter.Value": (wrappedValue: advancedFilterValue?.encodeToJSON(), isExplode: true),
+//            "AdvancedSearch.Fields": (wrappedValue: advancedSearchFields?.encodeToJSON(), isExplode: true),
+//            "AdvancedSearch.Keyword": (wrappedValue: advancedSearchKeyword?.encodeToJSON(), isExplode: true),
+//            "Keyword": (wrappedValue: keyword?.encodeToJSON(), isExplode: true),
+//            "AdvancedFilter.Logic": (wrappedValue: advancedFilterLogic?.encodeToJSON(), isExplode: true),
+//            "AdvancedFilter.Filters": (wrappedValue: advancedFilterFilters?.encodeToJSON(), isExplode: true),
+//            "AdvancedFilter.Field": (wrappedValue: advancedFilterField?.encodeToJSON(), isExplode: true),
+//            "AdvancedFilter.Operator": (wrappedValue: advancedFilterOperator?.encodeToJSON(), isExplode: true),
+//            "AdvancedFilter.Value": (wrappedValue: advancedFilterValue?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
