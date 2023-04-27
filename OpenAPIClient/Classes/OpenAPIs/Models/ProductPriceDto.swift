@@ -15,13 +15,13 @@ public final class ProductPriceDto: Codable, JSONEncodable, Hashable {
     public var id: Int64?
     public var comparison: Double?
     public var vendorId: Int64?
-    public var vendor: ProductPriceDtoVendor?
+    public var vendor: OrderDtoVendor?
     public var productInfoId: Int64?
     public var productInfo: ProductInfoDto?
     public var deleted: Bool?
     public var vendorDeleted: Bool?
 
-    public init(id: Int64? = nil, comparison: Double? = nil, vendorId: Int64? = nil, vendor: ProductPriceDtoVendor? = nil, productInfoId: Int64? = nil, productInfo: ProductInfoDto? = nil, deleted: Bool? = nil, vendorDeleted: Bool? = nil) {
+    public init(id: Int64? = nil, comparison: Double? = nil, vendorId: Int64? = nil, vendor: OrderDtoVendor? = nil, productInfoId: Int64? = nil, productInfo: ProductInfoDto? = nil, deleted: Bool? = nil, vendorDeleted: Bool? = nil) {
         self.id = id
         self.comparison = comparison
         self.vendorId = vendorId

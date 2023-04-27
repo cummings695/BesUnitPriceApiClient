@@ -25,7 +25,7 @@ public final class OrderItemDto: Codable, JSONEncodable, Hashable {
     public var totalPrice: Double?
     public var receivedTotal: Double?
     public var inventoryItemId: Int64?
-    public var inventoryItem: InventoryItemDto?
+    public var inventoryItem: OrderItemDtoInventoryItem?
     public var productPriceId: Int64?
     public var currentInventory: Int?
     public var orderId: Int64?
@@ -36,7 +36,7 @@ public final class OrderItemDto: Codable, JSONEncodable, Hashable {
     public var lostSavings: Double?
     public var received: Bool?
 
-    public init(id: Int64? = nil, name: String? = nil, brand: String? = nil, unitPrice: Double? = nil, quantity: Int? = nil, receivedQuantity: Int? = nil, itemPrice: Double? = nil, receivedPrice: Double? = nil, receivedUnitPrice: Double? = nil, orderCode: String? = nil, totalPrice: Double? = nil, receivedTotal: Double? = nil, inventoryItemId: Int64? = nil, inventoryItem: InventoryItemDto? = nil, productPriceId: Int64? = nil, currentInventory: Int? = nil, orderId: Int64? = nil, createdBy: String? = nil, lastModifiedBy: String? = nil, createDate: Date? = nil, lastModifiedOn: Date? = nil, lostSavings: Double? = nil, received: Bool? = nil) {
+    public init(id: Int64? = nil, name: String? = nil, brand: String? = nil, unitPrice: Double? = nil, quantity: Int? = nil, receivedQuantity: Int? = nil, itemPrice: Double? = nil, receivedPrice: Double? = nil, receivedUnitPrice: Double? = nil, orderCode: String? = nil, totalPrice: Double? = nil, receivedTotal: Double? = nil, inventoryItemId: Int64? = nil, inventoryItem: OrderItemDtoInventoryItem? = nil, productPriceId: Int64? = nil, currentInventory: Int? = nil, orderId: Int64? = nil, createdBy: String? = nil, lastModifiedBy: String? = nil, createDate: Date? = nil, lastModifiedOn: Date? = nil, lostSavings: Double? = nil, received: Bool? = nil) {
         self.id = id
         self.name = name
         self.brand = brand

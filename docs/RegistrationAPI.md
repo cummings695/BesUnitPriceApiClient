@@ -1,6 +1,6 @@
 # RegistrationAPI
 
-All URIs are relative to *https://bestunitprice-dev.azurewebsites.net*
+All URIs are relative to *https://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

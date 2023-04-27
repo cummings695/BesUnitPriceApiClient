@@ -19,7 +19,7 @@ public final class OrderDto: Codable, JSONEncodable, Hashable {
     public var items: [OrderItemDto]?
     public var itemsCount: Int?
     public var vendorId: Int64?
-    public var vendor: VendorDto?
+    public var vendor: OrderDtoVendor?
     public var active: Bool?
     public var statusId: Int64?
     public var status: OrderStatus?
@@ -29,7 +29,7 @@ public final class OrderDto: Codable, JSONEncodable, Hashable {
     public var orderDate: Date?
     public var number: String?
 
-    public init(id: Int64? = nil, createdDate: Date? = nil, totalPrice: Float? = nil, estimatedPrice: Float? = nil, items: [OrderItemDto]? = nil, itemsCount: Int? = nil, vendorId: Int64? = nil, vendor: VendorDto? = nil, active: Bool? = nil, statusId: Int64? = nil, status: OrderStatus? = nil, batchId: Int64? = nil, invoice: String? = nil, deliveryDate: Date? = nil, orderDate: Date? = nil, number: String? = nil) {
+    public init(id: Int64? = nil, createdDate: Date? = nil, totalPrice: Float? = nil, estimatedPrice: Float? = nil, items: [OrderItemDto]? = nil, itemsCount: Int? = nil, vendorId: Int64? = nil, vendor: OrderDtoVendor? = nil, active: Bool? = nil, statusId: Int64? = nil, status: OrderStatus? = nil, batchId: Int64? = nil, invoice: String? = nil, deliveryDate: Date? = nil, orderDate: Date? = nil, number: String? = nil) {
         self.id = id
         self.createdDate = createdDate
         self.totalPrice = totalPrice

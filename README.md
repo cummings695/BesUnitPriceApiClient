@@ -22,7 +22,7 @@ Run `pod install`
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://bestunitprice-dev.azurewebsites.net*
+All URIs are relative to *https://localhost:5001*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -194,7 +194,9 @@ Class | Method | HTTP request | Description
  - [InvitationViewModel](docs/InvitationViewModel.md)
  - [MockInventoryItemsPostDto](docs/MockInventoryItemsPostDto.md)
  - [OrderDto](docs/OrderDto.md)
+ - [OrderDtoVendor](docs/OrderDtoVendor.md)
  - [OrderItemDto](docs/OrderItemDto.md)
+ - [OrderItemDtoInventoryItem](docs/OrderItemDtoInventoryItem.md)
  - [OrderItemViewModel](docs/OrderItemViewModel.md)
  - [OrderPutViewModel](docs/OrderPutViewModel.md)
  - [OrderStatus](docs/OrderStatus.md)
@@ -215,7 +217,6 @@ Class | Method | HTTP request | Description
  - [ProductInfoViewModel](docs/ProductInfoViewModel.md)
  - [ProductInfoViewModelAllOf](docs/ProductInfoViewModelAllOf.md)
  - [ProductPriceDto](docs/ProductPriceDto.md)
- - [ProductPriceDtoVendor](docs/ProductPriceDtoVendor.md)
  - [ProductPricePatchViewModel](docs/ProductPricePatchViewModel.md)
  - [ProductPriceViewModel](docs/ProductPriceViewModel.md)
  - [ProductViewModel](docs/ProductViewModel.md)

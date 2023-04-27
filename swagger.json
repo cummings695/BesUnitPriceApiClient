@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://bestunitprice-dev.azurewebsites.net"
+      "url": "https://localhost:5001"
     }
   ],
   "paths": {
@@ -5880,10 +5880,16 @@
           },
           "vendorId": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "nullable": true
           },
           "vendor": {
-            "$ref": "#/components/schemas/VendorDto"
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/VendorDto"
+              }
+            ]
           },
           "active": {
             "type": "boolean",
@@ -5901,7 +5907,8 @@
             "format": "int64"
           },
           "invoice": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "deliveryDate": {
             "type": "string",
@@ -5977,7 +5984,12 @@
             "format": "int64"
           },
           "inventoryItem": {
-            "$ref": "#/components/schemas/InventoryItemDto"
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/InventoryItemDto"
+              }
+            ]
           },
           "productPriceId": {
             "type": "integer",
@@ -6313,25 +6325,32 @@
             "type": "string"
           },
           "contactName": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "website": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "addressLine1": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "addressLine2": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "city": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "state": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "zipCode": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "latitude": {
             "type": "number",

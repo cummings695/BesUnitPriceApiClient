@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **totalPrice** | **Double** |  | [optional] 
 **receivedTotal** | **Double** |  | [optional] 
 **inventoryItemId** | **Int64** |  | [optional] 
-**inventoryItem** | [**InventoryItemDto**](InventoryItemDto.md) |  | [optional] 
+**inventoryItem** | [**OrderItemDtoInventoryItem**](OrderItemDtoInventoryItem.md) |  | [optional] 
 **productPriceId** | **Int64** |  | [optional] 
 **currentInventory** | **Int** |  | [optional] 
 **orderId** | **Int64** |  | [optional] 

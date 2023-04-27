@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **items** | [OrderItemDto] |  | [optional] 
 **itemsCount** | **Int** |  | [optional] 
 **vendorId** | **Int64** |  | [optional] 
-**vendor** | [**VendorDto**](VendorDto.md) |  | [optional] 
+**vendor** | [**OrderDtoVendor**](OrderDtoVendor.md) |  | [optional] 
 **active** | **Bool** |  | [optional] 
 **statusId** | **Int64** |  | [optional] 
 **status** | [**OrderStatus**](OrderStatus.md) |  | [optional] 

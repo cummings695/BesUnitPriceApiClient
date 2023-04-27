@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **id** | **Int64** |  | [optional] 
 **comparison** | **Double** |  | [optional] 
 **vendorId** | **Int64** |  | [optional] 
-**vendor** | [**ProductPriceDtoVendor**](ProductPriceDtoVendor.md) |  | [optional] 
+**vendor** | [**OrderDtoVendor**](OrderDtoVendor.md) |  | [optional] 
 **productInfoId** | **Int64** |  | [optional] 
 **productInfo** | [**ProductInfoDto**](ProductInfoDto.md) |  | [optional] 
 **deleted** | **Bool** |  | [optional] 

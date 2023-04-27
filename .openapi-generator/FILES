@@ -82,7 +82,9 @@ OpenAPIClient/Classes/OpenAPIs/Models/InventoryItemViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/InvitationViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/MockInventoryItemsPostDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/OrderDto.swift
+OpenAPIClient/Classes/OpenAPIs/Models/OrderDtoVendor.swift
 OpenAPIClient/Classes/OpenAPIs/Models/OrderItemDto.swift
+OpenAPIClient/Classes/OpenAPIs/Models/OrderItemDtoInventoryItem.swift
 OpenAPIClient/Classes/OpenAPIs/Models/OrderItemViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/OrderPutViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/OrderStatus.swift
@@ -103,7 +105,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/ProductInfoDtoUnitOfMeasure.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ProductInfoViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ProductInfoViewModelAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ProductPriceDto.swift
-OpenAPIClient/Classes/OpenAPIs/Models/ProductPriceDtoVendor.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ProductPricePatchViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ProductPriceViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ProductViewModel.swift
@@ -220,7 +221,9 @@ docs/InvitationViewModel.md
 docs/InvitationsAPI.md
 docs/MockInventoryItemsPostDto.md
 docs/OrderDto.md
+docs/OrderDtoVendor.md
 docs/OrderItemDto.md
+docs/OrderItemDtoInventoryItem.md
 docs/OrderItemViewModel.md
 docs/OrderItemsAPI.md
 docs/OrderPutViewModel.md
@@ -244,7 +247,6 @@ docs/ProductInfoDtoUnitOfMeasure.md
 docs/ProductInfoViewModel.md
 docs/ProductInfoViewModelAllOf.md
 docs/ProductPriceDto.md
-docs/ProductPriceDtoVendor.md
 docs/ProductPricePatchViewModel.md
 docs/ProductPriceViewModel.md
 docs/ProductViewModel.md
