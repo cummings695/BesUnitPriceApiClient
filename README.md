@@ -22,7 +22,7 @@ Run `pod install`
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://localhost:5001*
+All URIs are relative to *https://bestunitprice-dev.azurewebsites.net*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
