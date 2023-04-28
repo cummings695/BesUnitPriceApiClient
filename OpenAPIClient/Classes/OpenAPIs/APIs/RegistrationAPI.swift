@@ -49,7 +49,7 @@ open class RegistrationAPI {
      */
     open class func registrationConfirmRegistrationWithRequestBuilder(accountid: String? = nil) -> RequestBuilder<UserViewModel> {
         let localVariablePath = "/api/registration/confirm"
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -63,7 +63,7 @@ open class RegistrationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserViewModel>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -102,7 +102,7 @@ open class RegistrationAPI {
      */
     open class func registrationForgotPasswordWithRequestBuilder(forgotPasswordPost: ForgotPasswordPost) -> RequestBuilder<UserViewModel> {
         let localVariablePath = "/api/registration/forgotpassword"
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: forgotPasswordPost)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -113,7 +113,7 @@ open class RegistrationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserViewModel>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -152,7 +152,7 @@ open class RegistrationAPI {
      */
     open class func registrationRegisterWithRequestBuilder(registerViewModel: RegisterViewModel) -> RequestBuilder<UserViewModel> {
         let localVariablePath = "/api/registration"
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: registerViewModel)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -163,7 +163,7 @@ open class RegistrationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserViewModel>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -205,7 +205,7 @@ open class RegistrationAPI {
      */
     open class func registrationResetPasswordWithRequestBuilder(resetPasswordPost: ResetPasswordPost) -> RequestBuilder<UserViewModel> {
         let localVariablePath = "/api/registration/resetpassword"
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: resetPasswordPost)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -216,7 +216,7 @@ open class RegistrationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserViewModel>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

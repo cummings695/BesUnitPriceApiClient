@@ -23,7 +23,7 @@ Delete a role.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = "id_example" // String | 
 
@@ -71,7 +71,7 @@ Get role details.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = "id_example" // String | 
 
@@ -119,7 +119,7 @@ Get role details with its permissions.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = "id_example" // String | 
 
@@ -167,7 +167,7 @@ Get a list of all roles.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 
 // Get a list of all roles.
@@ -211,7 +211,7 @@ Get role details with its permissions.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 
 // Get role details with its permissions.
@@ -255,7 +255,7 @@ Create or update a role.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let createOrUpdateRoleRequest = CreateOrUpdateRoleRequest(id: "id_example", name: "name_example", description: "description_example") // CreateOrUpdateRoleRequest | 
 
@@ -303,7 +303,7 @@ Update a role's permissions.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = "id_example" // String | 
 let updateRolePermissionsRequest = UpdateRolePermissionsRequest(roleId: "roleId_example", permissions: ["permissions_example"]) // UpdateRolePermissionsRequest | 

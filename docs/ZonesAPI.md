@@ -22,7 +22,7 @@ Method | HTTP request | Description
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int | 
 
@@ -69,7 +69,7 @@ Get All zones.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 
 // Get All zones.
@@ -113,7 +113,7 @@ Get Zone details.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let baseZoneViewModel = BaseZoneViewModel(name: "name_example", sortOrder: 123, shelvingUnits: [ShelvingUnitViewModel(unitNumber: 123, shelfAmount: 123, id: 123)]) // BaseZoneViewModel | 
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int | 
 let zonePutViewModel = ZonePutViewModel(name: "name_example", sortOrder: 123, shelvingUnits: [ShelvingUnitViewModel(unitNumber: 123, shelfAmount: 123, id: 123)], id: 123) // ZonePutViewModel | 
@@ -257,7 +257,7 @@ Search zones using available filters.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let searchZonesRequest = SearchZonesRequest(advancedSearch: BaseFilter_advancedSearch(fields: ["fields_example"], keyword: "keyword_example"), keyword: "keyword_example", advancedFilter: BaseFilter_advancedFilter(logic: "logic_example", filters: [Filter(logic: "logic_example", filters: [nil], field: "field_example", _operator: "_operator_example", value: 123)], field: "field_example", _operator: "_operator_example", value: 123), page: 123, pageSize: 123, orderBy: ["orderBy_example"]) // SearchZonesRequest | 
 

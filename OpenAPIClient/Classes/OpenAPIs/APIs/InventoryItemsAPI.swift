@@ -52,7 +52,7 @@ open class InventoryItemsAPI {
      */
     open class func inventoryItemsAddMockInventoryItemsWithRequestBuilder(mockInventoryItemsPostDto: MockInventoryItemsPostDto) -> RequestBuilder<Void> {
         let localVariablePath = "/api/inventoryitems/mock"
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: mockInventoryItemsPostDto)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -63,7 +63,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -115,7 +115,7 @@ open class InventoryItemsAPI {
         let vendorIdPreEscape = "\(APIHelper.mapValueToPathItem(vendorId))"
         let vendorIdPostEscape = vendorIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{vendorId}", with: vendorIdPostEscape, options: .literal, range: nil)
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createInventoryItemVendorPriceCommand)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -126,7 +126,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -171,7 +171,7 @@ open class InventoryItemsAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -182,7 +182,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -232,7 +232,7 @@ open class InventoryItemsAPI {
         let productPriceIdPreEscape = "\(APIHelper.mapValueToPathItem(productPriceId))"
         let productPriceIdPostEscape = productPriceIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{productPriceId}", with: productPriceIdPostEscape, options: .literal, range: nil)
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -243,7 +243,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -301,7 +301,7 @@ open class InventoryItemsAPI {
      */
     open class func inventoryItemsFindWithRequestBuilder(zoneId: Int64? = nil, name: String? = nil, orderCode: String? = nil, restaurantId: Int64? = nil, hydrationLevel: Int? = nil, active: Bool? = nil, page: Int? = nil, pageSize: Int? = nil, sort: String? = nil) -> RequestBuilder<PaginatedListViewModelOfInventoryItemDto> {
         let localVariablePath = "/api/inventoryitems"
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -323,7 +323,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedListViewModelOfInventoryItemDto>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedListViewModelOfInventoryItemDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -368,7 +368,7 @@ open class InventoryItemsAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -379,7 +379,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<InventoryItemDto>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<InventoryItemDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -424,7 +424,7 @@ open class InventoryItemsAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -435,7 +435,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -482,7 +482,7 @@ open class InventoryItemsAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -496,7 +496,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -536,7 +536,7 @@ open class InventoryItemsAPI {
      */
     open class func inventoryItemsGetPdfWithRequestBuilder() -> RequestBuilder<URL> {
         let localVariablePath = "/api/inventoryitems/pdf"
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -547,7 +547,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -597,7 +597,7 @@ open class InventoryItemsAPI {
         let vendorIdPreEscape = "\(APIHelper.mapValueToPathItem(vendorId))"
         let vendorIdPostEscape = vendorIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{vendorId}", with: vendorIdPostEscape, options: .literal, range: nil)
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -608,7 +608,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -660,7 +660,7 @@ open class InventoryItemsAPI {
         let vendorIdPreEscape = "\(APIHelper.mapValueToPathItem(vendorId))"
         let vendorIdPostEscape = vendorIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{vendorId}", with: vendorIdPostEscape, options: .literal, range: nil)
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: productPricePatchViewModel)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -671,7 +671,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -713,7 +713,7 @@ open class InventoryItemsAPI {
      */
     open class func inventoryItemsPostWithRequestBuilder(createInventoryItemCommand: CreateInventoryItemCommand) -> RequestBuilder<URL> {
         let localVariablePath = "/api/inventoryitems"
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createInventoryItemCommand)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -724,7 +724,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -771,7 +771,7 @@ open class InventoryItemsAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: inventoryItemPutViewModel)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -782,7 +782,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -846,7 +846,7 @@ open class InventoryItemsAPI {
      */
     open class func inventoryItemsSearchGETWithRequestBuilder(searchTerm: String? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> RequestBuilder<PaginationResponseOfInventoryItemDto> {
         let localVariablePath = "/api/inventoryitems/search"
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -871,7 +871,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginationResponseOfInventoryItemDto>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginationResponseOfInventoryItemDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -915,7 +915,7 @@ open class InventoryItemsAPI {
      */
     open class func inventoryItemsSearchPOSTWithRequestBuilder(getInventoryItemsQuery: GetInventoryItemsQuery) -> RequestBuilder<PaginatedListViewModelOfInventoryItemDto> {
         let localVariablePath = "/api/inventoryitems/search"
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: getInventoryItemsQuery)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -926,7 +926,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedListViewModelOfInventoryItemDto>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedListViewModelOfInventoryItemDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -978,7 +978,7 @@ open class InventoryItemsAPI {
         let vendorIdPreEscape = "\(APIHelper.mapValueToPathItem(vendorId))"
         let vendorIdPostEscape = vendorIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{vendorId}", with: vendorIdPostEscape, options: .literal, range: nil)
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateInventoryItemVendorPriceCommand)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -989,7 +989,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

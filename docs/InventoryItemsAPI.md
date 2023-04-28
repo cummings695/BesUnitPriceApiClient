@@ -32,7 +32,7 @@ Method | HTTP request | Description
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let mockInventoryItemsPostDto = MockInventoryItemsPostDto(count: 123) // MockInventoryItemsPostDto | 
 
@@ -79,7 +79,7 @@ Void (empty response body)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = "id_example" // String | 
 let vendorId = "vendorId_example" // String | 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int | 
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let productPriceId = 987 // Int64 | 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let zoneId = 987 // Int64 |  (optional)
 let name = "name_example" // String |  (optional)
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let vendorId = 987 // Int64 |  (optional)
@@ -432,7 +432,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 
 InventoryItemsAPI.inventoryItemsGetPdf() { (response, error) in
@@ -475,7 +475,7 @@ This endpoint does not need any parameter.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let vendorId = 987 // Int64 | 
@@ -524,7 +524,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let vendorId = 987 // Int64 | 
@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let createInventoryItemCommand = CreateInventoryItemCommand(baseQuantity: 123, currentQuantity: 123, orderAmount: 123, ownerId: 123, zoneId: 123, shelvingUnitId: 123, shelfNumber: 123, active: false, name: "name_example", notes: "notes_example", defaultUnitOfMeasureId: 123, defaultQuantity: 123, defaultCount: 123) // CreateInventoryItemCommand | 
 
@@ -622,7 +622,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int | 
 let inventoryItemPutViewModel = InventoryItemPutViewModel(id: 123, name: "name_example", notes: "notes_example", defaultUnitOfMeasureId: 123, defaultQuantity: 123, defaultCount: 123, baseQuantity: 123, currentQuantity: 123, orderAmount: 123, ownerId: 123, zoneId: 123, shelvingUnitId: 123, shelfNumber: 123, active: false) // InventoryItemPutViewModel | 
@@ -671,7 +671,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let searchTerm = "searchTerm_example" // String |  (optional)
 let page = 987 // Int |  (optional)
@@ -740,7 +740,7 @@ Search Items using available filters.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let getInventoryItemsQuery = GetInventoryItemsQuery(zoneId: 123, name: "name_example", orderCode: "orderCode_example", restaurantId: 123, hydrationLevel: 123, active: false, page: 123, pageSize: 123, sort: "sort_example") // GetInventoryItemsQuery | 
 
@@ -788,7 +788,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = "id_example" // String | 
 let vendorId = "vendorId_example" // String | 

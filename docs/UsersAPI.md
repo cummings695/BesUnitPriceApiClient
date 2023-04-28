@@ -28,7 +28,7 @@ Update a user's assigned roles.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = "id_example" // String | 
 let userRolesRequest = UserRolesRequest(userRoles: [UserRoleDto(roleId: "roleId_example", roleName: "roleName_example", description: "description_example", enabled: false)]) // UserRolesRequest | 
@@ -78,7 +78,7 @@ Confirm email address for a user.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let userId = "userId_example" // String |  (optional)
 let code = "code_example" // String |  (optional)
@@ -128,7 +128,7 @@ Confirm phone number for a user.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let userId = "userId_example" // String |  (optional)
 let code = "code_example" // String |  (optional)
@@ -178,7 +178,7 @@ Creates a new user.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let createUserRequest = CreateUserRequest(firstName: "firstName_example", lastName: "lastName_example", email: "email_example", userName: "userName_example", password: "password_example", confirmPassword: "confirmPassword_example", phoneNumber: "phoneNumber_example", merchantGatewayId: "merchantGatewayId_example", emailConfirmed: false, isActive: false, selectedRestaurantId: 123) // CreateUserRequest | 
 
@@ -226,7 +226,7 @@ Request a password reset email for a user.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let forgotPasswordRequest = ForgotPasswordRequest(email: "email_example") // ForgotPasswordRequest | 
 
@@ -274,7 +274,7 @@ Get a user's details.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = "id_example" // String | 
 
@@ -322,7 +322,7 @@ Get list of all users.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 
 // Get list of all users.
@@ -366,7 +366,7 @@ Get a user's roles.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = "id_example" // String | 
 
@@ -414,7 +414,7 @@ Reset a user's password.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let resetPasswordRequest = ResetPasswordRequest(email: "email_example", password: "password_example", token: "token_example") // ResetPasswordRequest | 
 
@@ -462,7 +462,7 @@ Anonymous user creates a user.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let createUserRequest = CreateUserRequest(firstName: "firstName_example", lastName: "lastName_example", email: "email_example", userName: "userName_example", password: "password_example", confirmPassword: "confirmPassword_example", phoneNumber: "phoneNumber_example", merchantGatewayId: "merchantGatewayId_example", emailConfirmed: false, isActive: false, selectedRestaurantId: 123) // CreateUserRequest | 
 
@@ -510,7 +510,7 @@ Toggle a user's active status.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = "id_example" // String | 
 let toggleUserStatusRequest = ToggleUserStatusRequest(activateUser: false, userId: "userId_example") // ToggleUserStatusRequest | 
@@ -560,7 +560,7 @@ Updates a user.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = "id_example" // String | 
 let updateUserRequest = UpdateUserRequest(id: "id_example", firstName: "firstName_example", lastName: "lastName_example", phoneNumber: "phoneNumber_example", email: "email_example", configuration: "configuration_example", accountNumber: "accountNumber_example", monthlyPrice: 123, roles: ["roles_example"]) // UpdateUserRequest | 

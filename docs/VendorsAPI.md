@@ -23,7 +23,7 @@ Method | HTTP request | Description
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int | 
 let apiVersion = "apiVersion_example" // String |  (optional)
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let name = "name_example" // String |  (optional)
 let active = true // Bool |  (optional)
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let apiVersion = "apiVersion_example" // String |  (optional)
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let name = "name_example" // String |  (optional)
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let apiVersion = "apiVersion_example" // String |  (optional)
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let postVendorViewModel = PostVendorViewModel(name: "name_example", contactName: "contactName_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", email: "email_example", phone1: "phone1_example", phone2: "phone2_example", fax: "fax_example", cellPhone: "cellPhone_example", notes: "notes_example", minimumOrder: 123, accountNumber: "accountNumber_example", orderTotal: 123, incentivePercentage: 123, sortOrder: 123, active: false, website: "website_example", contactEmail: "contactEmail_example", geoCached: false, deliveryRange: 123) // PostVendorViewModel | 
 let apiVersion = "apiVersion_example" // String |  (optional)
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int | 
 let vendorPutViewModel = VendorPutViewModel(id: 123, name: "name_example", contactName: "contactName_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", email: "email_example", phone1: "phone1_example", phone2: "phone2_example", fax: "fax_example", cellPhone: "cellPhone_example", notes: "notes_example", minimumOrder: 123, accountNumber: "accountNumber_example", orderTotal: 123, incentivePercentage: 123, sortOrder: 123, active: false, website: "website_example", contactEmail: "contactEmail_example", geoCached: false, deliveryRange: 123, locations: [VendorLocationViewModel(name: "name_example", contactName: "contactName_example", website: "website_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", latitude: 123, longitude: 123, deliveryRange: 123, active: false, isGeoCoded: false, id: 123)]) // VendorPutViewModel | 

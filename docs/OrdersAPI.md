@@ -22,7 +22,7 @@ Method | HTTP request | Description
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 |  (optional)
 let apiVersion = "apiVersion_example" // String |  (optional)
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let restaurantId = 987 // Int64 |  (optional)
 let statuses = ["inner_example"] // [String] |  (optional)
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let apiVersion = "apiVersion_example" // String |  (optional)
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let apiVersion = "apiVersion_example" // String |  (optional)
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let orderPutViewModel = OrderPutViewModel(id: 123, createdDate: Date(), totalPrice: 123, active: false, status: OrderStatus(), invoice: "invoice_example", deliveryDate: Date(), orderDate: Date(), number: "number_example") // OrderPutViewModel | 
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let status = OrderStatus() // OrderStatus | 

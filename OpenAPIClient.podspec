@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name = 'BestUnitPriceApiClient'
+  s.name = 'OpenAPIClient'
   s.ios.deployment_target = '10.0'
   s.osx.deployment_target = '10.12'
   s.tvos.deployment_target = '10.0'
@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
   s.authors = 'OpenAPI Generator'
   s.license = 'Proprietary'
   s.homepage = 'https://github.com/OpenAPITools/openapi-generator'
-  s.summary = 'BestUnitPriceApiClient Swift SDK'
-  s.source_files = 'BestUnitPriceApiClient/Classes/**/*.swift'
+  s.summary = 'OpenAPIClient Swift SDK'
+  s.source_files = 'OpenAPIClient/Classes/**/*.swift'
   s.dependency 'AnyCodable-FlightSchool', '~> 0.6'
   s.dependency 'Alamofire', '~> 5.4'
 end

@@ -28,7 +28,7 @@ Method | HTTP request | Description
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let addOrderItemViewModel = AddOrderItemViewModel(inventoryItemId: 123, quantity: 123, inventory: 123) // AddOrderItemViewModel | 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int | 
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let batchId = 987 // Int64 | 
 let id = 987 // Int64 | 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let page = 987 // Int |  (optional)
 let pageSize = 987 // Int |  (optional)
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let hydrationLevel = 987 // Int |  (optional) (default to 2)
 
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let batchViewModel = BatchViewModel(id: 123, number: "number_example", orders: [OrderViewModel(createdDate: Date(), totalPrice: 123, estimatedPrice: 123, items: [OrderItemViewModel(name: "name_example", brand: "brand_example", unitPrice: 123, quantity: 123, receivedQuantity: 123, itemPrice: 123, receivedPrice: 123, receivedUnitPrice: 123, orderCode: "orderCode_example", totalPrice: 123, receivedTotal: 123, productId: 123, product: ProductViewModel(name: "name_example", notes: "notes_example", prices: [ProductPriceViewModel(comparison: 123, vendorId: 123, vendor: VendorViewModel(name: "name_example", contactName: "contactName_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", email: "email_example", phone1: "phone1_example", phone2: "phone2_example", fax: "fax_example", cellPhone: "cellPhone_example", notes: "notes_example", minimumOrder: 123, accountNumber: "accountNumber_example", orderTotal: 123, incentivePercentage: 123, color: "color_example", sortOrder: 123, active: false, website: "website_example", contactEmail: "contactEmail_example", geoCached: false, deliveryRange: 123, locations: [VendorLocationViewModel(name: "name_example", contactName: "contactName_example", website: "website_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", latitude: 123, longitude: 123, deliveryRange: 123, active: false, isGeoCoded: false, id: 123)], id: 123), productInfoId: 123, productInfo: ProductInfoViewModel(id: 123, orderCode: "orderCode_example", brand: "brand_example", quantity: 123, description: "description_example", vendorDescription: "vendorDescription_example", count: 123, unitOfMeasureId: 123, unitOfMeasure: UnitViewModel(name: "name_example", abbreviation: "abbreviation_example", locked: false, id: 123), deselected: false, price: 123, unitPrice: 123, isPreferred: false, manufacturerCode: "manufacturerCode_example", lastModifiedOn: Date()), deleted: false, vendorDeleted: false, id: 123)], defaultUnitOfMeasureId: 123, defaultUnitOfMeasure: nil, defaultQuantity: 123, defaultCount: 123, id: 123), inventoryItemId: 123, inventoryItem: InventoryItemViewModel(name: "name_example", notes: "notes_example", prices: [nil], defaultUnitOfMeasureId: 123, defaultUnitOfMeasure: nil, defaultQuantity: 123, defaultCount: 123, baseQuantity: 123, currentQuantity: 123, orderAmount: 123, zone: ZoneViewModel(name: "name_example", sortOrder: 123, shelvingUnits: [ShelvingUnitViewModel(unitNumber: 123, shelfAmount: 123, id: 123)], id: 123), shelvingUnit: nil, shelfNumber: 123, active: false, ownerId: 123, zoneId: 123, shelvingUnitId: 123, id: 123), productPriceId: 123, currentInventory: 123, orderId: 123, createdBy: "createdBy_example", lastModifiedBy: "lastModifiedBy_example", createDate: Date(), lastModifiedOn: Date(), previousVendors: [nil], lostSavings: 123, received: false, id: 123)], itemsCount: 123, vendorId: 123, vendor: nil, active: false, statusId: 123, status: OrderStatus(), batchId: 123, invoice: "invoice_example", deliveryDate: Date(), orderDate: Date(), number: "number_example", id: 123)], owner: BatchViewModel_owner(name: "name_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", geoCached: false, id: 123), status: BatchStatus(), deactivatedVendors: [nil], costSavings: BatchViewModel_costSavings(found: 123, lost: 123, net: 123, netPercent: 123, total: 123), active: false, orderDate: Date(), createDate: Date()) // BatchViewModel | 
 
@@ -463,7 +463,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int | 
 let batchViewModel = BatchViewModel(id: 123, number: "number_example", orders: [OrderViewModel(createdDate: Date(), totalPrice: 123, estimatedPrice: 123, items: [OrderItemViewModel(name: "name_example", brand: "brand_example", unitPrice: 123, quantity: 123, receivedQuantity: 123, itemPrice: 123, receivedPrice: 123, receivedUnitPrice: 123, orderCode: "orderCode_example", totalPrice: 123, receivedTotal: 123, productId: 123, product: ProductViewModel(name: "name_example", notes: "notes_example", prices: [ProductPriceViewModel(comparison: 123, vendorId: 123, vendor: VendorViewModel(name: "name_example", contactName: "contactName_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", email: "email_example", phone1: "phone1_example", phone2: "phone2_example", fax: "fax_example", cellPhone: "cellPhone_example", notes: "notes_example", minimumOrder: 123, accountNumber: "accountNumber_example", orderTotal: 123, incentivePercentage: 123, color: "color_example", sortOrder: 123, active: false, website: "website_example", contactEmail: "contactEmail_example", geoCached: false, deliveryRange: 123, locations: [VendorLocationViewModel(name: "name_example", contactName: "contactName_example", website: "website_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", latitude: 123, longitude: 123, deliveryRange: 123, active: false, isGeoCoded: false, id: 123)], id: 123), productInfoId: 123, productInfo: ProductInfoViewModel(id: 123, orderCode: "orderCode_example", brand: "brand_example", quantity: 123, description: "description_example", vendorDescription: "vendorDescription_example", count: 123, unitOfMeasureId: 123, unitOfMeasure: UnitViewModel(name: "name_example", abbreviation: "abbreviation_example", locked: false, id: 123), deselected: false, price: 123, unitPrice: 123, isPreferred: false, manufacturerCode: "manufacturerCode_example", lastModifiedOn: Date()), deleted: false, vendorDeleted: false, id: 123)], defaultUnitOfMeasureId: 123, defaultUnitOfMeasure: nil, defaultQuantity: 123, defaultCount: 123, id: 123), inventoryItemId: 123, inventoryItem: InventoryItemViewModel(name: "name_example", notes: "notes_example", prices: [nil], defaultUnitOfMeasureId: 123, defaultUnitOfMeasure: nil, defaultQuantity: 123, defaultCount: 123, baseQuantity: 123, currentQuantity: 123, orderAmount: 123, zone: ZoneViewModel(name: "name_example", sortOrder: 123, shelvingUnits: [ShelvingUnitViewModel(unitNumber: 123, shelfAmount: 123, id: 123)], id: 123), shelvingUnit: nil, shelfNumber: 123, active: false, ownerId: 123, zoneId: 123, shelvingUnitId: 123, id: 123), productPriceId: 123, currentInventory: 123, orderId: 123, createdBy: "createdBy_example", lastModifiedBy: "lastModifiedBy_example", createDate: Date(), lastModifiedOn: Date(), previousVendors: [nil], lostSavings: 123, received: false, id: 123)], itemsCount: 123, vendorId: 123, vendor: nil, active: false, statusId: 123, status: OrderStatus(), batchId: 123, invoice: "invoice_example", deliveryDate: Date(), orderDate: Date(), number: "number_example", id: 123)], owner: BatchViewModel_owner(name: "name_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", geoCached: false, id: 123), status: BatchStatus(), deactivatedVendors: [nil], costSavings: BatchViewModel_costSavings(found: 123, lost: 123, net: 123, netPercent: 123, total: 123), active: false, orderDate: Date(), createDate: Date()) // BatchViewModel | 
@@ -512,7 +512,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let batchId = 987 // Int64 | 
 let updateOrderItemVendorItemCommand = UpdateOrderItemVendorItemCommand(batchId: 123, orderItemId: 123, vendorId: 123, productPriceId: 123) // UpdateOrderItemVendorItemCommand | 
@@ -561,7 +561,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let statusCode = "statusCode_example" // String | 

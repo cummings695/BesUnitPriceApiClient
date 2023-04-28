@@ -1,10 +1,10 @@
-name: BestUnitPriceApiClient
+name: OpenAPIClient
 targets:
-  BestUnitPriceApiClient:
+  OpenAPIClient:
     type: framework
     platform: iOS
     deploymentTarget: "9.0"
-    sources: [BestUnitPriceApiClient]
+    sources: [OpenAPIClient]
     info:
       path: ./Info.plist
       version: v1.0.0

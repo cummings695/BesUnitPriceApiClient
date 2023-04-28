@@ -79,7 +79,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
     }
 
     @discardableResult
-    override open func execute(_ apiResponseQueue: DispatchQueue = BestUnitPriceApiClientAPI.apiResponseQueue, _ completion: @escaping (_ result: Swift.Result<Response<T>, ErrorResponse>) -> Void) -> RequestTask {
+    override open func execute(_ apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, _ completion: @escaping (_ result: Swift.Result<Response<T>, ErrorResponse>) -> Void) -> RequestTask {
         let managerId = UUID().uuidString
         // Create a new manager for each request to customize its request header
         let manager = createAlamofireSession()
@@ -306,7 +306,7 @@ open class AlamofireDecodableRequestBuilder<T: Decodable>: AlamofireRequestBuild
                     if let headerFileName = self.getFileName(fromContentDisposition: dataResponse.response?.allHeaderFields["Content-Disposition"] as? String) {
                         requestPath = requestPath.appending("/\(headerFileName)")
                     } else {
-                        requestPath = requestPath.appending("/tmp.BestUnitPriceApiClient.\(UUID().uuidString)")
+                        requestPath = requestPath.appending("/tmp.OpenAPIClient.\(UUID().uuidString)")
                     }
 
                     let filePath = cachesDirectory.appendingPathComponent(requestPath)

@@ -18,7 +18,7 @@ Method | HTTP request | Description
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let apiVersion = "apiVersion_example" // String |  (optional)
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let id = 987 // Int64 | 
 let updateOrderItemCommand = UpdateOrderItemCommand(orderId: 123, orderItemId: 123, receivedQuantity: 123, orderCode: "orderCode_example", receivedPrice: 123, receivedUnitPrice: 123, received: false) // UpdateOrderItemCommand | 

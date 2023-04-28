@@ -1,4 +1,4 @@
-# Swift5 API client for BestUnitPriceApiClient
+# Swift5 API client for OpenAPIClient
 
 BESTUNITPRICE WebApi
 

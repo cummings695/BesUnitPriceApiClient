@@ -24,7 +24,7 @@ Change Password of currently logged in user.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let changePasswordRequest = ChangePasswordRequest(password: "password_example", newPassword: "newPassword_example", confirmNewPassword: "confirmNewPassword_example") // ChangePasswordRequest | 
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 
 PersonalAPI.personalGetCurrentUserIsOwner() { (response, error) in
@@ -115,7 +115,7 @@ This endpoint does not need any parameter.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 
 PersonalAPI.personalGetCurrentUserRestaurants() { (response, error) in
@@ -158,7 +158,7 @@ Get audit logs of currently logged in user.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 
 // Get audit logs of currently logged in user.
@@ -202,7 +202,7 @@ Get permissions of currently logged in user.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 
 // Get permissions of currently logged in user.
@@ -246,7 +246,7 @@ Get profile details of currently logged in user.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 
 // Get profile details of currently logged in user.
@@ -290,7 +290,7 @@ Update profile details of currently logged in user.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let updateUserRequest = UpdateUserRequest(id: "id_example", firstName: "firstName_example", lastName: "lastName_example", phoneNumber: "phoneNumber_example", email: "email_example", configuration: "configuration_example", accountNumber: "accountNumber_example", monthlyPrice: 123, roles: ["roles_example"]) // UpdateUserRequest | 
 
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import BestUnitPriceApiClient
+import OpenAPIClient
 
 let updateUserSettingsCommand = UpdateUserSettingsCommand(restaurantId: 123) // UpdateUserSettingsCommand | 
 

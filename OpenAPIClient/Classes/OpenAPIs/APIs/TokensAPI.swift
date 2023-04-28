@@ -51,7 +51,7 @@ open class TokensAPI {
      */
     open class func tokensGetTokenWithRequestBuilder(tokenRequest: TokenRequest) -> RequestBuilder<TokenResponse> {
         let localVariablePath = "/api/tokens"
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: tokenRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -62,7 +62,7 @@ open class TokensAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<TokenResponse>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<TokenResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -103,7 +103,7 @@ open class TokensAPI {
      */
     open class func tokensRefreshWithRequestBuilder(refreshTokenRequest: RefreshTokenRequest) -> RequestBuilder<TokenResponse> {
         let localVariablePath = "/api/tokens/refresh"
-        let localVariableURLString = BestUnitPriceApiClientAPI.basePath + localVariablePath
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: refreshTokenRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -114,7 +114,7 @@ open class TokensAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<TokenResponse>.Type = BestUnitPriceApiClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<TokenResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
