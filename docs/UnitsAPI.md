@@ -22,7 +22,7 @@ Create a new Unit of Measure.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let createUnitCommand = CreateUnitCommand(name: "name_example", abbreviation: "abbreviation_example") // CreateUnitCommand | 
 
@@ -70,7 +70,7 @@ Delete a Unit of Measure.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let id = 987 // Int64 | 
 
@@ -118,7 +118,7 @@ Search Units of Measure using available filters.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let name = "name_example" // String |  (optional)
 let sort = "sort_example" // String |  (optional)
@@ -190,7 +190,7 @@ Get a Unit of Measure.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let id = 987 // Int | 
 
@@ -238,7 +238,7 @@ Update a Unit of Measure.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let id = 987 // Int | 
 let updateUnitCommand = UpdateUnitCommand(id: 123, name: "name_example", abbreviation: "abbreviation_example") // UpdateUnitCommand | 
@@ -288,7 +288,7 @@ Search Units of Measure using available filters.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let getPagedUnitsQuery = GetPagedUnitsQuery(advancedSearch: BaseFilter_advancedSearch(fields: ["fields_example"], keyword: "keyword_example"), keyword: "keyword_example", advancedFilter: BaseFilter_advancedFilter(logic: "logic_example", filters: [Filter(logic: "logic_example", filters: [nil], field: "field_example", _operator: "_operator_example", value: 123)], field: "field_example", _operator: "_operator_example", value: 123), page: 123, pageSize: 123, orderBy: ["orderBy_example"], name: "name_example", sort: "sort_example") // GetPagedUnitsQuery | 
 

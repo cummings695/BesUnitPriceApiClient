@@ -19,7 +19,7 @@ Method | HTTP request | Description
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let id = "id_example" // String | 
 let acceptInvitationPostViewModel = AcceptInvitationPostViewModel(invitationId: "invitationId_example", firstName: "firstName_example", lastName: "lastName_example", phoneNumber: "phoneNumber_example", password: "password_example") // AcceptInvitationPostViewModel | 
@@ -70,7 +70,7 @@ No authorization required
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let createInvitationPostViewModel = CreateInvitationPostViewModel(restaurantId: 123, email: "email_example") // CreateInvitationPostViewModel | 
 let apiVersion = "apiVersion_example" // String |  (optional)
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let id = "id_example" // String | 
 let apiVersion = "apiVersion_example" // String |  (optional)

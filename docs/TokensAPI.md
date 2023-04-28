@@ -18,7 +18,7 @@ Request an access token using credentials.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let tokenRequest = TokenRequest(username: "username_example", password: "password_example") // TokenRequest | 
 
@@ -66,7 +66,7 @@ Request an access token using a refresh token.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let refreshTokenRequest = RefreshTokenRequest(token: "token_example", refreshToken: "refreshToken_example") // RefreshTokenRequest | 
 

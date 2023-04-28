@@ -21,7 +21,7 @@ Method | HTTP request | Description
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let vendorId = 987 // Int64 | 
 let id = 987 // Int64 | 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let vendorId = 987 // Int64 | 
 let apiVersion = "apiVersion_example" // String |  (optional)
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let vendorId = 987 // Int64 | 
 let id = 987 // Int64 | 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let vendorId = 987 // Int64 | 
 let baseVendorLocationViewModel = BaseVendorLocationViewModel(name: "name_example", contactName: "contactName_example", website: "website_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", latitude: 123, longitude: 123, deliveryRange: 123, active: false, isGeoCoded: false) // BaseVendorLocationViewModel | 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let vendorId = 987 // Int64 | 
 let id = 987 // Int64 | 

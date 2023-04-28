@@ -20,7 +20,7 @@ Method | HTTP request | Description
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let createInvitationPostViewModel = CreateInvitationPostViewModel(restaurantId: 123, email: "email_example") // CreateInvitationPostViewModel | 
 let apiVersion = "apiVersion_example" // String |  (optional)
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let id = "id_example" // String | 
 let restaurantId = 987 // Int64 |  (optional)
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let restaurantId = 987 // Int64 |  (optional)
 let apiVersion = "apiVersion_example" // String |  (optional)
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let restaurantId = 987 // Int64 |  (optional)
 let userId = "userId_example" // String |  (optional)

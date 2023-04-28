@@ -1,10 +1,10 @@
-name: OpenAPIClient
+name: BestUnitPriceApiClient
 targets:
-  OpenAPIClient:
+  BestUnitPriceApiClient:
     type: framework
     platform: iOS
     deploymentTarget: "9.0"
-    sources: [OpenAPIClient]
+    sources: [BestUnitPriceApiClient]
     info:
       path: ./Info.plist
       version: v1.0.0
@@ -13,3 +13,4 @@ targets:
     scheme: {}
     dependencies:
     - carthage: AnyCodable
+    - carthage: Alamofire

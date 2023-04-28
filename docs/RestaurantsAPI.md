@@ -24,7 +24,7 @@ Method | HTTP request | Description
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let addProductToRestaurantCommand = AddProductToRestaurantCommand(id: 123) // AddProductToRestaurantCommand | 
 
@@ -71,7 +71,7 @@ Void (empty response body)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let id = 987 // Int | 
 
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let id = 987 // Int | 
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 
 RestaurantsAPI.restaurantsGetAll() { (response, error) in
@@ -208,7 +208,7 @@ This endpoint does not need any parameter.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 
 RestaurantsAPI.restaurantsGetCurrentUserRestaurants() { (response, error) in
@@ -251,7 +251,7 @@ This endpoint does not need any parameter.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let id = 987 // Int | 
 let seedRestaurantCommand = SeedRestaurantCommand(restaurantId: 123) // SeedRestaurantCommand | 
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let createRestaurantCommand = CreateRestaurantCommand(name: "name_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", restaurantId: 123, includeInventoryItems: false, includeZones: false, includeVendorOverrides: false, includeUnitOverrides: false) // CreateRestaurantCommand | 
 
@@ -347,7 +347,7 @@ Update a restaurant
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let id = 987 // Int | 
 let updateRestaurantCommand = UpdateRestaurantCommand(id: 123, name: "name_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example") // UpdateRestaurantCommand | 

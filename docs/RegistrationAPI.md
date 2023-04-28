@@ -20,7 +20,7 @@ Method | HTTP request | Description
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let accountid = "accountid_example" // String |  (optional)
 
@@ -67,7 +67,7 @@ No authorization required
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let forgotPasswordPost = ForgotPasswordPost(passKey: "passKey_example", email: "email_example") // ForgotPasswordPost | 
 
@@ -114,7 +114,7 @@ No authorization required
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let registerViewModel = RegisterViewModel(passKey: "passKey_example", user: UserPostViewModel(firstName: "firstName_example", lastName: "lastName_example", email: "email_example", password: "password_example", roles: ["roles_example"]), restaurant: RestaurantPostViewModel(name: "name_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", geoCached: false, templateRestaurantId: 123, template: RestaurantPostViewModel_allOf_template(restaurantId: 123, includeInventoryItems: false, includeZones: false, includeVendorOverrides: false, includeUnitOverrides: false)), billing: BillingPostViewModel(nameOnCard: "nameOnCard_example", cardNumber: "cardNumber_example", expirationDate: "expirationDate_example", cCv: "cCv_example")) // RegisterViewModel | 
 
@@ -161,7 +161,7 @@ No authorization required
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
+import BestUnitPriceApiClient
 
 let resetPasswordPost = ResetPasswordPost(passKey: "passKey_example", email: "email_example", password: "password_example", token: "token_example") // ResetPasswordPost | 
 
