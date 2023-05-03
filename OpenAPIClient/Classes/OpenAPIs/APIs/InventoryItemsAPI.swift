@@ -138,7 +138,7 @@ open class InventoryItemsAPI {
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func inventoryItemsDelete(id: Int) -> AnyPublisher<URL, Error> {
+    open class func inventoryItemsDelete(id: Int64) -> AnyPublisher<URL, Error> {
         let requestBuilder = inventoryItemsDeleteWithRequestBuilder(id: id)
         let requestTask = requestBuilder.requestTask
         return Future<URL, Error> { promise in
@@ -166,7 +166,7 @@ open class InventoryItemsAPI {
      - parameter id: (path)  
      - returns: RequestBuilder<URL> 
      */
-    open class func inventoryItemsDeleteWithRequestBuilder(id: Int) -> RequestBuilder<URL> {
+    open class func inventoryItemsDeleteWithRequestBuilder(id: Int64) -> RequestBuilder<URL> {
         var localVariablePath = "/api/inventoryitems/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -731,64 +731,6 @@ open class InventoryItemsAPI {
 
     /**
 
-     - parameter id: (path)  
-     - parameter inventoryItemPutViewModel: (body)  
-     - returns: AnyPublisher<URL, Error>
-     */
-    #if canImport(Combine)
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func inventoryItemsPut(id: Int, inventoryItemPutViewModel: InventoryItemPutViewModel) -> AnyPublisher<URL, Error> {
-        let requestBuilder = inventoryItemsPutWithRequestBuilder(id: id, inventoryItemPutViewModel: inventoryItemPutViewModel)
-        let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
-            requestBuilder.execute { result in
-                switch result {
-                case let .success(response):
-                    promise(.success(response.body))
-                case let .failure(error):
-                    promise(.failure(error))
-                }
-            }
-        }
-        .handleEvents(receiveCancel: {
-            requestTask.cancel()
-        })
-        .eraseToAnyPublisher()
-    }
-    #endif
-
-    /**
-     - PUT /api/inventoryitems/{id}
-     - BASIC:
-       - type: http
-       - name: Bearer
-     - parameter id: (path)  
-     - parameter inventoryItemPutViewModel: (body)  
-     - returns: RequestBuilder<URL> 
-     */
-    open class func inventoryItemsPutWithRequestBuilder(id: Int, inventoryItemPutViewModel: InventoryItemPutViewModel) -> RequestBuilder<URL> {
-        var localVariablePath = "/api/inventoryitems/{id}"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: inventoryItemPutViewModel)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
      - parameter searchTerm: (query)  (optional)
      - parameter page: (query)  (optional)
      - parameter pageSize: (query)  (optional)
@@ -929,6 +871,64 @@ open class InventoryItemsAPI {
         let localVariableRequestBuilder: RequestBuilder<PaginatedListViewModelOfInventoryItemDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter id: (path)  
+     - parameter updateInventoryItemCommand: (body)  
+     - returns: AnyPublisher<InventoryItemDto, Error>
+     */
+    #if canImport(Combine)
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func inventoryItemsUpdate(id: Int64, updateInventoryItemCommand: UpdateInventoryItemCommand) -> AnyPublisher<InventoryItemDto, Error> {
+        let requestBuilder = inventoryItemsUpdateWithRequestBuilder(id: id, updateInventoryItemCommand: updateInventoryItemCommand)
+        let requestTask = requestBuilder.requestTask
+        return Future<InventoryItemDto, Error> { promise in
+            requestBuilder.execute { result in
+                switch result {
+                case let .success(response):
+                    promise(.success(response.body))
+                case let .failure(error):
+                    promise(.failure(error))
+                }
+            }
+        }
+        .handleEvents(receiveCancel: {
+            requestTask.cancel()
+        })
+        .eraseToAnyPublisher()
+    }
+    #endif
+
+    /**
+     - PUT /api/inventoryitems/{id}
+     - BASIC:
+       - type: http
+       - name: Bearer
+     - parameter id: (path)  
+     - parameter updateInventoryItemCommand: (body)  
+     - returns: RequestBuilder<InventoryItemDto> 
+     */
+    open class func inventoryItemsUpdateWithRequestBuilder(id: Int64, updateInventoryItemCommand: UpdateInventoryItemCommand) -> RequestBuilder<InventoryItemDto> {
+        var localVariablePath = "/api/inventoryitems/{id}"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateInventoryItemCommand)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InventoryItemDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**

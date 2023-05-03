@@ -22,20 +22,21 @@ Run `pod install`
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://bestunitprice-dev.azurewebsites.net*
+All URIs are relative to *https://zwr8hzk4-5001.use.devtunnels.ms*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BatchesAPI* | [**batchesAddOrderItem**](docs/BatchesAPI.md#batchesaddorderitem) | **POST** /api/batches/{id}/add | 
 *BatchesAPI* | [**batchesDelete**](docs/BatchesAPI.md#batchesdelete) | **DELETE** /api/batches/{id} | 
 *BatchesAPI* | [**batchesDeleteOrderItem**](docs/BatchesAPI.md#batchesdeleteorderitem) | **DELETE** /api/batches/{batchId}/items/{id} | 
-*BatchesAPI* | [**batchesGet**](docs/BatchesAPI.md#batchesget) | **GET** /api/batches | 
+*BatchesAPI* | [**batchesGet**](docs/BatchesAPI.md#batchesget) | **GET** /api/batches | Search Batches using available filters.
 *BatchesAPI* | [**batchesGet2**](docs/BatchesAPI.md#batchesget2) | **GET** /api/batches/{id} | 
 *BatchesAPI* | [**batchesGetHeader**](docs/BatchesAPI.md#batchesgetheader) | **GET** /api/batches/{id}/header | 
 *BatchesAPI* | [**batchesGetPdf**](docs/BatchesAPI.md#batchesgetpdf) | **GET** /api/batches/{id}/pdf | 
 *BatchesAPI* | [**batchesGetPending**](docs/BatchesAPI.md#batchesgetpending) | **GET** /api/batches/pending | 
 *BatchesAPI* | [**batchesPost**](docs/BatchesAPI.md#batchespost) | **POST** /api/batches | 
 *BatchesAPI* | [**batchesPut**](docs/BatchesAPI.md#batchesput) | **PUT** /api/batches/{id} | 
+*BatchesAPI* | [**batchesSearch**](docs/BatchesAPI.md#batchessearch) | **POST** /api/batches/search | Search Batches using available filters.
 *BatchesAPI* | [**batchesUpdateOrderItemVendor**](docs/BatchesAPI.md#batchesupdateorderitemvendor) | **POST** /api/batches/{batchId}/item/vendor | 
 *BatchesAPI* | [**batchesUpdateStatus**](docs/BatchesAPI.md#batchesupdatestatus) | **POST** /api/batches/{id}/status/{statusCode} | 
 *InventoryItemsAPI* | [**inventoryItemsAddMockInventoryItems**](docs/InventoryItemsAPI.md#inventoryitemsaddmockinventoryitems) | **POST** /api/inventoryitems/mock | 
@@ -50,9 +51,9 @@ Class | Method | HTTP request | Description
 *InventoryItemsAPI* | [**inventoryItemsGetProductVendorPriceHistory**](docs/InventoryItemsAPI.md#inventoryitemsgetproductvendorpricehistory) | **GET** /api/inventoryitems/{id}/vendor/{vendorId}/price/history | 
 *InventoryItemsAPI* | [**inventoryItemsPatchVendor**](docs/InventoryItemsAPI.md#inventoryitemspatchvendor) | **PATCH** /api/inventoryitems/{id}/vendor/{vendorId} | 
 *InventoryItemsAPI* | [**inventoryItemsPost**](docs/InventoryItemsAPI.md#inventoryitemspost) | **POST** /api/inventoryitems | 
-*InventoryItemsAPI* | [**inventoryItemsPut**](docs/InventoryItemsAPI.md#inventoryitemsput) | **PUT** /api/inventoryitems/{id} | 
 *InventoryItemsAPI* | [**inventoryItemsSearchGET**](docs/InventoryItemsAPI.md#inventoryitemssearchget) | **GET** /api/inventoryitems/search | 
 *InventoryItemsAPI* | [**inventoryItemsSearchPOST**](docs/InventoryItemsAPI.md#inventoryitemssearchpost) | **POST** /api/inventoryitems/search | Search Items using available filters.
+*InventoryItemsAPI* | [**inventoryItemsUpdate**](docs/InventoryItemsAPI.md#inventoryitemsupdate) | **PUT** /api/inventoryitems/{id} | 
 *InventoryItemsAPI* | [**inventoryItemsUpdateVendor**](docs/InventoryItemsAPI.md#inventoryitemsupdatevendor) | **PUT** /api/inventoryitems/{id}/vendor/{vendorId} | 
 *InvitationsAPI* | [**invitationsAcceptInvitation**](docs/InvitationsAPI.md#invitationsacceptinvitation) | **POST** /api/invitations/{id}/accept | 
 *InvitationsAPI* | [**invitationsCreateInvitation**](docs/InvitationsAPI.md#invitationscreateinvitation) | **POST** /api/invitations/invite | 
@@ -159,8 +160,9 @@ Class | Method | HTTP request | Description
  - [BaseVendorViewModel](docs/BaseVendorViewModel.md)
  - [BaseZoneViewModel](docs/BaseZoneViewModel.md)
  - [BatchDto](docs/BatchDto.md)
- - [BatchDtoCostSavings](docs/BatchDtoCostSavings.md)
- - [BatchDtoOwner](docs/BatchDtoOwner.md)
+ - [BatchListDto](docs/BatchListDto.md)
+ - [BatchListDtoCostSavings](docs/BatchListDtoCostSavings.md)
+ - [BatchListDtoOwner](docs/BatchListDtoOwner.md)
  - [BatchStatus](docs/BatchStatus.md)
  - [BatchViewModel](docs/BatchViewModel.md)
  - [BatchViewModelCostSavings](docs/BatchViewModelCostSavings.md)
@@ -181,6 +183,8 @@ Class | Method | HTTP request | Description
  - [ForgotPasswordPost](docs/ForgotPasswordPost.md)
  - [ForgotPasswordPostAllOf](docs/ForgotPasswordPostAllOf.md)
  - [ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
+ - [GetBatchListPagedQuery](docs/GetBatchListPagedQuery.md)
+ - [GetBatchListPagedQueryAllOf](docs/GetBatchListPagedQueryAllOf.md)
  - [GetInventoryItemsQuery](docs/GetInventoryItemsQuery.md)
  - [GetPagedUnitsQuery](docs/GetPagedUnitsQuery.md)
  - [GetPagedUnitsQueryAllOf](docs/GetPagedUnitsQueryAllOf.md)
@@ -189,7 +193,6 @@ Class | Method | HTTP request | Description
  - [InventoryItemDto](docs/InventoryItemDto.md)
  - [InventoryItemDtoShelvingUnit](docs/InventoryItemDtoShelvingUnit.md)
  - [InventoryItemDtoZone](docs/InventoryItemDtoZone.md)
- - [InventoryItemPutViewModel](docs/InventoryItemPutViewModel.md)
  - [InventoryItemViewModel](docs/InventoryItemViewModel.md)
  - [InvitationViewModel](docs/InvitationViewModel.md)
  - [MockInventoryItemsPostDto](docs/MockInventoryItemsPostDto.md)
@@ -198,6 +201,7 @@ Class | Method | HTTP request | Description
  - [OrderItemDto](docs/OrderItemDto.md)
  - [OrderItemDtoInventoryItem](docs/OrderItemDtoInventoryItem.md)
  - [OrderItemViewModel](docs/OrderItemViewModel.md)
+ - [OrderListDto](docs/OrderListDto.md)
  - [OrderPutViewModel](docs/OrderPutViewModel.md)
  - [OrderStatus](docs/OrderStatus.md)
  - [OrderViewModel](docs/OrderViewModel.md)
@@ -205,7 +209,7 @@ Class | Method | HTTP request | Description
  - [PaginatedListViewModelOfInventoryItemDto](docs/PaginatedListViewModelOfInventoryItemDto.md)
  - [PaginationFilter](docs/PaginationFilter.md)
  - [PaginationFilterAllOf](docs/PaginationFilterAllOf.md)
- - [PaginationResponseOfBatchDto](docs/PaginationResponseOfBatchDto.md)
+ - [PaginationResponseOfBatchListDto](docs/PaginationResponseOfBatchListDto.md)
  - [PaginationResponseOfInventoryItemDto](docs/PaginationResponseOfInventoryItemDto.md)
  - [PaginationResponseOfRestaurantDto](docs/PaginationResponseOfRestaurantDto.md)
  - [PaginationResponseOfUnitDto](docs/PaginationResponseOfUnitDto.md)
@@ -246,6 +250,7 @@ Class | Method | HTTP request | Description
  - [TokenResponse](docs/TokenResponse.md)
  - [UnitDto](docs/UnitDto.md)
  - [UnitViewModel](docs/UnitViewModel.md)
+ - [UpdateInventoryItemCommand](docs/UpdateInventoryItemCommand.md)
  - [UpdateInventoryItemVendorPriceCommand](docs/UpdateInventoryItemVendorPriceCommand.md)
  - [UpdateOrderItemCommand](docs/UpdateOrderItemCommand.md)
  - [UpdateOrderItemVendorItemCommand](docs/UpdateOrderItemVendorItemCommand.md)

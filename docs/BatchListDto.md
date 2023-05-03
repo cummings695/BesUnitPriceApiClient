@@ -1,11 +1,11 @@
-# BatchDto
+# BatchListDto
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Int64** |  | [optional] 
-**number** | **Int64** |  | [optional] 
-**orders** | [OrderDto] |  | [optional] 
+**number** | **String** |  | [optional] 
+**orders** | [OrderListDto] |  | [optional] 
 **owner** | [**BatchListDtoOwner**](BatchListDtoOwner.md) |  | [optional] 
 **status** | [**BatchStatus**](BatchStatus.md) |  | [optional] 
 **deactivatedVendors** | [VendorDto] |  | [optional] 

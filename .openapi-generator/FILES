@@ -48,8 +48,9 @@ OpenAPIClient/Classes/OpenAPIs/Models/BaseVendorLocationViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/BaseVendorViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/BaseZoneViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/BatchDto.swift
-OpenAPIClient/Classes/OpenAPIs/Models/BatchDtoCostSavings.swift
-OpenAPIClient/Classes/OpenAPIs/Models/BatchDtoOwner.swift
+OpenAPIClient/Classes/OpenAPIs/Models/BatchListDto.swift
+OpenAPIClient/Classes/OpenAPIs/Models/BatchListDtoCostSavings.swift
+OpenAPIClient/Classes/OpenAPIs/Models/BatchListDtoOwner.swift
 OpenAPIClient/Classes/OpenAPIs/Models/BatchStatus.swift
 OpenAPIClient/Classes/OpenAPIs/Models/BatchViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/BatchViewModelCostSavings.swift
@@ -70,6 +71,8 @@ OpenAPIClient/Classes/OpenAPIs/Models/Filter.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ForgotPasswordPost.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ForgotPasswordPostAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ForgotPasswordRequest.swift
+OpenAPIClient/Classes/OpenAPIs/Models/GetBatchListPagedQuery.swift
+OpenAPIClient/Classes/OpenAPIs/Models/GetBatchListPagedQueryAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/GetInventoryItemsQuery.swift
 OpenAPIClient/Classes/OpenAPIs/Models/GetPagedUnitsQuery.swift
 OpenAPIClient/Classes/OpenAPIs/Models/GetPagedUnitsQueryAllOf.swift
@@ -78,7 +81,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/HttpValidationProblemDetailsAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/InventoryItemDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/InventoryItemDtoShelvingUnit.swift
 OpenAPIClient/Classes/OpenAPIs/Models/InventoryItemDtoZone.swift
-OpenAPIClient/Classes/OpenAPIs/Models/InventoryItemPutViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/InventoryItemViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/InvitationViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/MockInventoryItemsPostDto.swift
@@ -87,6 +89,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/OrderDtoVendor.swift
 OpenAPIClient/Classes/OpenAPIs/Models/OrderItemDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/OrderItemDtoInventoryItem.swift
 OpenAPIClient/Classes/OpenAPIs/Models/OrderItemViewModel.swift
+OpenAPIClient/Classes/OpenAPIs/Models/OrderListDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/OrderPutViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/OrderStatus.swift
 OpenAPIClient/Classes/OpenAPIs/Models/OrderViewModel.swift
@@ -94,7 +97,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/OrderViewModelAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaginatedListViewModelOfInventoryItemDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaginationFilter.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaginationFilterAllOf.swift
-OpenAPIClient/Classes/OpenAPIs/Models/PaginationResponseOfBatchDto.swift
+OpenAPIClient/Classes/OpenAPIs/Models/PaginationResponseOfBatchListDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaginationResponseOfInventoryItemDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaginationResponseOfRestaurantDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaginationResponseOfUnitDto.swift
@@ -135,6 +138,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/TokenRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/TokenResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UnitDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UnitViewModel.swift
+OpenAPIClient/Classes/OpenAPIs/Models/UpdateInventoryItemCommand.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UpdateInventoryItemVendorPriceCommand.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UpdateOrderItemCommand.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UpdateOrderItemVendorItemCommand.swift
@@ -183,8 +187,9 @@ docs/BaseVendorLocationViewModel.md
 docs/BaseVendorViewModel.md
 docs/BaseZoneViewModel.md
 docs/BatchDto.md
-docs/BatchDtoCostSavings.md
-docs/BatchDtoOwner.md
+docs/BatchListDto.md
+docs/BatchListDtoCostSavings.md
+docs/BatchListDtoOwner.md
 docs/BatchStatus.md
 docs/BatchViewModel.md
 docs/BatchViewModelCostSavings.md
@@ -206,6 +211,8 @@ docs/Filter.md
 docs/ForgotPasswordPost.md
 docs/ForgotPasswordPostAllOf.md
 docs/ForgotPasswordRequest.md
+docs/GetBatchListPagedQuery.md
+docs/GetBatchListPagedQueryAllOf.md
 docs/GetInventoryItemsQuery.md
 docs/GetPagedUnitsQuery.md
 docs/GetPagedUnitsQueryAllOf.md
@@ -214,7 +221,6 @@ docs/HttpValidationProblemDetailsAllOf.md
 docs/InventoryItemDto.md
 docs/InventoryItemDtoShelvingUnit.md
 docs/InventoryItemDtoZone.md
-docs/InventoryItemPutViewModel.md
 docs/InventoryItemViewModel.md
 docs/InventoryItemsAPI.md
 docs/InvitationViewModel.md
@@ -226,6 +232,7 @@ docs/OrderItemDto.md
 docs/OrderItemDtoInventoryItem.md
 docs/OrderItemViewModel.md
 docs/OrderItemsAPI.md
+docs/OrderListDto.md
 docs/OrderPutViewModel.md
 docs/OrderStatus.md
 docs/OrderViewModel.md
@@ -234,7 +241,7 @@ docs/OrdersAPI.md
 docs/PaginatedListViewModelOfInventoryItemDto.md
 docs/PaginationFilter.md
 docs/PaginationFilterAllOf.md
-docs/PaginationResponseOfBatchDto.md
+docs/PaginationResponseOfBatchListDto.md
 docs/PaginationResponseOfInventoryItemDto.md
 docs/PaginationResponseOfRestaurantDto.md
 docs/PaginationResponseOfUnitDto.md
@@ -283,6 +290,7 @@ docs/TokensAPI.md
 docs/UnitDto.md
 docs/UnitViewModel.md
 docs/UnitsAPI.md
+docs/UpdateInventoryItemCommand.md
 docs/UpdateInventoryItemVendorPriceCommand.md
 docs/UpdateOrderItemCommand.md
 docs/UpdateOrderItemVendorItemCommand.md

@@ -1,6 +1,6 @@
 # InventoryItemsAPI
 
-All URIs are relative to *https://bestunitprice-dev.azurewebsites.net*
+All URIs are relative to *https://zwr8hzk4-5001.use.devtunnels.ms*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,9 +16,9 @@ Method | HTTP request | Description
 [**inventoryItemsGetProductVendorPriceHistory**](InventoryItemsAPI.md#inventoryitemsgetproductvendorpricehistory) | **GET** /api/inventoryitems/{id}/vendor/{vendorId}/price/history | 
 [**inventoryItemsPatchVendor**](InventoryItemsAPI.md#inventoryitemspatchvendor) | **PATCH** /api/inventoryitems/{id}/vendor/{vendorId} | 
 [**inventoryItemsPost**](InventoryItemsAPI.md#inventoryitemspost) | **POST** /api/inventoryitems | 
-[**inventoryItemsPut**](InventoryItemsAPI.md#inventoryitemsput) | **PUT** /api/inventoryitems/{id} | 
 [**inventoryItemsSearchGET**](InventoryItemsAPI.md#inventoryitemssearchget) | **GET** /api/inventoryitems/search | 
 [**inventoryItemsSearchPOST**](InventoryItemsAPI.md#inventoryitemssearchpost) | **POST** /api/inventoryitems/search | Search Items using available filters.
+[**inventoryItemsUpdate**](InventoryItemsAPI.md#inventoryitemsupdate) | **PUT** /api/inventoryitems/{id} | 
 [**inventoryItemsUpdateVendor**](InventoryItemsAPI.md#inventoryitemsupdatevendor) | **PUT** /api/inventoryitems/{id}/vendor/{vendorId} | 
 
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 # **inventoryItemsDelete**
 ```swift
-    open class func inventoryItemsDelete(id: Int, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func inventoryItemsDelete(id: Int64, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
 ```
 
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let id = 987 // Int | 
+let id = 987 // Int64 | 
 
 InventoryItemsAPI.inventoryItemsDelete(id: id) { (response, error) in
     guard error == nil else {
@@ -150,7 +150,7 @@ InventoryItemsAPI.inventoryItemsDelete(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** |  | 
+ **id** | **Int64** |  | 
 
 ### Return type
 
@@ -612,55 +612,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inventoryItemsPut**
-```swift
-    open class func inventoryItemsPut(id: Int, inventoryItemPutViewModel: InventoryItemPutViewModel, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
-```
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let id = 987 // Int | 
-let inventoryItemPutViewModel = InventoryItemPutViewModel(id: 123, name: "name_example", notes: "notes_example", defaultUnitOfMeasureId: 123, defaultQuantity: 123, defaultCount: 123, baseQuantity: 123, currentQuantity: 123, orderAmount: 123, ownerId: 123, zoneId: 123, shelvingUnitId: 123, shelfNumber: 123, active: false) // InventoryItemPutViewModel | 
-
-InventoryItemsAPI.inventoryItemsPut(id: id, inventoryItemPutViewModel: inventoryItemPutViewModel) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** |  | 
- **inventoryItemPutViewModel** | [**InventoryItemPutViewModel**](InventoryItemPutViewModel.md) |  | 
-
-### Return type
-
-**URL**
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/octet-stream
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **inventoryItemsSearchGET**
 ```swift
     open class func inventoryItemsSearchGET(searchTerm: String? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil, completion: @escaping (_ data: PaginationResponseOfInventoryItemDto?, _ error: Error?) -> Void)
@@ -766,6 +717,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PaginatedListViewModelOfInventoryItemDto**](PaginatedListViewModelOfInventoryItemDto.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **inventoryItemsUpdate**
+```swift
+    open class func inventoryItemsUpdate(id: Int64, updateInventoryItemCommand: UpdateInventoryItemCommand, completion: @escaping (_ data: InventoryItemDto?, _ error: Error?) -> Void)
+```
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let id = 987 // Int64 | 
+let updateInventoryItemCommand = UpdateInventoryItemCommand(id: 123, name: "name_example", notes: "notes_example", defaultUnitOfMeasureId: 123, defaultQuantity: 123, defaultCount: 123, baseQuantity: 123, currentQuantity: 123, orderAmount: 123, ownerId: 123, zoneId: 123, shelvingUnitId: 123, shelfNumber: 123, active: false) // UpdateInventoryItemCommand | 
+
+InventoryItemsAPI.inventoryItemsUpdate(id: id, updateInventoryItemCommand: updateInventoryItemCommand) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int64** |  | 
+ **updateInventoryItemCommand** | [**UpdateInventoryItemCommand**](UpdateInventoryItemCommand.md) |  | 
+
+### Return type
+
+[**InventoryItemDto**](InventoryItemDto.md)
 
 ### Authorization
 

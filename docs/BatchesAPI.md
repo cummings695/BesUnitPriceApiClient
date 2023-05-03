@@ -1,19 +1,20 @@
 # BatchesAPI
 
-All URIs are relative to *https://bestunitprice-dev.azurewebsites.net*
+All URIs are relative to *https://zwr8hzk4-5001.use.devtunnels.ms*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**batchesAddOrderItem**](BatchesAPI.md#batchesaddorderitem) | **POST** /api/batches/{id}/add | 
 [**batchesDelete**](BatchesAPI.md#batchesdelete) | **DELETE** /api/batches/{id} | 
 [**batchesDeleteOrderItem**](BatchesAPI.md#batchesdeleteorderitem) | **DELETE** /api/batches/{batchId}/items/{id} | 
-[**batchesGet**](BatchesAPI.md#batchesget) | **GET** /api/batches | 
+[**batchesGet**](BatchesAPI.md#batchesget) | **GET** /api/batches | Search Batches using available filters.
 [**batchesGet2**](BatchesAPI.md#batchesget2) | **GET** /api/batches/{id} | 
 [**batchesGetHeader**](BatchesAPI.md#batchesgetheader) | **GET** /api/batches/{id}/header | 
 [**batchesGetPdf**](BatchesAPI.md#batchesgetpdf) | **GET** /api/batches/{id}/pdf | 
 [**batchesGetPending**](BatchesAPI.md#batchesgetpending) | **GET** /api/batches/pending | 
 [**batchesPost**](BatchesAPI.md#batchespost) | **POST** /api/batches | 
 [**batchesPut**](BatchesAPI.md#batchesput) | **PUT** /api/batches/{id} | 
+[**batchesSearch**](BatchesAPI.md#batchessearch) | **POST** /api/batches/search | Search Batches using available filters.
 [**batchesUpdateOrderItemVendor**](BatchesAPI.md#batchesupdateorderitemvendor) | **POST** /api/batches/{batchId}/item/vendor | 
 [**batchesUpdateStatus**](BatchesAPI.md#batchesupdatestatus) | **POST** /api/batches/{id}/status/{statusCode} | 
 
@@ -165,23 +166,31 @@ Name | Type | Description  | Notes
 
 # **batchesGet**
 ```swift
-    open class func batchesGet(page: Int? = nil, pageSize: Int? = nil, statusCode: Int? = nil, sort: String? = nil, hydrationLevel: Int? = nil, completion: @escaping (_ data: PaginationResponseOfBatchDto?, _ error: Error?) -> Void)
+    open class func batchesGet(status: Int64? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil, completion: @escaping (_ data: PaginationResponseOfBatchListDto?, _ error: Error?) -> Void)
 ```
 
-
+Search Batches using available filters.
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
+let status = 987 // Int64 |  (optional)
 let page = 987 // Int |  (optional)
 let pageSize = 987 // Int |  (optional)
-let statusCode = 987 // Int |  (optional)
-let sort = "sort_example" // String |  (optional)
-let hydrationLevel = 987 // Int |  (optional) (default to 2)
+let orderBy = ["inner_example"] // [String] |  (optional)
+let advancedSearchFields = ["inner_example"] // [String] |  (optional)
+let advancedSearchKeyword = "advancedSearchKeyword_example" // String |  (optional)
+let keyword = "keyword_example" // String |  (optional)
+let advancedFilterLogic = "advancedFilterLogic_example" // String |  (optional)
+let advancedFilterFilters = [Filter(logic: "logic_example", filters: [nil], field: "field_example", _operator: "_operator_example", value: 123)] // [Filter] |  (optional)
+let advancedFilterField = "advancedFilterField_example" // String |  (optional)
+let advancedFilterOperator = "advancedFilterOperator_example" // String |  (optional)
+let advancedFilterValue =  // AnyCodable |  (optional)
 
-BatchesAPI.batchesGet(page: page, pageSize: pageSize, statusCode: statusCode, sort: sort, hydrationLevel: hydrationLevel) { (response, error) in
+// Search Batches using available filters.
+BatchesAPI.batchesGet(status: status, page: page, pageSize: pageSize, orderBy: orderBy, advancedSearchFields: advancedSearchFields, advancedSearchKeyword: advancedSearchKeyword, keyword: keyword, advancedFilterLogic: advancedFilterLogic, advancedFilterFilters: advancedFilterFilters, advancedFilterField: advancedFilterField, advancedFilterOperator: advancedFilterOperator, advancedFilterValue: advancedFilterValue) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -197,15 +206,22 @@ BatchesAPI.batchesGet(page: page, pageSize: pageSize, statusCode: statusCode, so
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **status** | **Int64** |  | [optional] 
  **page** | **Int** |  | [optional] 
  **pageSize** | **Int** |  | [optional] 
- **statusCode** | **Int** |  | [optional] 
- **sort** | **String** |  | [optional] 
- **hydrationLevel** | **Int** |  | [optional] [default to 2]
+ **orderBy** | [**[String]**](String.md) |  | [optional] 
+ **advancedSearchFields** | [**[String]**](String.md) |  | [optional] 
+ **advancedSearchKeyword** | **String** |  | [optional] 
+ **keyword** | **String** |  | [optional] 
+ **advancedFilterLogic** | **String** |  | [optional] 
+ **advancedFilterFilters** | [**[Filter]**](Filter.md) |  | [optional] 
+ **advancedFilterField** | **String** |  | [optional] 
+ **advancedFilterOperator** | **String** |  | [optional] 
+ **advancedFilterValue** | [**AnyCodable**](.md) |  | [optional] 
 
 ### Return type
 
-[**PaginationResponseOfBatchDto**](PaginationResponseOfBatchDto.md)
+[**PaginationResponseOfBatchListDto**](PaginationResponseOfBatchListDto.md)
 
 ### Authorization
 
@@ -499,6 +515,54 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **batchesSearch**
+```swift
+    open class func batchesSearch(getBatchListPagedQuery: GetBatchListPagedQuery, completion: @escaping (_ data: PaginationResponseOfBatchListDto?, _ error: Error?) -> Void)
+```
+
+Search Batches using available filters.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let getBatchListPagedQuery = GetBatchListPagedQuery(advancedSearch: BaseFilter_advancedSearch(fields: ["fields_example"], keyword: "keyword_example"), keyword: "keyword_example", advancedFilter: BaseFilter_advancedFilter(logic: "logic_example", filters: [Filter(logic: "logic_example", filters: [nil], field: "field_example", _operator: "_operator_example", value: 123)], field: "field_example", _operator: "_operator_example", value: 123), page: 123, pageSize: 123, orderBy: ["orderBy_example"], status: 123) // GetBatchListPagedQuery | 
+
+// Search Batches using available filters.
+BatchesAPI.batchesSearch(getBatchListPagedQuery: getBatchListPagedQuery) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **getBatchListPagedQuery** | [**GetBatchListPagedQuery**](GetBatchListPagedQuery.md) |  | 
+
+### Return type
+
+[**PaginationResponseOfBatchListDto**](PaginationResponseOfBatchListDto.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

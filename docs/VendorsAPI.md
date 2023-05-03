@@ -1,6 +1,6 @@
 # VendorsAPI
 
-All URIs are relative to *https://bestunitprice-dev.azurewebsites.net*
+All URIs are relative to *https://zwr8hzk4-5001.use.devtunnels.ms*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

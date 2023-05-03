@@ -191,20 +191,28 @@ open class BatchesAPI {
     }
 
     /**
-
+     Search Batches using available filters.
+     
+     - parameter status: (query)  (optional)
      - parameter page: (query)  (optional)
      - parameter pageSize: (query)  (optional)
-     - parameter statusCode: (query)  (optional)
-     - parameter sort: (query)  (optional)
-     - parameter hydrationLevel: (query)  (optional, default to 2)
-     - returns: AnyPublisher<PaginationResponseOfBatchDto, Error>
+     - parameter orderBy: (query)  (optional)
+     - parameter advancedSearchFields: (query)  (optional)
+     - parameter advancedSearchKeyword: (query)  (optional)
+     - parameter keyword: (query)  (optional)
+     - parameter advancedFilterLogic: (query)  (optional)
+     - parameter advancedFilterFilters: (query)  (optional)
+     - parameter advancedFilterField: (query)  (optional)
+     - parameter advancedFilterOperator: (query)  (optional)
+     - parameter advancedFilterValue: (query)  (optional)
+     - returns: AnyPublisher<PaginationResponseOfBatchListDto, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func batchesGet(page: Int? = nil, pageSize: Int? = nil, statusCode: Int? = nil, sort: String? = nil, hydrationLevel: Int? = nil) -> AnyPublisher<PaginationResponseOfBatchDto, Error> {
-        let requestBuilder = batchesGetWithRequestBuilder(page: page, pageSize: pageSize, statusCode: statusCode, sort: sort, hydrationLevel: hydrationLevel)
+    open class func batchesGet(status: Int64? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> AnyPublisher<PaginationResponseOfBatchListDto, Error> {
+        let requestBuilder = batchesGetWithRequestBuilder(status: status, page: page, pageSize: pageSize, orderBy: orderBy, advancedSearchFields: advancedSearchFields, advancedSearchKeyword: advancedSearchKeyword, keyword: keyword, advancedFilterLogic: advancedFilterLogic, advancedFilterFilters: advancedFilterFilters, advancedFilterField: advancedFilterField, advancedFilterOperator: advancedFilterOperator, advancedFilterValue: advancedFilterValue)
         let requestTask = requestBuilder.requestTask
-        return Future<PaginationResponseOfBatchDto, Error> { promise in
+        return Future<PaginationResponseOfBatchListDto, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -222,29 +230,44 @@ open class BatchesAPI {
     #endif
 
     /**
+     Search Batches using available filters.
      - GET /api/batches
      - BASIC:
        - type: http
        - name: Bearer
+     - parameter status: (query)  (optional)
      - parameter page: (query)  (optional)
      - parameter pageSize: (query)  (optional)
-     - parameter statusCode: (query)  (optional)
-     - parameter sort: (query)  (optional)
-     - parameter hydrationLevel: (query)  (optional, default to 2)
-     - returns: RequestBuilder<PaginationResponseOfBatchDto> 
+     - parameter orderBy: (query)  (optional)
+     - parameter advancedSearchFields: (query)  (optional)
+     - parameter advancedSearchKeyword: (query)  (optional)
+     - parameter keyword: (query)  (optional)
+     - parameter advancedFilterLogic: (query)  (optional)
+     - parameter advancedFilterFilters: (query)  (optional)
+     - parameter advancedFilterField: (query)  (optional)
+     - parameter advancedFilterOperator: (query)  (optional)
+     - parameter advancedFilterValue: (query)  (optional)
+     - returns: RequestBuilder<PaginationResponseOfBatchListDto> 
      */
-    open class func batchesGetWithRequestBuilder(page: Int? = nil, pageSize: Int? = nil, statusCode: Int? = nil, sort: String? = nil, hydrationLevel: Int? = nil) -> RequestBuilder<PaginationResponseOfBatchDto> {
+    open class func batchesGetWithRequestBuilder(status: Int64? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> RequestBuilder<PaginationResponseOfBatchListDto> {
         let localVariablePath = "/api/batches"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "page": (wrappedValue: page?.encodeToJSON(), isExplode: true),
-            "pageSize": (wrappedValue: pageSize?.encodeToJSON(), isExplode: true),
-            "statusCode": (wrappedValue: statusCode?.encodeToJSON(), isExplode: true),
-            "sort": (wrappedValue: sort?.encodeToJSON(), isExplode: true),
-            "hydrationLevel": (wrappedValue: hydrationLevel?.encodeToJSON(), isExplode: true),
+            "Status": (wrappedValue: status?.encodeToJSON(), isExplode: true),
+            "Page": (wrappedValue: page?.encodeToJSON(), isExplode: true),
+            "PageSize": (wrappedValue: pageSize?.encodeToJSON(), isExplode: true),
+            "OrderBy": (wrappedValue: orderBy?.encodeToJSON(), isExplode: true),
+//            "AdvancedSearch.Fields": (wrappedValue: advancedSearchFields?.encodeToJSON(), isExplode: true),
+//            "AdvancedSearch.Keyword": (wrappedValue: advancedSearchKeyword?.encodeToJSON(), isExplode: true),
+//            "Keyword": (wrappedValue: keyword?.encodeToJSON(), isExplode: true),
+//            "AdvancedFilter.Logic": (wrappedValue: advancedFilterLogic?.encodeToJSON(), isExplode: true),
+//            "AdvancedFilter.Filters": (wrappedValue: advancedFilterFilters?.encodeToJSON(), isExplode: true),
+//            "AdvancedFilter.Field": (wrappedValue: advancedFilterField?.encodeToJSON(), isExplode: true),
+//            "AdvancedFilter.Operator": (wrappedValue: advancedFilterOperator?.encodeToJSON(), isExplode: true),
+//            "AdvancedFilter.Value": (wrappedValue: advancedFilterValue?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -253,7 +276,7 @@ open class BatchesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginationResponseOfBatchDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginationResponseOfBatchListDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -591,6 +614,61 @@ open class BatchesAPI {
         let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Search Batches using available filters.
+     
+     - parameter getBatchListPagedQuery: (body)  
+     - returns: AnyPublisher<PaginationResponseOfBatchListDto, Error>
+     */
+    #if canImport(Combine)
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func batchesSearch(getBatchListPagedQuery: GetBatchListPagedQuery) -> AnyPublisher<PaginationResponseOfBatchListDto, Error> {
+        let requestBuilder = batchesSearchWithRequestBuilder(getBatchListPagedQuery: getBatchListPagedQuery)
+        let requestTask = requestBuilder.requestTask
+        return Future<PaginationResponseOfBatchListDto, Error> { promise in
+            requestBuilder.execute { result in
+                switch result {
+                case let .success(response):
+                    promise(.success(response.body))
+                case let .failure(error):
+                    promise(.failure(error))
+                }
+            }
+        }
+        .handleEvents(receiveCancel: {
+            requestTask.cancel()
+        })
+        .eraseToAnyPublisher()
+    }
+    #endif
+
+    /**
+     Search Batches using available filters.
+     - POST /api/batches/search
+     - BASIC:
+       - type: http
+       - name: Bearer
+     - parameter getBatchListPagedQuery: (body)  
+     - returns: RequestBuilder<PaginationResponseOfBatchListDto> 
+     */
+    open class func batchesSearchWithRequestBuilder(getBatchListPagedQuery: GetBatchListPagedQuery) -> RequestBuilder<PaginationResponseOfBatchListDto> {
+        let localVariablePath = "/api/batches/search"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: getBatchListPagedQuery)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginationResponseOfBatchListDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
