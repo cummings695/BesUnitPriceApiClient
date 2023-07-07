@@ -1,6 +1,6 @@
 # RegistrationAPI
 
-All URIs are relative to *https://zwr8hzk4-5001.use.devtunnels.ms*
+All URIs are relative to *https://db27h38l-5001.use.devtunnels.ms*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 # **registrationConfirmRegistration**
 ```swift
-    open class func registrationConfirmRegistration(accountid: String? = nil, completion: @escaping (_ data: UserViewModel?, _ error: Error?) -> Void)
+    open class func registrationConfirmRegistration(accountid: String? = nil, completion: @escaping (_ data: UserViewModel2?, _ error: Error?) -> Void)
 ```
 
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserViewModel**](UserViewModel.md)
+[**UserViewModel2**](UserViewModel2.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ No authorization required
 
 # **registrationForgotPassword**
 ```swift
-    open class func registrationForgotPassword(forgotPasswordPost: ForgotPasswordPost, completion: @escaping (_ data: UserViewModel?, _ error: Error?) -> Void)
+    open class func registrationForgotPassword(forgotPasswordPost: ForgotPasswordPost, completion: @escaping (_ data: UserViewModel2?, _ error: Error?) -> Void)
 ```
 
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserViewModel**](UserViewModel.md)
+[**UserViewModel2**](UserViewModel2.md)
 
 ### Authorization
 
@@ -106,7 +106,7 @@ No authorization required
 
 # **registrationRegister**
 ```swift
-    open class func registrationRegister(registerViewModel: RegisterViewModel, completion: @escaping (_ data: UserViewModel?, _ error: Error?) -> Void)
+    open class func registrationRegister(registerViewModel: RegisterViewModel, completion: @escaping (_ data: UserViewModel2?, _ error: Error?) -> Void)
 ```
 
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserViewModel**](UserViewModel.md)
+[**UserViewModel2**](UserViewModel2.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ No authorization required
 
 # **registrationResetPassword**
 ```swift
-    open class func registrationResetPassword(resetPasswordPost: ResetPasswordPost, completion: @escaping (_ data: UserViewModel?, _ error: Error?) -> Void)
+    open class func registrationResetPassword(resetPasswordPost: ResetPasswordPost, completion: @escaping (_ data: UserViewModel2?, _ error: Error?) -> Void)
 ```
 
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserViewModel**](UserViewModel.md)
+[**UserViewModel2**](UserViewModel2.md)
 
 ### Authorization
 

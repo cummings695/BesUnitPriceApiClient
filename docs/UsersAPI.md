@@ -1,6 +1,6 @@
 # UsersAPI
 
-All URIs are relative to *https://zwr8hzk4-5001.use.devtunnels.ms*
+All URIs are relative to *https://db27h38l-5001.use.devtunnels.ms*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -180,7 +180,7 @@ Creates a new user.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let createUserRequest = CreateUserRequest(firstName: "firstName_example", lastName: "lastName_example", email: "email_example", userName: "userName_example", password: "password_example", confirmPassword: "confirmPassword_example", phoneNumber: "phoneNumber_example", merchantGatewayId: "merchantGatewayId_example", emailConfirmed: false, isActive: false, selectedRestaurantId: 123) // CreateUserRequest | 
+let createUserRequest = CreateUserRequest(firstName: "firstName_example", lastName: "lastName_example", email: "email_example", userName: "userName_example", password: "password_example", confirmPassword: "confirmPassword_example", phoneNumber: "phoneNumber_example", merchantGatewayId: "merchantGatewayId_example", emailConfirmed: false, isActive: false, selectedRestaurantId: 123, roles: ["roles_example"]) // CreateUserRequest | 
 
 // Creates a new user.
 UsersAPI.usersCreate(createUserRequest: createUserRequest) { (response, error) in
@@ -464,7 +464,7 @@ Anonymous user creates a user.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let createUserRequest = CreateUserRequest(firstName: "firstName_example", lastName: "lastName_example", email: "email_example", userName: "userName_example", password: "password_example", confirmPassword: "confirmPassword_example", phoneNumber: "phoneNumber_example", merchantGatewayId: "merchantGatewayId_example", emailConfirmed: false, isActive: false, selectedRestaurantId: 123) // CreateUserRequest | 
+let createUserRequest = CreateUserRequest(firstName: "firstName_example", lastName: "lastName_example", email: "email_example", userName: "userName_example", password: "password_example", confirmPassword: "confirmPassword_example", phoneNumber: "phoneNumber_example", merchantGatewayId: "merchantGatewayId_example", emailConfirmed: false, isActive: false, selectedRestaurantId: 123, roles: ["roles_example"]) // CreateUserRequest | 
 
 // Anonymous user creates a user.
 UsersAPI.usersSelfRegister(createUserRequest: createUserRequest) { (response, error) in

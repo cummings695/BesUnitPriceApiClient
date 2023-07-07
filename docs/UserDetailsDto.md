@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **phoneNumber** | **String** |  | [optional] 
 **createdDate** | **Date** |  | [optional] 
 **merchantGatewayId** | **String** |  | [optional] 
-**pricingOverride** | **Double** |  | [optional] 
+**monthlyPrice** | **Double** |  | [optional] 
 **normalizedUserName** | **String** |  | [optional] 
 **normalizedEmail** | **String** |  | [optional] 
 **configuration** | **String** |  | [optional] 

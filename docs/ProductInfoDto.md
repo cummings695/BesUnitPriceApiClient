@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **deselected** | **Bool** |  | [optional] 
 **price** | **Double** |  | [optional] 
 **unitPrice** | **Double** |  | [optional] 
+**priceType** | **Int** |  | [optional] 
 **isPreferred** | **Bool** |  | [optional] 
 **manufacturerCode** | **String** |  | [optional] 
 **lastModifiedOn** | **Date** |  | [optional] 

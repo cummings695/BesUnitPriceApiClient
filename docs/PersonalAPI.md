@@ -1,12 +1,13 @@
 # PersonalAPI
 
-All URIs are relative to *https://zwr8hzk4-5001.use.devtunnels.ms*
+All URIs are relative to *https://db27h38l-5001.use.devtunnels.ms*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**personalChangePassword**](PersonalAPI.md#personalchangepassword) | **PUT** /api/personal/password | Change Password of currently logged in user.
 [**personalGetCurrentUserIsOwner**](PersonalAPI.md#personalgetcurrentuserisowner) | **GET** /api/personal/owner | 
 [**personalGetCurrentUserRestaurants**](PersonalAPI.md#personalgetcurrentuserrestaurants) | **GET** /api/personal/restuarants | 
+[**personalGetCurrentUserVendors**](PersonalAPI.md#personalgetcurrentuservendors) | **GET** /api/personal/vendors | 
 [**personalGetLogs**](PersonalAPI.md#personalgetlogs) | **GET** /api/personal/logs | Get audit logs of currently logged in user.
 [**personalGetPermissions**](PersonalAPI.md#personalgetpermissions) | **GET** /api/personal/permissions | Get permissions of currently logged in user.
 [**personalGetProfile**](PersonalAPI.md#personalgetprofile) | **GET** /api/personal | Get profile details of currently logged in user.
@@ -136,6 +137,49 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**PaginationResponseOfRestaurantDto**](PaginationResponseOfRestaurantDto.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **personalGetCurrentUserVendors**
+```swift
+    open class func personalGetCurrentUserVendors(completion: @escaping (_ data: [VendorDto]?, _ error: Error?) -> Void)
+```
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+
+PersonalAPI.personalGetCurrentUserVendors() { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**[VendorDto]**](VendorDto.md)
 
 ### Authorization
 
@@ -330,7 +374,7 @@ Name | Type | Description  | Notes
 
 # **personalUpdateUserSettings**
 ```swift
-    open class func personalUpdateUserSettings(updateUserSettingsCommand: UpdateUserSettingsCommand, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func personalUpdateUserSettings(updateUserSettingsCommand: UpdateUserSettingsCommand, completion: @escaping (_ data: UserViewModel?, _ error: Error?) -> Void)
 ```
 
 
@@ -362,7 +406,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**URL**
+[**UserViewModel**](UserViewModel.md)
 
 ### Authorization
 
@@ -371,7 +415,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/octet-stream
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

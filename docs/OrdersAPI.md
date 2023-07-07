@@ -1,6 +1,6 @@
 # OrdersAPI
 
-All URIs are relative to *https://zwr8hzk4-5001.use.devtunnels.ms*
+All URIs are relative to *https://db27h38l-5001.use.devtunnels.ms*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 # **ordersUpdateStatus**
 ```swift
-    open class func ordersUpdateStatus(id: Int64, status: OrderStatus, apiVersion: String? = nil, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func ordersUpdateStatus(id: Int64, status: OrderStatus, apiVersion: String? = nil, completion: @escaping (_ data: OrderDto?, _ error: Error?) -> Void)
 ```
 
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**URL**
+[**OrderDto**](OrderDto.md)
 
 ### Authorization
 
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

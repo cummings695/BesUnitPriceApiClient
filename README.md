@@ -22,7 +22,7 @@ Run `pod install`
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://zwr8hzk4-5001.use.devtunnels.ms*
+All URIs are relative to *https://db27h38l-5001.use.devtunnels.ms*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -40,21 +40,21 @@ Class | Method | HTTP request | Description
 *BatchesAPI* | [**batchesUpdateOrderItemVendor**](docs/BatchesAPI.md#batchesupdateorderitemvendor) | **POST** /api/batches/{batchId}/item/vendor | 
 *BatchesAPI* | [**batchesUpdateStatus**](docs/BatchesAPI.md#batchesupdatestatus) | **POST** /api/batches/{id}/status/{statusCode} | 
 *InventoryItemsAPI* | [**inventoryItemsAddMockInventoryItems**](docs/InventoryItemsAPI.md#inventoryitemsaddmockinventoryitems) | **POST** /api/inventoryitems/mock | 
-*InventoryItemsAPI* | [**inventoryItemsAddVendor**](docs/InventoryItemsAPI.md#inventoryitemsaddvendor) | **POST** /api/inventoryitems/{id}/vendor/{vendorId} | 
+*InventoryItemsAPI* | [**inventoryItemsAddVendor**](docs/InventoryItemsAPI.md#inventoryitemsaddvendor) | **POST** /api/inventoryitems/{inventoryItemId}/vendor/{vendorId} | 
+*InventoryItemsAPI* | [**inventoryItemsCreate**](docs/InventoryItemsAPI.md#inventoryitemscreate) | **POST** /api/inventoryitems | Create a new Inventory Item.
 *InventoryItemsAPI* | [**inventoryItemsDelete**](docs/InventoryItemsAPI.md#inventoryitemsdelete) | **DELETE** /api/inventoryitems/{id} | 
 *InventoryItemsAPI* | [**inventoryItemsDeleteVendor**](docs/InventoryItemsAPI.md#inventoryitemsdeletevendor) | **DELETE** /api/inventoryitems/{id}/vendor/{productPriceId} | 
 *InventoryItemsAPI* | [**inventoryItemsFind**](docs/InventoryItemsAPI.md#inventoryitemsfind) | **GET** /api/inventoryitems | 
 *InventoryItemsAPI* | [**inventoryItemsGet**](docs/InventoryItemsAPI.md#inventoryitemsget) | **GET** /api/inventoryitems/{id} | 
 *InventoryItemsAPI* | [**inventoryItemsGetAveragePricing**](docs/InventoryItemsAPI.md#inventoryitemsgetaveragepricing) | **GET** /api/inventoryitems/{id}/price/average | 
-*InventoryItemsAPI* | [**inventoryItemsGetAverageVendorPricing**](docs/InventoryItemsAPI.md#inventoryitemsgetaveragevendorpricing) | **GET** /api/inventoryitems/{id}/vendor/price/average | 
+*InventoryItemsAPI* | [**inventoryItemsGetAverageVendorPricing**](docs/InventoryItemsAPI.md#inventoryitemsgetaveragevendorpricing) | **GET** /api/inventoryitems/{id}/vendor/{vendorId}/price/average | 
 *InventoryItemsAPI* | [**inventoryItemsGetPdf**](docs/InventoryItemsAPI.md#inventoryitemsgetpdf) | **GET** /api/inventoryitems/pdf | 
-*InventoryItemsAPI* | [**inventoryItemsGetProductVendorPriceHistory**](docs/InventoryItemsAPI.md#inventoryitemsgetproductvendorpricehistory) | **GET** /api/inventoryitems/{id}/vendor/{vendorId}/price/history | 
+*InventoryItemsAPI* | [**inventoryItemsGetProductVendorPriceHistory**](docs/InventoryItemsAPI.md#inventoryitemsgetproductvendorpricehistory) | **GET** /api/inventoryitems/{InventoryItemId}/price/{ProductPriceId}/history | 
 *InventoryItemsAPI* | [**inventoryItemsPatchVendor**](docs/InventoryItemsAPI.md#inventoryitemspatchvendor) | **PATCH** /api/inventoryitems/{id}/vendor/{vendorId} | 
-*InventoryItemsAPI* | [**inventoryItemsPost**](docs/InventoryItemsAPI.md#inventoryitemspost) | **POST** /api/inventoryitems | 
 *InventoryItemsAPI* | [**inventoryItemsSearchGET**](docs/InventoryItemsAPI.md#inventoryitemssearchget) | **GET** /api/inventoryitems/search | 
 *InventoryItemsAPI* | [**inventoryItemsSearchPOST**](docs/InventoryItemsAPI.md#inventoryitemssearchpost) | **POST** /api/inventoryitems/search | Search Items using available filters.
 *InventoryItemsAPI* | [**inventoryItemsUpdate**](docs/InventoryItemsAPI.md#inventoryitemsupdate) | **PUT** /api/inventoryitems/{id} | 
-*InventoryItemsAPI* | [**inventoryItemsUpdateVendor**](docs/InventoryItemsAPI.md#inventoryitemsupdatevendor) | **PUT** /api/inventoryitems/{id}/vendor/{vendorId} | 
+*InventoryItemsAPI* | [**inventoryItemsUpdateVendor**](docs/InventoryItemsAPI.md#inventoryitemsupdatevendor) | **PUT** /api/inventoryitems/{inventoryItemId}/vendor/{productPriceId} | 
 *InvitationsAPI* | [**invitationsAcceptInvitation**](docs/InvitationsAPI.md#invitationsacceptinvitation) | **POST** /api/invitations/{id}/accept | 
 *InvitationsAPI* | [**invitationsCreateInvitation**](docs/InvitationsAPI.md#invitationscreateinvitation) | **POST** /api/invitations/invite | 
 *InvitationsAPI* | [**invitationsGet**](docs/InvitationsAPI.md#invitationsget) | **GET** /api/invitations/{id} | 
@@ -69,6 +69,7 @@ Class | Method | HTTP request | Description
 *PersonalAPI* | [**personalChangePassword**](docs/PersonalAPI.md#personalchangepassword) | **PUT** /api/personal/password | Change Password of currently logged in user.
 *PersonalAPI* | [**personalGetCurrentUserIsOwner**](docs/PersonalAPI.md#personalgetcurrentuserisowner) | **GET** /api/personal/owner | 
 *PersonalAPI* | [**personalGetCurrentUserRestaurants**](docs/PersonalAPI.md#personalgetcurrentuserrestaurants) | **GET** /api/personal/restuarants | 
+*PersonalAPI* | [**personalGetCurrentUserVendors**](docs/PersonalAPI.md#personalgetcurrentuservendors) | **GET** /api/personal/vendors | 
 *PersonalAPI* | [**personalGetLogs**](docs/PersonalAPI.md#personalgetlogs) | **GET** /api/personal/logs | Get audit logs of currently logged in user.
 *PersonalAPI* | [**personalGetPermissions**](docs/PersonalAPI.md#personalgetpermissions) | **GET** /api/personal/permissions | Get permissions of currently logged in user.
 *PersonalAPI* | [**personalGetProfile**](docs/PersonalAPI.md#personalgetprofile) | **GET** /api/personal | Get profile details of currently logged in user.
@@ -102,10 +103,10 @@ Class | Method | HTTP request | Description
 *TokensAPI* | [**tokensRefresh**](docs/TokensAPI.md#tokensrefresh) | **POST** /api/tokens/refresh | Request an access token using a refresh token.
 *UnitsAPI* | [**unitsCreate**](docs/UnitsAPI.md#unitscreate) | **POST** /api/units | Create a new Unit of Measure.
 *UnitsAPI* | [**unitsDelete**](docs/UnitsAPI.md#unitsdelete) | **DELETE** /api/units/{id} | Delete a Unit of Measure.
-*UnitsAPI* | [**unitsGet**](docs/UnitsAPI.md#unitsget) | **GET** /api/units | Search Units of Measure using available filters.
-*UnitsAPI* | [**unitsGet2**](docs/UnitsAPI.md#unitsget2) | **GET** /api/units/{id} | Get a Unit of Measure.
-*UnitsAPI* | [**unitsPut**](docs/UnitsAPI.md#unitsput) | **PUT** /api/units/{id} | Update a Unit of Measure.
+*UnitsAPI* | [**unitsFind**](docs/UnitsAPI.md#unitsfind) | **GET** /api/units | Search Units of Measure using available filters.
+*UnitsAPI* | [**unitsGet**](docs/UnitsAPI.md#unitsget) | **GET** /api/units/{id} | Get a Unit of Measure.
 *UnitsAPI* | [**unitsSearch**](docs/UnitsAPI.md#unitssearch) | **POST** /api/units/search | Search Units of Measure using available filters.
+*UnitsAPI* | [**unitsUpdate**](docs/UnitsAPI.md#unitsupdate) | **PUT** /api/units/{id} | Update a Unit of Measure.
 *UsersAPI* | [**usersAssignRoles**](docs/UsersAPI.md#usersassignroles) | **POST** /api/users/{id}/roles | Update a user&#39;s assigned roles.
 *UsersAPI* | [**usersConfirmEmail**](docs/UsersAPI.md#usersconfirmemail) | **GET** /api/users/confirm-email | Confirm email address for a user.
 *UsersAPI* | [**usersConfirmPhoneNumber**](docs/UsersAPI.md#usersconfirmphonenumber) | **GET** /api/users/confirm-phone-number | Confirm phone number for a user.
@@ -124,8 +125,8 @@ Class | Method | HTTP request | Description
 *VendorLocationsAPI* | [**vendorLocationsPost**](docs/VendorLocationsAPI.md#vendorlocationspost) | **POST** /api/vendor/{vendorId}/locations | 
 *VendorLocationsAPI* | [**vendorLocationsPut**](docs/VendorLocationsAPI.md#vendorlocationsput) | **PUT** /api/vendor/{vendorId}/locations/{id} | 
 *VendorsAPI* | [**vendorsDelete**](docs/VendorsAPI.md#vendorsdelete) | **DELETE** /api/vendors/{id} | 
-*VendorsAPI* | [**vendorsGet**](docs/VendorsAPI.md#vendorsget) | **GET** /api/vendors | 
-*VendorsAPI* | [**vendorsGet2**](docs/VendorsAPI.md#vendorsget2) | **GET** /api/vendors/{id} | 
+*VendorsAPI* | [**vendorsFind**](docs/VendorsAPI.md#vendorsfind) | **GET** /api/vendors | 
+*VendorsAPI* | [**vendorsGet**](docs/VendorsAPI.md#vendorsget) | **GET** /api/vendors/{id} | 
 *VendorsAPI* | [**vendorsGetItems**](docs/VendorsAPI.md#vendorsgetitems) | **GET** /api/vendors/{id}/items | 
 *VendorsAPI* | [**vendorsGetPdf**](docs/VendorsAPI.md#vendorsgetpdf) | **GET** /api/vendors/{id}/pdf | 
 *VendorsAPI* | [**vendorsPost**](docs/VendorsAPI.md#vendorspost) | **POST** /api/vendors | 
@@ -140,7 +141,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AcceptInvitationPostViewModel](docs/AcceptInvitationPostViewModel.md)
+ - [AcceptInvitationCommand](docs/AcceptInvitationCommand.md)
  - [AddOrderItemViewModel](docs/AddOrderItemViewModel.md)
  - [AddProductToRestaurantCommand](docs/AddProductToRestaurantCommand.md)
  - [AuditDto](docs/AuditDto.md)
@@ -173,7 +174,7 @@ Class | Method | HTTP request | Description
  - [CostSavingsDto](docs/CostSavingsDto.md)
  - [CreateInventoryItemCommand](docs/CreateInventoryItemCommand.md)
  - [CreateInventoryItemVendorPriceCommand](docs/CreateInventoryItemVendorPriceCommand.md)
- - [CreateInvitationPostViewModel](docs/CreateInvitationPostViewModel.md)
+ - [CreateInvitationCommand](docs/CreateInvitationCommand.md)
  - [CreateOrUpdateRoleRequest](docs/CreateOrUpdateRoleRequest.md)
  - [CreateRestaurantCommand](docs/CreateRestaurantCommand.md)
  - [CreateUnitCommand](docs/CreateUnitCommand.md)
@@ -194,7 +195,7 @@ Class | Method | HTTP request | Description
  - [InventoryItemDtoShelvingUnit](docs/InventoryItemDtoShelvingUnit.md)
  - [InventoryItemDtoZone](docs/InventoryItemDtoZone.md)
  - [InventoryItemViewModel](docs/InventoryItemViewModel.md)
- - [InvitationViewModel](docs/InvitationViewModel.md)
+ - [InvitationDto](docs/InvitationDto.md)
  - [MockInventoryItemsPostDto](docs/MockInventoryItemsPostDto.md)
  - [OrderDto](docs/OrderDto.md)
  - [OrderDtoVendor](docs/OrderDtoVendor.md)
@@ -210,9 +211,9 @@ Class | Method | HTTP request | Description
  - [PaginationFilter](docs/PaginationFilter.md)
  - [PaginationFilterAllOf](docs/PaginationFilterAllOf.md)
  - [PaginationResponseOfBatchListDto](docs/PaginationResponseOfBatchListDto.md)
- - [PaginationResponseOfInventoryItemDto](docs/PaginationResponseOfInventoryItemDto.md)
  - [PaginationResponseOfRestaurantDto](docs/PaginationResponseOfRestaurantDto.md)
  - [PaginationResponseOfUnitDto](docs/PaginationResponseOfUnitDto.md)
+ - [PaginationResponseOfVendorDto](docs/PaginationResponseOfVendorDto.md)
  - [PaginationResponseOfZoneDto](docs/PaginationResponseOfZoneDto.md)
  - [PostVendorViewModel](docs/PostVendorViewModel.md)
  - [ProblemDetails](docs/ProblemDetails.md)
@@ -221,6 +222,8 @@ Class | Method | HTTP request | Description
  - [ProductInfoViewModel](docs/ProductInfoViewModel.md)
  - [ProductInfoViewModelAllOf](docs/ProductInfoViewModelAllOf.md)
  - [ProductPriceDto](docs/ProductPriceDto.md)
+ - [ProductPriceHistoryDto](docs/ProductPriceHistoryDto.md)
+ - [ProductPriceHistoryType](docs/ProductPriceHistoryType.md)
  - [ProductPricePatchViewModel](docs/ProductPricePatchViewModel.md)
  - [ProductPriceViewModel](docs/ProductPriceViewModel.md)
  - [ProductViewModel](docs/ProductViewModel.md)
@@ -236,6 +239,7 @@ Class | Method | HTTP request | Description
  - [RestaurantPostViewModelAllOf](docs/RestaurantPostViewModelAllOf.md)
  - [RestaurantPostViewModelAllOfTemplate](docs/RestaurantPostViewModelAllOfTemplate.md)
  - [RestaurantTemplatePostViewModel](docs/RestaurantTemplatePostViewModel.md)
+ - [RestaurantUserDto](docs/RestaurantUserDto.md)
  - [RestaurantViewModel](docs/RestaurantViewModel.md)
  - [RestaurantViewModelAllOf](docs/RestaurantViewModelAllOf.md)
  - [RoleDto](docs/RoleDto.md)
@@ -265,11 +269,14 @@ Class | Method | HTTP request | Description
  - [UserRoleDto](docs/UserRoleDto.md)
  - [UserRolesRequest](docs/UserRolesRequest.md)
  - [UserViewModel](docs/UserViewModel.md)
- - [UserViewModelAllOf](docs/UserViewModelAllOf.md)
+ - [UserViewModel2](docs/UserViewModel2.md)
+ - [UserViewModel2AllOf](docs/UserViewModel2AllOf.md)
+ - [VendorAveragePriceViewModel](docs/VendorAveragePriceViewModel.md)
  - [VendorDto](docs/VendorDto.md)
  - [VendorLocationDto](docs/VendorLocationDto.md)
  - [VendorLocationViewModel](docs/VendorLocationViewModel.md)
  - [VendorPutViewModel](docs/VendorPutViewModel.md)
+ - [VendorSuggestionsViewModel](docs/VendorSuggestionsViewModel.md)
  - [VendorViewModel](docs/VendorViewModel.md)
  - [ZoneDto](docs/ZoneDto.md)
  - [ZonePutViewModel](docs/ZonePutViewModel.md)

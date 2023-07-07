@@ -1,12 +1,12 @@
 # VendorsAPI
 
-All URIs are relative to *https://zwr8hzk4-5001.use.devtunnels.ms*
+All URIs are relative to *https://db27h38l-5001.use.devtunnels.ms*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**vendorsDelete**](VendorsAPI.md#vendorsdelete) | **DELETE** /api/vendors/{id} | 
-[**vendorsGet**](VendorsAPI.md#vendorsget) | **GET** /api/vendors | 
-[**vendorsGet2**](VendorsAPI.md#vendorsget2) | **GET** /api/vendors/{id} | 
+[**vendorsFind**](VendorsAPI.md#vendorsfind) | **GET** /api/vendors | 
+[**vendorsGet**](VendorsAPI.md#vendorsget) | **GET** /api/vendors/{id} | 
 [**vendorsGetItems**](VendorsAPI.md#vendorsgetitems) | **GET** /api/vendors/{id}/items | 
 [**vendorsGetPdf**](VendorsAPI.md#vendorsgetpdf) | **GET** /api/vendors/{id}/pdf | 
 [**vendorsPost**](VendorsAPI.md#vendorspost) | **POST** /api/vendors | 
@@ -62,9 +62,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **vendorsGet**
+# **vendorsFind**
 ```swift
-    open class func vendorsGet(name: String? = nil, active: Bool? = nil, page: Int? = nil, pageSize: Int? = nil, sort: String? = nil, apiVersion: String? = nil, completion: @escaping (_ data: VendorViewModel?, _ error: Error?) -> Void)
+    open class func vendorsFind(name: String? = nil, active: Bool? = nil, page: Int? = nil, pageSize: Int? = nil, sort: String? = nil, apiVersion: String? = nil, completion: @escaping (_ data: PaginationResponseOfVendorDto?, _ error: Error?) -> Void)
 ```
 
 
@@ -81,7 +81,7 @@ let pageSize = 987 // Int |  (optional)
 let sort = "sort_example" // String |  (optional) (default to "name asc")
 let apiVersion = "apiVersion_example" // String |  (optional)
 
-VendorsAPI.vendorsGet(name: name, active: active, page: page, pageSize: pageSize, sort: sort, apiVersion: apiVersion) { (response, error) in
+VendorsAPI.vendorsFind(name: name, active: active, page: page, pageSize: pageSize, sort: sort, apiVersion: apiVersion) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VendorViewModel**](VendorViewModel.md)
+[**PaginationResponseOfVendorDto**](PaginationResponseOfVendorDto.md)
 
 ### Authorization
 
@@ -119,9 +119,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **vendorsGet2**
+# **vendorsGet**
 ```swift
-    open class func vendorsGet2(id: Int64, apiVersion: String? = nil, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func vendorsGet(id: Int64, apiVersion: String? = nil, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
 ```
 
 
@@ -134,7 +134,7 @@ import OpenAPIClient
 let id = 987 // Int64 | 
 let apiVersion = "apiVersion_example" // String |  (optional)
 
-VendorsAPI.vendorsGet2(id: id, apiVersion: apiVersion) { (response, error) in
+VendorsAPI.vendorsGet(id: id, apiVersion: apiVersion) { (response, error) in
     guard error == nil else {
         print(error)
         return

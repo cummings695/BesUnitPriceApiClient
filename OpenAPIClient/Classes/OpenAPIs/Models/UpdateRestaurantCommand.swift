@@ -20,8 +20,9 @@ public struct UpdateRestaurantCommand: Codable, JSONEncodable, Hashable {
     public var city: String?
     public var state: String?
     public var zipCode: String?
+    public var showInactiveVendors: Bool?
 
-    public init(id: Int64? = nil, name: String, addressLine1: String? = nil, addressLine2: String? = nil, city: String? = nil, state: String? = nil, zipCode: String? = nil) {
+    public init(id: Int64? = nil, name: String, addressLine1: String? = nil, addressLine2: String? = nil, city: String? = nil, state: String? = nil, zipCode: String? = nil, showInactiveVendors: Bool? = nil) {
         self.id = id
         self.name = name
         self.addressLine1 = addressLine1
@@ -29,6 +30,7 @@ public struct UpdateRestaurantCommand: Codable, JSONEncodable, Hashable {
         self.city = city
         self.state = state
         self.zipCode = zipCode
+        self.showInactiveVendors = showInactiveVendors
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -39,6 +41,7 @@ public struct UpdateRestaurantCommand: Codable, JSONEncodable, Hashable {
         case city
         case state
         case zipCode
+        case showInactiveVendors
     }
 
     // Encodable protocol methods
@@ -52,6 +55,7 @@ public struct UpdateRestaurantCommand: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(city, forKey: .city)
         try container.encodeIfPresent(state, forKey: .state)
         try container.encodeIfPresent(zipCode, forKey: .zipCode)
+        try container.encodeIfPresent(showInactiveVendors, forKey: .showInactiveVendors)
     }
 }
 

@@ -28,7 +28,7 @@ OpenAPIClient/Classes/OpenAPIs/Extensions.swift
 OpenAPIClient/Classes/OpenAPIs/JSONDataEncoding.swift
 OpenAPIClient/Classes/OpenAPIs/JSONEncodingHelper.swift
 OpenAPIClient/Classes/OpenAPIs/Models.swift
-OpenAPIClient/Classes/OpenAPIs/Models/AcceptInvitationPostViewModel.swift
+OpenAPIClient/Classes/OpenAPIs/Models/AcceptInvitationCommand.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AddOrderItemViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AddProductToRestaurantCommand.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AuditDto.swift
@@ -61,7 +61,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/CostSavings.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CostSavingsDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CreateInventoryItemCommand.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CreateInventoryItemVendorPriceCommand.swift
-OpenAPIClient/Classes/OpenAPIs/Models/CreateInvitationPostViewModel.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CreateInvitationCommand.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CreateOrUpdateRoleRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CreateRestaurantCommand.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CreateUnitCommand.swift
@@ -82,7 +82,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/InventoryItemDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/InventoryItemDtoShelvingUnit.swift
 OpenAPIClient/Classes/OpenAPIs/Models/InventoryItemDtoZone.swift
 OpenAPIClient/Classes/OpenAPIs/Models/InventoryItemViewModel.swift
-OpenAPIClient/Classes/OpenAPIs/Models/InvitationViewModel.swift
+OpenAPIClient/Classes/OpenAPIs/Models/InvitationDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/MockInventoryItemsPostDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/OrderDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/OrderDtoVendor.swift
@@ -98,9 +98,9 @@ OpenAPIClient/Classes/OpenAPIs/Models/PaginatedListViewModelOfInventoryItemDto.s
 OpenAPIClient/Classes/OpenAPIs/Models/PaginationFilter.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaginationFilterAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaginationResponseOfBatchListDto.swift
-OpenAPIClient/Classes/OpenAPIs/Models/PaginationResponseOfInventoryItemDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaginationResponseOfRestaurantDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaginationResponseOfUnitDto.swift
+OpenAPIClient/Classes/OpenAPIs/Models/PaginationResponseOfVendorDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaginationResponseOfZoneDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PostVendorViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ProblemDetails.swift
@@ -109,6 +109,8 @@ OpenAPIClient/Classes/OpenAPIs/Models/ProductInfoDtoUnitOfMeasure.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ProductInfoViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ProductInfoViewModelAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ProductPriceDto.swift
+OpenAPIClient/Classes/OpenAPIs/Models/ProductPriceHistoryDto.swift
+OpenAPIClient/Classes/OpenAPIs/Models/ProductPriceHistoryType.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ProductPricePatchViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ProductPriceViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ProductViewModel.swift
@@ -124,6 +126,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/RestaurantPostViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/RestaurantPostViewModelAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/RestaurantPostViewModelAllOfTemplate.swift
 OpenAPIClient/Classes/OpenAPIs/Models/RestaurantTemplatePostViewModel.swift
+OpenAPIClient/Classes/OpenAPIs/Models/RestaurantUserDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/RestaurantViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/RestaurantViewModelAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/RoleDto.swift
@@ -153,11 +156,14 @@ OpenAPIClient/Classes/OpenAPIs/Models/UserPostViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UserRoleDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UserRolesRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UserViewModel.swift
-OpenAPIClient/Classes/OpenAPIs/Models/UserViewModelAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/UserViewModel2.swift
+OpenAPIClient/Classes/OpenAPIs/Models/UserViewModel2AllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/VendorAveragePriceViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/VendorDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/VendorLocationDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/VendorLocationViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/VendorPutViewModel.swift
+OpenAPIClient/Classes/OpenAPIs/Models/VendorSuggestionsViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/VendorViewModel.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ZoneDto.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ZonePutViewModel.swift
@@ -167,7 +173,7 @@ OpenAPIClient/Classes/OpenAPIs/SynchronizedDictionary.swift
 OpenAPIClient/Classes/OpenAPIs/Validation.swift
 Package.swift
 README.md
-docs/AcceptInvitationPostViewModel.md
+docs/AcceptInvitationCommand.md
 docs/AddOrderItemViewModel.md
 docs/AddProductToRestaurantCommand.md
 docs/AuditDto.md
@@ -201,7 +207,7 @@ docs/CostSavings.md
 docs/CostSavingsDto.md
 docs/CreateInventoryItemCommand.md
 docs/CreateInventoryItemVendorPriceCommand.md
-docs/CreateInvitationPostViewModel.md
+docs/CreateInvitationCommand.md
 docs/CreateOrUpdateRoleRequest.md
 docs/CreateRestaurantCommand.md
 docs/CreateUnitCommand.md
@@ -223,7 +229,7 @@ docs/InventoryItemDtoShelvingUnit.md
 docs/InventoryItemDtoZone.md
 docs/InventoryItemViewModel.md
 docs/InventoryItemsAPI.md
-docs/InvitationViewModel.md
+docs/InvitationDto.md
 docs/InvitationsAPI.md
 docs/MockInventoryItemsPostDto.md
 docs/OrderDto.md
@@ -242,9 +248,9 @@ docs/PaginatedListViewModelOfInventoryItemDto.md
 docs/PaginationFilter.md
 docs/PaginationFilterAllOf.md
 docs/PaginationResponseOfBatchListDto.md
-docs/PaginationResponseOfInventoryItemDto.md
 docs/PaginationResponseOfRestaurantDto.md
 docs/PaginationResponseOfUnitDto.md
+docs/PaginationResponseOfVendorDto.md
 docs/PaginationResponseOfZoneDto.md
 docs/PersonalAPI.md
 docs/PostVendorViewModel.md
@@ -254,6 +260,8 @@ docs/ProductInfoDtoUnitOfMeasure.md
 docs/ProductInfoViewModel.md
 docs/ProductInfoViewModelAllOf.md
 docs/ProductPriceDto.md
+docs/ProductPriceHistoryDto.md
+docs/ProductPriceHistoryType.md
 docs/ProductPricePatchViewModel.md
 docs/ProductPriceViewModel.md
 docs/ProductViewModel.md
@@ -270,6 +278,7 @@ docs/RestaurantPostViewModel.md
 docs/RestaurantPostViewModelAllOf.md
 docs/RestaurantPostViewModelAllOfTemplate.md
 docs/RestaurantTemplatePostViewModel.md
+docs/RestaurantUserDto.md
 docs/RestaurantUsersAPI.md
 docs/RestaurantViewModel.md
 docs/RestaurantViewModelAllOf.md
@@ -305,13 +314,16 @@ docs/UserPostViewModel.md
 docs/UserRoleDto.md
 docs/UserRolesRequest.md
 docs/UserViewModel.md
-docs/UserViewModelAllOf.md
+docs/UserViewModel2.md
+docs/UserViewModel2AllOf.md
 docs/UsersAPI.md
+docs/VendorAveragePriceViewModel.md
 docs/VendorDto.md
 docs/VendorLocationDto.md
 docs/VendorLocationViewModel.md
 docs/VendorLocationsAPI.md
 docs/VendorPutViewModel.md
+docs/VendorSuggestionsViewModel.md
 docs/VendorViewModel.md
 docs/VendorsAPI.md
 docs/ZoneDto.md

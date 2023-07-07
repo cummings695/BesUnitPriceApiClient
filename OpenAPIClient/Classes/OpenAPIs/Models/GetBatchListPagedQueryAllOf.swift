@@ -12,9 +12,9 @@ import AnyCodable
 
 public struct GetBatchListPagedQueryAllOf: Codable, JSONEncodable, Hashable {
 
-    public var status: Int64?
+    public var status: [Int]?
 
-    public init(status: Int64? = nil) {
+    public init(status: [Int]? = nil) {
         self.status = status
     }
 

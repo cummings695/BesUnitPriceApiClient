@@ -18,14 +18,14 @@ open class RegistrationAPI {
     /**
 
      - parameter accountid: (query)  (optional)
-     - returns: AnyPublisher<UserViewModel, Error>
+     - returns: AnyPublisher<UserViewModel2, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func registrationConfirmRegistration(accountid: String? = nil) -> AnyPublisher<UserViewModel, Error> {
+    open class func registrationConfirmRegistration(accountid: String? = nil) -> AnyPublisher<UserViewModel2, Error> {
         let requestBuilder = registrationConfirmRegistrationWithRequestBuilder(accountid: accountid)
         let requestTask = requestBuilder.requestTask
-        return Future<UserViewModel, Error> { promise in
+        return Future<UserViewModel2, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -45,9 +45,9 @@ open class RegistrationAPI {
     /**
      - POST /api/registration/confirm
      - parameter accountid: (query)  (optional)
-     - returns: RequestBuilder<UserViewModel> 
+     - returns: RequestBuilder<UserViewModel2> 
      */
-    open class func registrationConfirmRegistrationWithRequestBuilder(accountid: String? = nil) -> RequestBuilder<UserViewModel> {
+    open class func registrationConfirmRegistrationWithRequestBuilder(accountid: String? = nil) -> RequestBuilder<UserViewModel2> {
         let localVariablePath = "/api/registration/confirm"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -63,7 +63,7 @@ open class RegistrationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserViewModel2>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -71,14 +71,14 @@ open class RegistrationAPI {
     /**
 
      - parameter forgotPasswordPost: (body)  
-     - returns: AnyPublisher<UserViewModel, Error>
+     - returns: AnyPublisher<UserViewModel2, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func registrationForgotPassword(forgotPasswordPost: ForgotPasswordPost) -> AnyPublisher<UserViewModel, Error> {
+    open class func registrationForgotPassword(forgotPasswordPost: ForgotPasswordPost) -> AnyPublisher<UserViewModel2, Error> {
         let requestBuilder = registrationForgotPasswordWithRequestBuilder(forgotPasswordPost: forgotPasswordPost)
         let requestTask = requestBuilder.requestTask
-        return Future<UserViewModel, Error> { promise in
+        return Future<UserViewModel2, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -98,9 +98,9 @@ open class RegistrationAPI {
     /**
      - POST /api/registration/forgotpassword
      - parameter forgotPasswordPost: (body)  
-     - returns: RequestBuilder<UserViewModel> 
+     - returns: RequestBuilder<UserViewModel2> 
      */
-    open class func registrationForgotPasswordWithRequestBuilder(forgotPasswordPost: ForgotPasswordPost) -> RequestBuilder<UserViewModel> {
+    open class func registrationForgotPasswordWithRequestBuilder(forgotPasswordPost: ForgotPasswordPost) -> RequestBuilder<UserViewModel2> {
         let localVariablePath = "/api/registration/forgotpassword"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: forgotPasswordPost)
@@ -113,7 +113,7 @@ open class RegistrationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserViewModel2>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -121,14 +121,14 @@ open class RegistrationAPI {
     /**
 
      - parameter registerViewModel: (body)  
-     - returns: AnyPublisher<UserViewModel, Error>
+     - returns: AnyPublisher<UserViewModel2, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func registrationRegister(registerViewModel: RegisterViewModel) -> AnyPublisher<UserViewModel, Error> {
+    open class func registrationRegister(registerViewModel: RegisterViewModel) -> AnyPublisher<UserViewModel2, Error> {
         let requestBuilder = registrationRegisterWithRequestBuilder(registerViewModel: registerViewModel)
         let requestTask = requestBuilder.requestTask
-        return Future<UserViewModel, Error> { promise in
+        return Future<UserViewModel2, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -148,9 +148,9 @@ open class RegistrationAPI {
     /**
      - POST /api/registration
      - parameter registerViewModel: (body)  
-     - returns: RequestBuilder<UserViewModel> 
+     - returns: RequestBuilder<UserViewModel2> 
      */
-    open class func registrationRegisterWithRequestBuilder(registerViewModel: RegisterViewModel) -> RequestBuilder<UserViewModel> {
+    open class func registrationRegisterWithRequestBuilder(registerViewModel: RegisterViewModel) -> RequestBuilder<UserViewModel2> {
         let localVariablePath = "/api/registration"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: registerViewModel)
@@ -163,7 +163,7 @@ open class RegistrationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserViewModel2>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -171,14 +171,14 @@ open class RegistrationAPI {
     /**
 
      - parameter resetPasswordPost: (body)  
-     - returns: AnyPublisher<UserViewModel, Error>
+     - returns: AnyPublisher<UserViewModel2, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func registrationResetPassword(resetPasswordPost: ResetPasswordPost) -> AnyPublisher<UserViewModel, Error> {
+    open class func registrationResetPassword(resetPasswordPost: ResetPasswordPost) -> AnyPublisher<UserViewModel2, Error> {
         let requestBuilder = registrationResetPasswordWithRequestBuilder(resetPasswordPost: resetPasswordPost)
         let requestTask = requestBuilder.requestTask
-        return Future<UserViewModel, Error> { promise in
+        return Future<UserViewModel2, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -201,9 +201,9 @@ open class RegistrationAPI {
        - type: http
        - name: Bearer
      - parameter resetPasswordPost: (body)  
-     - returns: RequestBuilder<UserViewModel> 
+     - returns: RequestBuilder<UserViewModel2> 
      */
-    open class func registrationResetPasswordWithRequestBuilder(resetPasswordPost: ResetPasswordPost) -> RequestBuilder<UserViewModel> {
+    open class func registrationResetPasswordWithRequestBuilder(resetPasswordPost: ResetPasswordPost) -> RequestBuilder<UserViewModel2> {
         let localVariablePath = "/api/registration/resetpassword"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: resetPasswordPost)
@@ -216,7 +216,7 @@ open class RegistrationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserViewModel2>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

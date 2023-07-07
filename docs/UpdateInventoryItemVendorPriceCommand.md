@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Int64** |  | [optional] 
+**productPriceId** | **Int64** |  | [optional] 
 **inventoryItemId** | **Int64** |  | [optional] 
 **vendorId** | **Int64** |  | [optional] 
 **deleted** | **Bool** |  | [optional] 

@@ -84,14 +84,14 @@ open class VendorsAPI {
      - parameter pageSize: (query)  (optional)
      - parameter sort: (query)  (optional, default to "name asc")
      - parameter apiVersion: (query)  (optional)
-     - returns: AnyPublisher<VendorViewModel, Error>
+     - returns: AnyPublisher<PaginationResponseOfVendorDto, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func vendorsGet(name: String? = nil, active: Bool? = nil, page: Int? = nil, pageSize: Int? = nil, sort: String? = nil, apiVersion: String? = nil) -> AnyPublisher<VendorViewModel, Error> {
-        let requestBuilder = vendorsGetWithRequestBuilder(name: name, active: active, page: page, pageSize: pageSize, sort: sort, apiVersion: apiVersion)
+    open class func vendorsFind(name: String? = nil, active: Bool? = nil, page: Int? = nil, pageSize: Int? = nil, sort: String? = nil, apiVersion: String? = nil) -> AnyPublisher<PaginationResponseOfVendorDto, Error> {
+        let requestBuilder = vendorsFindWithRequestBuilder(name: name, active: active, page: page, pageSize: pageSize, sort: sort, apiVersion: apiVersion)
         let requestTask = requestBuilder.requestTask
-        return Future<VendorViewModel, Error> { promise in
+        return Future<PaginationResponseOfVendorDto, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -119,9 +119,9 @@ open class VendorsAPI {
      - parameter pageSize: (query)  (optional)
      - parameter sort: (query)  (optional, default to "name asc")
      - parameter apiVersion: (query)  (optional)
-     - returns: RequestBuilder<VendorViewModel> 
+     - returns: RequestBuilder<PaginationResponseOfVendorDto> 
      */
-    open class func vendorsGetWithRequestBuilder(name: String? = nil, active: Bool? = nil, page: Int? = nil, pageSize: Int? = nil, sort: String? = nil, apiVersion: String? = nil) -> RequestBuilder<VendorViewModel> {
+    open class func vendorsFindWithRequestBuilder(name: String? = nil, active: Bool? = nil, page: Int? = nil, pageSize: Int? = nil, sort: String? = nil, apiVersion: String? = nil) -> RequestBuilder<PaginationResponseOfVendorDto> {
         let localVariablePath = "/api/vendors"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -142,7 +142,7 @@ open class VendorsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<VendorViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginationResponseOfVendorDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -155,8 +155,8 @@ open class VendorsAPI {
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func vendorsGet2(id: Int64, apiVersion: String? = nil) -> AnyPublisher<URL, Error> {
-        let requestBuilder = vendorsGet2WithRequestBuilder(id: id, apiVersion: apiVersion)
+    open class func vendorsGet(id: Int64, apiVersion: String? = nil) -> AnyPublisher<URL, Error> {
+        let requestBuilder = vendorsGetWithRequestBuilder(id: id, apiVersion: apiVersion)
         let requestTask = requestBuilder.requestTask
         return Future<URL, Error> { promise in
             requestBuilder.execute { result in
@@ -184,7 +184,7 @@ open class VendorsAPI {
      - parameter apiVersion: (query)  (optional)
      - returns: RequestBuilder<URL> 
      */
-    open class func vendorsGet2WithRequestBuilder(id: Int64, apiVersion: String? = nil) -> RequestBuilder<URL> {
+    open class func vendorsGetWithRequestBuilder(id: Int64, apiVersion: String? = nil) -> RequestBuilder<URL> {
         var localVariablePath = "/api/vendors/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""

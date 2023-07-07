@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **prices** | [ProductPriceDto] |  | [optional] 
 **defaultUnitOfMeasureId** | **Int64** |  | [optional] 
 **defaultUnitOfMeasure** | [**UnitDto**](UnitDto.md) |  | [optional] 
-**defaultQuantity** | **Int** |  | [optional] 
+**defaultQuantity** | **Double** |  | [optional] 
 **defaultCount** | **Double** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

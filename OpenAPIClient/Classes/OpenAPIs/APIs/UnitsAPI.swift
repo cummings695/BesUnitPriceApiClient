@@ -74,14 +74,14 @@ open class UnitsAPI {
      Delete a Unit of Measure.
      
      - parameter id: (path)  
-     - returns: AnyPublisher<URL, Error>
+     - returns: AnyPublisher<Int64, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func unitsDelete(id: Int64) -> AnyPublisher<URL, Error> {
+    open class func unitsDelete(id: Int64) -> AnyPublisher<Int64, Error> {
         let requestBuilder = unitsDeleteWithRequestBuilder(id: id)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<Int64, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -105,9 +105,9 @@ open class UnitsAPI {
        - type: http
        - name: Bearer
      - parameter id: (path)  
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<Int64> 
      */
-    open class func unitsDeleteWithRequestBuilder(id: Int64) -> RequestBuilder<URL> {
+    open class func unitsDeleteWithRequestBuilder(id: Int64) -> RequestBuilder<Int64> {
         var localVariablePath = "/api/units/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -123,7 +123,7 @@ open class UnitsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Int64>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -148,8 +148,8 @@ open class UnitsAPI {
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func unitsGet(name: String? = nil, sort: String? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> AnyPublisher<PaginationResponseOfUnitDto, Error> {
-        let requestBuilder = unitsGetWithRequestBuilder(name: name, sort: sort, page: page, pageSize: pageSize, orderBy: orderBy, advancedSearchFields: advancedSearchFields, advancedSearchKeyword: advancedSearchKeyword, keyword: keyword, advancedFilterLogic: advancedFilterLogic, advancedFilterFilters: advancedFilterFilters, advancedFilterField: advancedFilterField, advancedFilterOperator: advancedFilterOperator, advancedFilterValue: advancedFilterValue)
+    open class func unitsFind(name: String? = nil, sort: String? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> AnyPublisher<PaginationResponseOfUnitDto, Error> {
+        let requestBuilder = unitsFindWithRequestBuilder(name: name, sort: sort, page: page, pageSize: pageSize, orderBy: orderBy, advancedSearchFields: advancedSearchFields, advancedSearchKeyword: advancedSearchKeyword, keyword: keyword, advancedFilterLogic: advancedFilterLogic, advancedFilterFilters: advancedFilterFilters, advancedFilterField: advancedFilterField, advancedFilterOperator: advancedFilterOperator, advancedFilterValue: advancedFilterValue)
         let requestTask = requestBuilder.requestTask
         return Future<PaginationResponseOfUnitDto, Error> { promise in
             requestBuilder.execute { result in
@@ -189,7 +189,7 @@ open class UnitsAPI {
      - parameter advancedFilterValue: (query)  (optional)
      - returns: RequestBuilder<PaginationResponseOfUnitDto> 
      */
-    open class func unitsGetWithRequestBuilder(name: String? = nil, sort: String? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> RequestBuilder<PaginationResponseOfUnitDto> {
+    open class func unitsFindWithRequestBuilder(name: String? = nil, sort: String? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> RequestBuilder<PaginationResponseOfUnitDto> {
         let localVariablePath = "/api/units"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -230,8 +230,8 @@ open class UnitsAPI {
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func unitsGet2(id: Int) -> AnyPublisher<UnitDto, Error> {
-        let requestBuilder = unitsGet2WithRequestBuilder(id: id)
+    open class func unitsGet(id: Int64) -> AnyPublisher<UnitDto, Error> {
+        let requestBuilder = unitsGetWithRequestBuilder(id: id)
         let requestTask = requestBuilder.requestTask
         return Future<UnitDto, Error> { promise in
             requestBuilder.execute { result in
@@ -259,7 +259,7 @@ open class UnitsAPI {
      - parameter id: (path)  
      - returns: RequestBuilder<UnitDto> 
      */
-    open class func unitsGet2WithRequestBuilder(id: Int) -> RequestBuilder<UnitDto> {
+    open class func unitsGetWithRequestBuilder(id: Int64) -> RequestBuilder<UnitDto> {
         var localVariablePath = "/api/units/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -278,66 +278,6 @@ open class UnitsAPI {
         let localVariableRequestBuilder: RequestBuilder<UnitDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Update a Unit of Measure.
-     
-     - parameter id: (path)  
-     - parameter updateUnitCommand: (body)  
-     - returns: AnyPublisher<URL, Error>
-     */
-    #if canImport(Combine)
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func unitsPut(id: Int, updateUnitCommand: UpdateUnitCommand) -> AnyPublisher<URL, Error> {
-        let requestBuilder = unitsPutWithRequestBuilder(id: id, updateUnitCommand: updateUnitCommand)
-        let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
-            requestBuilder.execute { result in
-                switch result {
-                case let .success(response):
-                    promise(.success(response.body))
-                case let .failure(error):
-                    promise(.failure(error))
-                }
-            }
-        }
-        .handleEvents(receiveCancel: {
-            requestTask.cancel()
-        })
-        .eraseToAnyPublisher()
-    }
-    #endif
-
-    /**
-     Update a Unit of Measure.
-     - PUT /api/units/{id}
-     - BASIC:
-       - type: http
-       - name: Bearer
-     - parameter id: (path)  
-     - parameter updateUnitCommand: (body)  
-     - returns: RequestBuilder<URL> 
-     */
-    open class func unitsPutWithRequestBuilder(id: Int, updateUnitCommand: UpdateUnitCommand) -> RequestBuilder<URL> {
-        var localVariablePath = "/api/units/{id}"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateUnitCommand)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
@@ -393,5 +333,65 @@ open class UnitsAPI {
         let localVariableRequestBuilder: RequestBuilder<PaginationResponseOfUnitDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Update a Unit of Measure.
+     
+     - parameter id: (path)  
+     - parameter updateUnitCommand: (body)  
+     - returns: AnyPublisher<Int64, Error>
+     */
+    #if canImport(Combine)
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func unitsUpdate(id: Int64, updateUnitCommand: UpdateUnitCommand) -> AnyPublisher<Int64, Error> {
+        let requestBuilder = unitsUpdateWithRequestBuilder(id: id, updateUnitCommand: updateUnitCommand)
+        let requestTask = requestBuilder.requestTask
+        return Future<Int64, Error> { promise in
+            requestBuilder.execute { result in
+                switch result {
+                case let .success(response):
+                    promise(.success(response.body))
+                case let .failure(error):
+                    promise(.failure(error))
+                }
+            }
+        }
+        .handleEvents(receiveCancel: {
+            requestTask.cancel()
+        })
+        .eraseToAnyPublisher()
+    }
+    #endif
+
+    /**
+     Update a Unit of Measure.
+     - PUT /api/units/{id}
+     - BASIC:
+       - type: http
+       - name: Bearer
+     - parameter id: (path)  
+     - parameter updateUnitCommand: (body)  
+     - returns: RequestBuilder<Int64> 
+     */
+    open class func unitsUpdateWithRequestBuilder(id: Int64, updateUnitCommand: UpdateUnitCommand) -> RequestBuilder<Int64> {
+        var localVariablePath = "/api/units/{id}"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateUnitCommand)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Int64>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 }

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **emailConfirmed** | **Bool** |  | [optional] 
 **isActive** | **Bool** |  | [optional] 
 **selectedRestaurantId** | **Int64** |  | [optional] 
+**roles** | **[String]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

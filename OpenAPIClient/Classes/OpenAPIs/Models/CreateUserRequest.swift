@@ -29,8 +29,9 @@ public struct CreateUserRequest: Codable, JSONEncodable, Hashable {
     public var emailConfirmed: Bool?
     public var isActive: Bool?
     public var selectedRestaurantId: Int64?
+    public var roles: [String]?
 
-    public init(firstName: String, lastName: String, email: String, userName: String, password: String, confirmPassword: String, phoneNumber: String? = nil, merchantGatewayId: String? = nil, emailConfirmed: Bool? = nil, isActive: Bool? = nil, selectedRestaurantId: Int64? = nil) {
+    public init(firstName: String, lastName: String, email: String, userName: String, password: String, confirmPassword: String, phoneNumber: String? = nil, merchantGatewayId: String? = nil, emailConfirmed: Bool? = nil, isActive: Bool? = nil, selectedRestaurantId: Int64? = nil, roles: [String]? = nil) {
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
@@ -42,6 +43,7 @@ public struct CreateUserRequest: Codable, JSONEncodable, Hashable {
         self.emailConfirmed = emailConfirmed
         self.isActive = isActive
         self.selectedRestaurantId = selectedRestaurantId
+        self.roles = roles
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -56,6 +58,7 @@ public struct CreateUserRequest: Codable, JSONEncodable, Hashable {
         case emailConfirmed
         case isActive
         case selectedRestaurantId
+        case roles
     }
 
     // Encodable protocol methods
@@ -73,6 +76,7 @@ public struct CreateUserRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(emailConfirmed, forKey: .emailConfirmed)
         try container.encodeIfPresent(isActive, forKey: .isActive)
         try container.encodeIfPresent(selectedRestaurantId, forKey: .selectedRestaurantId)
+        try container.encodeIfPresent(roles, forKey: .roles)
     }
 }
 

@@ -18,9 +18,9 @@ public struct GetBatchListPagedQuery: Codable, JSONEncodable, Hashable {
     public var page: Int?
     public var pageSize: Int?
     public var orderBy: [String]?
-    public var status: Int64?
+    public var status: [Int]?
 
-    public init(advancedSearch: BaseFilterAdvancedSearch? = nil, keyword: String? = nil, advancedFilter: BaseFilterAdvancedFilter? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, status: Int64? = nil) {
+    public init(advancedSearch: BaseFilterAdvancedSearch? = nil, keyword: String? = nil, advancedFilter: BaseFilterAdvancedFilter? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, status: [Int]? = nil) {
         self.advancedSearch = advancedSearch
         self.keyword = keyword
         self.advancedFilter = advancedFilter

@@ -1,6 +1,6 @@
 # RestaurantsAPI
 
-All URIs are relative to *https://zwr8hzk4-5001.use.devtunnels.ms*
+All URIs are relative to *https://db27h38l-5001.use.devtunnels.ms*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **restaurantsAddProductToRestaurant**
 ```swift
-    open class func restaurantsAddProductToRestaurant(addProductToRestaurantCommand: AddProductToRestaurantCommand, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func restaurantsAddProductToRestaurant(addProductToRestaurantCommand: AddProductToRestaurantCommand, completion: @escaping (_ data: InventoryItemDto?, _ error: Error?) -> Void)
 ```
 
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-Void (empty response body)
+[**InventoryItemDto**](InventoryItemDto.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ Void (empty response body)
 
 # **restaurantsDelete**
 ```swift
-    open class func restaurantsDelete(id: Int, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func restaurantsDelete(id: Int, completion: @escaping (_ data: Bool?, _ error: Error?) -> Void)
 ```
 
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**URL**
+**Bool**
 
 ### Authorization
 
@@ -104,13 +104,13 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **restaurantsGet**
 ```swift
-    open class func restaurantsGet(id: Int, completion: @escaping (_ data: RestaurantViewModel?, _ error: Error?) -> Void)
+    open class func restaurantsGet(id: Int64, completion: @escaping (_ data: RestaurantDto?, _ error: Error?) -> Void)
 ```
 
 
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let id = 987 // Int | 
+let id = 987 // Int64 | 
 
 RestaurantsAPI.restaurantsGet(id: id) { (response, error) in
     guard error == nil else {
@@ -138,11 +138,11 @@ RestaurantsAPI.restaurantsGet(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** |  | 
+ **id** | **Int64** |  | 
 
 ### Return type
 
-[**RestaurantViewModel**](RestaurantViewModel.md)
+[**RestaurantDto**](RestaurantDto.md)
 
 ### Authorization
 
@@ -243,7 +243,7 @@ This endpoint does not need any parameter.
 
 # **restaurantsImport**
 ```swift
-    open class func restaurantsImport(id: Int, seedRestaurantCommand: SeedRestaurantCommand, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func restaurantsImport(id: Int, seedRestaurantCommand: SeedRestaurantCommand, completion: @escaping (_ data: Bool?, _ error: Error?) -> Void)
 ```
 
 
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**URL**
+**Bool**
 
 ### Authorization
 
@@ -286,13 +286,13 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/octet-stream
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **restaurantsPost**
 ```swift
-    open class func restaurantsPost(createRestaurantCommand: CreateRestaurantCommand, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func restaurantsPost(createRestaurantCommand: CreateRestaurantCommand, completion: @escaping (_ data: Int64?, _ error: Error?) -> Void)
 ```
 
 
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**URL**
+**Int64**
 
 ### Authorization
 
@@ -333,13 +333,13 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/octet-stream
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **restaurantsPut**
 ```swift
-    open class func restaurantsPut(id: Int, updateRestaurantCommand: UpdateRestaurantCommand, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func restaurantsPut(id: Int, updateRestaurantCommand: UpdateRestaurantCommand, completion: @escaping (_ data: Int64?, _ error: Error?) -> Void)
 ```
 
 Update a restaurant
@@ -350,7 +350,7 @@ Update a restaurant
 import OpenAPIClient
 
 let id = 987 // Int | 
-let updateRestaurantCommand = UpdateRestaurantCommand(id: 123, name: "name_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example") // UpdateRestaurantCommand | 
+let updateRestaurantCommand = UpdateRestaurantCommand(id: 123, name: "name_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", showInactiveVendors: false) // UpdateRestaurantCommand | 
 
 // Update a restaurant
 RestaurantsAPI.restaurantsPut(id: id, updateRestaurantCommand: updateRestaurantCommand) { (response, error) in
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**URL**
+**Int64**
 
 ### Authorization
 
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/octet-stream
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

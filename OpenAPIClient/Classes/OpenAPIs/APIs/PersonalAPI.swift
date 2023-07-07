@@ -173,6 +173,57 @@ open class PersonalAPI {
     }
 
     /**
+
+     - returns: AnyPublisher<[VendorDto], Error>
+     */
+    #if canImport(Combine)
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func personalGetCurrentUserVendors() -> AnyPublisher<[VendorDto], Error> {
+        let requestBuilder = personalGetCurrentUserVendorsWithRequestBuilder()
+        let requestTask = requestBuilder.requestTask
+        return Future<[VendorDto], Error> { promise in
+            requestBuilder.execute { result in
+                switch result {
+                case let .success(response):
+                    promise(.success(response.body))
+                case let .failure(error):
+                    promise(.failure(error))
+                }
+            }
+        }
+        .handleEvents(receiveCancel: {
+            requestTask.cancel()
+        })
+        .eraseToAnyPublisher()
+    }
+    #endif
+
+    /**
+     - GET /api/personal/vendors
+     - BASIC:
+       - type: http
+       - name: Bearer
+     - returns: RequestBuilder<[VendorDto]> 
+     */
+    open class func personalGetCurrentUserVendorsWithRequestBuilder() -> RequestBuilder<[VendorDto]> {
+        let localVariablePath = "/api/personal/vendors"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[VendorDto]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Get audit logs of currently logged in user.
      
      - returns: AnyPublisher<[AuditDto], Error>
@@ -389,14 +440,14 @@ open class PersonalAPI {
     /**
 
      - parameter updateUserSettingsCommand: (body)  
-     - returns: AnyPublisher<URL, Error>
+     - returns: AnyPublisher<UserViewModel, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func personalUpdateUserSettings(updateUserSettingsCommand: UpdateUserSettingsCommand) -> AnyPublisher<URL, Error> {
+    open class func personalUpdateUserSettings(updateUserSettingsCommand: UpdateUserSettingsCommand) -> AnyPublisher<UserViewModel, Error> {
         let requestBuilder = personalUpdateUserSettingsWithRequestBuilder(updateUserSettingsCommand: updateUserSettingsCommand)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<UserViewModel, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -419,9 +470,9 @@ open class PersonalAPI {
        - type: http
        - name: Bearer
      - parameter updateUserSettingsCommand: (body)  
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<UserViewModel> 
      */
-    open class func personalUpdateUserSettingsWithRequestBuilder(updateUserSettingsCommand: UpdateUserSettingsCommand) -> RequestBuilder<URL> {
+    open class func personalUpdateUserSettingsWithRequestBuilder(updateUserSettingsCommand: UpdateUserSettingsCommand) -> RequestBuilder<UserViewModel> {
         let localVariablePath = "/api/personal/settings"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateUserSettingsCommand)
@@ -434,7 +485,7 @@ open class PersonalAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

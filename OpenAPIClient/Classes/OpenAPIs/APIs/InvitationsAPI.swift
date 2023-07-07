@@ -18,16 +18,15 @@ open class InvitationsAPI {
     /**
 
      - parameter id: (path)  
-     - parameter acceptInvitationPostViewModel: (body)  
-     - parameter apiVersion: (query)  (optional)
-     - returns: AnyPublisher<URL, Error>
+     - parameter acceptInvitationCommand: (body)  
+     - returns: AnyPublisher<InvitationDto, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func invitationsAcceptInvitation(id: String, acceptInvitationPostViewModel: AcceptInvitationPostViewModel, apiVersion: String? = nil) -> AnyPublisher<URL, Error> {
-        let requestBuilder = invitationsAcceptInvitationWithRequestBuilder(id: id, acceptInvitationPostViewModel: acceptInvitationPostViewModel, apiVersion: apiVersion)
+    open class func invitationsAcceptInvitation(id: String, acceptInvitationCommand: AcceptInvitationCommand) -> AnyPublisher<InvitationDto, Error> {
+        let requestBuilder = invitationsAcceptInvitationWithRequestBuilder(id: id, acceptInvitationCommand: acceptInvitationCommand)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<InvitationDto, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -47,22 +46,18 @@ open class InvitationsAPI {
     /**
      - POST /api/invitations/{id}/accept
      - parameter id: (path)  
-     - parameter acceptInvitationPostViewModel: (body)  
-     - parameter apiVersion: (query)  (optional)
-     - returns: RequestBuilder<URL> 
+     - parameter acceptInvitationCommand: (body)  
+     - returns: RequestBuilder<InvitationDto> 
      */
-    open class func invitationsAcceptInvitationWithRequestBuilder(id: String, acceptInvitationPostViewModel: AcceptInvitationPostViewModel, apiVersion: String? = nil) -> RequestBuilder<URL> {
+    open class func invitationsAcceptInvitationWithRequestBuilder(id: String, acceptInvitationCommand: AcceptInvitationCommand) -> RequestBuilder<InvitationDto> {
         var localVariablePath = "/api/invitations/{id}/accept"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: acceptInvitationPostViewModel)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: acceptInvitationCommand)
 
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "api-version": (wrappedValue: apiVersion?.encodeToJSON(), isExplode: true),
-        ])
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
             :
@@ -70,23 +65,22 @@ open class InvitationsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<InvitationDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
 
     /**
 
-     - parameter createInvitationPostViewModel: (body)  
-     - parameter apiVersion: (query)  (optional)
-     - returns: AnyPublisher<URL, Error>
+     - parameter createInvitationCommand: (body)  
+     - returns: AnyPublisher<InvitationDto, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func invitationsCreateInvitation(createInvitationPostViewModel: CreateInvitationPostViewModel, apiVersion: String? = nil) -> AnyPublisher<URL, Error> {
-        let requestBuilder = invitationsCreateInvitationWithRequestBuilder(createInvitationPostViewModel: createInvitationPostViewModel, apiVersion: apiVersion)
+    open class func invitationsCreateInvitation(createInvitationCommand: CreateInvitationCommand) -> AnyPublisher<InvitationDto, Error> {
+        let requestBuilder = invitationsCreateInvitationWithRequestBuilder(createInvitationCommand: createInvitationCommand)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<InvitationDto, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -108,19 +102,15 @@ open class InvitationsAPI {
      - BASIC:
        - type: http
        - name: Bearer
-     - parameter createInvitationPostViewModel: (body)  
-     - parameter apiVersion: (query)  (optional)
-     - returns: RequestBuilder<URL> 
+     - parameter createInvitationCommand: (body)  
+     - returns: RequestBuilder<InvitationDto> 
      */
-    open class func invitationsCreateInvitationWithRequestBuilder(createInvitationPostViewModel: CreateInvitationPostViewModel, apiVersion: String? = nil) -> RequestBuilder<URL> {
+    open class func invitationsCreateInvitationWithRequestBuilder(createInvitationCommand: CreateInvitationCommand) -> RequestBuilder<InvitationDto> {
         let localVariablePath = "/api/invitations/invite"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createInvitationPostViewModel)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createInvitationCommand)
 
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "api-version": (wrappedValue: apiVersion?.encodeToJSON(), isExplode: true),
-        ])
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
             :
@@ -128,7 +118,7 @@ open class InvitationsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<InvitationDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -136,19 +126,18 @@ open class InvitationsAPI {
     /**
 
      - parameter id: (path)  
-     - parameter apiVersion: (query)  (optional)
-     - returns: AnyPublisher<InvitationViewModel, Error>
+     - returns: AnyPublisher<Void, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func invitationsGet(id: String, apiVersion: String? = nil) -> AnyPublisher<InvitationViewModel, Error> {
-        let requestBuilder = invitationsGetWithRequestBuilder(id: id, apiVersion: apiVersion)
+    open class func invitationsGet(id: String) -> AnyPublisher<Void, Error> {
+        let requestBuilder = invitationsGetWithRequestBuilder(id: id)
         let requestTask = requestBuilder.requestTask
-        return Future<InvitationViewModel, Error> { promise in
+        return Future<Void, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
-                case let .success(response):
-                    promise(.success(response.body))
+                case .success:
+                    promise(.success(()))
                 case let .failure(error):
                     promise(.failure(error))
                 }
@@ -164,10 +153,9 @@ open class InvitationsAPI {
     /**
      - GET /api/invitations/{id}
      - parameter id: (path)  
-     - parameter apiVersion: (query)  (optional)
-     - returns: RequestBuilder<InvitationViewModel> 
+     - returns: RequestBuilder<Void> 
      */
-    open class func invitationsGetWithRequestBuilder(id: String, apiVersion: String? = nil) -> RequestBuilder<InvitationViewModel> {
+    open class func invitationsGetWithRequestBuilder(id: String) -> RequestBuilder<Void> {
         var localVariablePath = "/api/invitations/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -175,10 +163,7 @@ open class InvitationsAPI {
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "api-version": (wrappedValue: apiVersion?.encodeToJSON(), isExplode: true),
-        ])
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
             :
@@ -186,7 +171,7 @@ open class InvitationsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<InvitationViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }

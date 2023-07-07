@@ -18,18 +18,18 @@ open class RestaurantsAPI {
     /**
 
      - parameter addProductToRestaurantCommand: (body)  
-     - returns: AnyPublisher<Void, Error>
+     - returns: AnyPublisher<InventoryItemDto, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func restaurantsAddProductToRestaurant(addProductToRestaurantCommand: AddProductToRestaurantCommand) -> AnyPublisher<Void, Error> {
+    open class func restaurantsAddProductToRestaurant(addProductToRestaurantCommand: AddProductToRestaurantCommand) -> AnyPublisher<InventoryItemDto, Error> {
         let requestBuilder = restaurantsAddProductToRestaurantWithRequestBuilder(addProductToRestaurantCommand: addProductToRestaurantCommand)
         let requestTask = requestBuilder.requestTask
-        return Future<Void, Error> { promise in
+        return Future<InventoryItemDto, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
-                case .success:
-                    promise(.success(()))
+                case let .success(response):
+                    promise(.success(response.body))
                 case let .failure(error):
                     promise(.failure(error))
                 }
@@ -48,9 +48,9 @@ open class RestaurantsAPI {
        - type: http
        - name: Bearer
      - parameter addProductToRestaurantCommand: (body)  
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<InventoryItemDto> 
      */
-    open class func restaurantsAddProductToRestaurantWithRequestBuilder(addProductToRestaurantCommand: AddProductToRestaurantCommand) -> RequestBuilder<Void> {
+    open class func restaurantsAddProductToRestaurantWithRequestBuilder(addProductToRestaurantCommand: AddProductToRestaurantCommand) -> RequestBuilder<InventoryItemDto> {
         let localVariablePath = "/api/restaurants/current/product"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: addProductToRestaurantCommand)
@@ -63,7 +63,7 @@ open class RestaurantsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<InventoryItemDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -71,14 +71,14 @@ open class RestaurantsAPI {
     /**
 
      - parameter id: (path)  
-     - returns: AnyPublisher<URL, Error>
+     - returns: AnyPublisher<Bool, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func restaurantsDelete(id: Int) -> AnyPublisher<URL, Error> {
+    open class func restaurantsDelete(id: Int) -> AnyPublisher<Bool, Error> {
         let requestBuilder = restaurantsDeleteWithRequestBuilder(id: id)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<Bool, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -101,9 +101,9 @@ open class RestaurantsAPI {
        - type: http
        - name: Bearer
      - parameter id: (path)  
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<Bool> 
      */
-    open class func restaurantsDeleteWithRequestBuilder(id: Int) -> RequestBuilder<URL> {
+    open class func restaurantsDeleteWithRequestBuilder(id: Int) -> RequestBuilder<Bool> {
         var localVariablePath = "/api/restaurants/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -119,7 +119,7 @@ open class RestaurantsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Bool>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -127,14 +127,14 @@ open class RestaurantsAPI {
     /**
 
      - parameter id: (path)  
-     - returns: AnyPublisher<RestaurantViewModel, Error>
+     - returns: AnyPublisher<RestaurantDto, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func restaurantsGet(id: Int) -> AnyPublisher<RestaurantViewModel, Error> {
+    open class func restaurantsGet(id: Int64) -> AnyPublisher<RestaurantDto, Error> {
         let requestBuilder = restaurantsGetWithRequestBuilder(id: id)
         let requestTask = requestBuilder.requestTask
-        return Future<RestaurantViewModel, Error> { promise in
+        return Future<RestaurantDto, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -157,9 +157,9 @@ open class RestaurantsAPI {
        - type: http
        - name: Bearer
      - parameter id: (path)  
-     - returns: RequestBuilder<RestaurantViewModel> 
+     - returns: RequestBuilder<RestaurantDto> 
      */
-    open class func restaurantsGetWithRequestBuilder(id: Int) -> RequestBuilder<RestaurantViewModel> {
+    open class func restaurantsGetWithRequestBuilder(id: Int64) -> RequestBuilder<RestaurantDto> {
         var localVariablePath = "/api/restaurants/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -175,7 +175,7 @@ open class RestaurantsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<RestaurantViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RestaurantDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -286,14 +286,14 @@ open class RestaurantsAPI {
 
      - parameter id: (path)  
      - parameter seedRestaurantCommand: (body)  
-     - returns: AnyPublisher<URL, Error>
+     - returns: AnyPublisher<Bool, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func restaurantsImport(id: Int, seedRestaurantCommand: SeedRestaurantCommand) -> AnyPublisher<URL, Error> {
+    open class func restaurantsImport(id: Int, seedRestaurantCommand: SeedRestaurantCommand) -> AnyPublisher<Bool, Error> {
         let requestBuilder = restaurantsImportWithRequestBuilder(id: id, seedRestaurantCommand: seedRestaurantCommand)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<Bool, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -317,9 +317,9 @@ open class RestaurantsAPI {
        - name: Bearer
      - parameter id: (path)  
      - parameter seedRestaurantCommand: (body)  
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<Bool> 
      */
-    open class func restaurantsImportWithRequestBuilder(id: Int, seedRestaurantCommand: SeedRestaurantCommand) -> RequestBuilder<URL> {
+    open class func restaurantsImportWithRequestBuilder(id: Int, seedRestaurantCommand: SeedRestaurantCommand) -> RequestBuilder<Bool> {
         var localVariablePath = "/api/restaurants/{id}/import"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -335,7 +335,7 @@ open class RestaurantsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Bool>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -343,14 +343,14 @@ open class RestaurantsAPI {
     /**
 
      - parameter createRestaurantCommand: (body)  
-     - returns: AnyPublisher<URL, Error>
+     - returns: AnyPublisher<Int64, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func restaurantsPost(createRestaurantCommand: CreateRestaurantCommand) -> AnyPublisher<URL, Error> {
+    open class func restaurantsPost(createRestaurantCommand: CreateRestaurantCommand) -> AnyPublisher<Int64, Error> {
         let requestBuilder = restaurantsPostWithRequestBuilder(createRestaurantCommand: createRestaurantCommand)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<Int64, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -373,9 +373,9 @@ open class RestaurantsAPI {
        - type: http
        - name: Bearer
      - parameter createRestaurantCommand: (body)  
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<Int64> 
      */
-    open class func restaurantsPostWithRequestBuilder(createRestaurantCommand: CreateRestaurantCommand) -> RequestBuilder<URL> {
+    open class func restaurantsPostWithRequestBuilder(createRestaurantCommand: CreateRestaurantCommand) -> RequestBuilder<Int64> {
         let localVariablePath = "/api/restaurants"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createRestaurantCommand)
@@ -388,7 +388,7 @@ open class RestaurantsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Int64>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -398,14 +398,14 @@ open class RestaurantsAPI {
      
      - parameter id: (path)  
      - parameter updateRestaurantCommand: (body)  
-     - returns: AnyPublisher<URL, Error>
+     - returns: AnyPublisher<Int64, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func restaurantsPut(id: Int, updateRestaurantCommand: UpdateRestaurantCommand) -> AnyPublisher<URL, Error> {
+    open class func restaurantsPut(id: Int, updateRestaurantCommand: UpdateRestaurantCommand) -> AnyPublisher<Int64, Error> {
         let requestBuilder = restaurantsPutWithRequestBuilder(id: id, updateRestaurantCommand: updateRestaurantCommand)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<Int64, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -430,9 +430,9 @@ open class RestaurantsAPI {
        - name: Bearer
      - parameter id: (path)  
      - parameter updateRestaurantCommand: (body)  
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<Int64> 
      */
-    open class func restaurantsPutWithRequestBuilder(id: Int, updateRestaurantCommand: UpdateRestaurantCommand) -> RequestBuilder<URL> {
+    open class func restaurantsPutWithRequestBuilder(id: Int, updateRestaurantCommand: UpdateRestaurantCommand) -> RequestBuilder<Int64> {
         var localVariablePath = "/api/restaurants/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -448,7 +448,7 @@ open class RestaurantsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Int64>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

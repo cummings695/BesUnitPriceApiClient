@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Int64** |  | [optional] 
 **createdDate** | **Date** |  | [optional] 
-**totalPrice** | **Float** |  | [optional] 
-**estimatedPrice** | **Float** |  | [optional] 
+**totalPrice** | **Double** |  | [optional] 
+**estimatedPrice** | **Double** |  | [optional] 
 **items** | [OrderItemDto] |  | [optional] 
 **itemsCount** | **Int** |  | [optional] 
 **vendorId** | **Int64** |  | [optional] 

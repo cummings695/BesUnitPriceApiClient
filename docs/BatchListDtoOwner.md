@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **state** | **String** |  | [optional] 
 **zipCode** | **String** |  | [optional] 
 **geoCached** | **Bool** |  | [optional] 
+**showInactiveVendors** | **Bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

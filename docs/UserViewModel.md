@@ -4,9 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] 
-**userName** | **String** |  | 
+**userName** | **String** |  | [optional] 
 **fullName** | **String** |  | [optional] 
-**email** | **String** |  | 
+**email** | **String** |  | [optional] 
 **jobTitle** | **String** |  | [optional] 
 **phoneNumber** | **String** |  | [optional] 
 **configuration** | **String** |  | [optional] 
@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **isLockedOut** | **Bool** |  | [optional] 
 **accountNumber** | **String** |  | [optional] 
 **monthlyPrice** | **Double** |  | [optional] 
-**roles** | **[String]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

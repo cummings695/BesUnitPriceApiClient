@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **deselected** | **Bool** |  | [optional] 
 **price** | **Float** |  | [optional] 
 **unitPrice** | **Float** |  | [optional] 
+**priceType** | [**ProductPriceHistoryType**](ProductPriceHistoryType.md) |  | [optional] 
 **isPreferred** | **Bool** |  | [optional] 
 **manufacturerCode** | **String** |  | [optional] 
 **lastModifiedOn** | **Date** |  | [optional] 

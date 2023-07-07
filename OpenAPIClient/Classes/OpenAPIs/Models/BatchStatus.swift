@@ -14,4 +14,5 @@ import AnyCodable
 public enum BatchStatus: Int, Codable, CaseIterable {
     case _1 = 1
     case _2 = 2
+    case _3 = 3
 }

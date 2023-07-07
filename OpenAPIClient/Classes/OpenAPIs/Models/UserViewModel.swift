@@ -12,12 +12,10 @@ import AnyCodable
 
 public struct UserViewModel: Codable, JSONEncodable, Hashable {
 
-    static let userNameRule = StringRule(minLength: 2, maxLength: 200, pattern: nil)
-    static let emailRule = StringRule(minLength: 0, maxLength: 200, pattern: nil)
     public var id: String?
-    public var userName: String
+    public var userName: String?
     public var fullName: String?
-    public var email: String
+    public var email: String?
     public var jobTitle: String?
     public var phoneNumber: String?
     public var configuration: String?
@@ -26,9 +24,8 @@ public struct UserViewModel: Codable, JSONEncodable, Hashable {
     public var isLockedOut: Bool?
     public var accountNumber: String?
     public var monthlyPrice: Double?
-    public var roles: [String]?
 
-    public init(id: String? = nil, userName: String, fullName: String? = nil, email: String, jobTitle: String? = nil, phoneNumber: String? = nil, configuration: String? = nil, selectedRestaurant: Int? = nil, isEnabled: Bool? = nil, isLockedOut: Bool? = nil, accountNumber: String? = nil, monthlyPrice: Double? = nil, roles: [String]? = nil) {
+    public init(id: String? = nil, userName: String? = nil, fullName: String? = nil, email: String? = nil, jobTitle: String? = nil, phoneNumber: String? = nil, configuration: String? = nil, selectedRestaurant: Int? = nil, isEnabled: Bool? = nil, isLockedOut: Bool? = nil, accountNumber: String? = nil, monthlyPrice: Double? = nil) {
         self.id = id
         self.userName = userName
         self.fullName = fullName
@@ -41,7 +38,6 @@ public struct UserViewModel: Codable, JSONEncodable, Hashable {
         self.isLockedOut = isLockedOut
         self.accountNumber = accountNumber
         self.monthlyPrice = monthlyPrice
-        self.roles = roles
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -57,7 +53,6 @@ public struct UserViewModel: Codable, JSONEncodable, Hashable {
         case isLockedOut
         case accountNumber
         case monthlyPrice
-        case roles
     }
 
     // Encodable protocol methods
@@ -65,9 +60,9 @@ public struct UserViewModel: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(id, forKey: .id)
-        try container.encode(userName, forKey: .userName)
+        try container.encodeIfPresent(userName, forKey: .userName)
         try container.encodeIfPresent(fullName, forKey: .fullName)
-        try container.encode(email, forKey: .email)
+        try container.encodeIfPresent(email, forKey: .email)
         try container.encodeIfPresent(jobTitle, forKey: .jobTitle)
         try container.encodeIfPresent(phoneNumber, forKey: .phoneNumber)
         try container.encodeIfPresent(configuration, forKey: .configuration)
@@ -76,7 +71,6 @@ public struct UserViewModel: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(isLockedOut, forKey: .isLockedOut)
         try container.encodeIfPresent(accountNumber, forKey: .accountNumber)
         try container.encodeIfPresent(monthlyPrice, forKey: .monthlyPrice)
-        try container.encodeIfPresent(roles, forKey: .roles)
     }
 }
 

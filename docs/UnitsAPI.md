@@ -1,15 +1,15 @@
 # UnitsAPI
 
-All URIs are relative to *https://zwr8hzk4-5001.use.devtunnels.ms*
+All URIs are relative to *https://db27h38l-5001.use.devtunnels.ms*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**unitsCreate**](UnitsAPI.md#unitscreate) | **POST** /api/units | Create a new Unit of Measure.
 [**unitsDelete**](UnitsAPI.md#unitsdelete) | **DELETE** /api/units/{id} | Delete a Unit of Measure.
-[**unitsGet**](UnitsAPI.md#unitsget) | **GET** /api/units | Search Units of Measure using available filters.
-[**unitsGet2**](UnitsAPI.md#unitsget2) | **GET** /api/units/{id} | Get a Unit of Measure.
-[**unitsPut**](UnitsAPI.md#unitsput) | **PUT** /api/units/{id} | Update a Unit of Measure.
+[**unitsFind**](UnitsAPI.md#unitsfind) | **GET** /api/units | Search Units of Measure using available filters.
+[**unitsGet**](UnitsAPI.md#unitsget) | **GET** /api/units/{id} | Get a Unit of Measure.
 [**unitsSearch**](UnitsAPI.md#unitssearch) | **POST** /api/units/search | Search Units of Measure using available filters.
+[**unitsUpdate**](UnitsAPI.md#unitsupdate) | **PUT** /api/units/{id} | Update a Unit of Measure.
 
 
 # **unitsCreate**
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **unitsDelete**
 ```swift
-    open class func unitsDelete(id: Int64, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func unitsDelete(id: Int64, completion: @escaping (_ data: Int64?, _ error: Error?) -> Void)
 ```
 
 Delete a Unit of Measure.
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**URL**
+**Int64**
 
 ### Authorization
 
@@ -104,13 +104,13 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **unitsGet**
+# **unitsFind**
 ```swift
-    open class func unitsGet(name: String? = nil, sort: String? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil, completion: @escaping (_ data: PaginationResponseOfUnitDto?, _ error: Error?) -> Void)
+    open class func unitsFind(name: String? = nil, sort: String? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil, completion: @escaping (_ data: PaginationResponseOfUnitDto?, _ error: Error?) -> Void)
 ```
 
 Search Units of Measure using available filters.
@@ -135,7 +135,7 @@ let advancedFilterOperator = "advancedFilterOperator_example" // String |  (opti
 let advancedFilterValue =  // AnyCodable |  (optional)
 
 // Search Units of Measure using available filters.
-UnitsAPI.unitsGet(name: name, sort: sort, page: page, pageSize: pageSize, orderBy: orderBy, advancedSearchFields: advancedSearchFields, advancedSearchKeyword: advancedSearchKeyword, keyword: keyword, advancedFilterLogic: advancedFilterLogic, advancedFilterFilters: advancedFilterFilters, advancedFilterField: advancedFilterField, advancedFilterOperator: advancedFilterOperator, advancedFilterValue: advancedFilterValue) { (response, error) in
+UnitsAPI.unitsFind(name: name, sort: sort, page: page, pageSize: pageSize, orderBy: orderBy, advancedSearchFields: advancedSearchFields, advancedSearchKeyword: advancedSearchKeyword, keyword: keyword, advancedFilterLogic: advancedFilterLogic, advancedFilterFilters: advancedFilterFilters, advancedFilterField: advancedFilterField, advancedFilterOperator: advancedFilterOperator, advancedFilterValue: advancedFilterValue) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -180,9 +180,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **unitsGet2**
+# **unitsGet**
 ```swift
-    open class func unitsGet2(id: Int, completion: @escaping (_ data: UnitDto?, _ error: Error?) -> Void)
+    open class func unitsGet(id: Int64, completion: @escaping (_ data: UnitDto?, _ error: Error?) -> Void)
 ```
 
 Get a Unit of Measure.
@@ -192,10 +192,10 @@ Get a Unit of Measure.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let id = 987 // Int | 
+let id = 987 // Int64 | 
 
 // Get a Unit of Measure.
-UnitsAPI.unitsGet2(id: id) { (response, error) in
+UnitsAPI.unitsGet(id: id) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -211,7 +211,7 @@ UnitsAPI.unitsGet2(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** |  | 
+ **id** | **Int64** |  | 
 
 ### Return type
 
@@ -225,56 +225,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **unitsPut**
-```swift
-    open class func unitsPut(id: Int, updateUnitCommand: UpdateUnitCommand, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
-```
-
-Update a Unit of Measure.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let id = 987 // Int | 
-let updateUnitCommand = UpdateUnitCommand(id: 123, name: "name_example", abbreviation: "abbreviation_example") // UpdateUnitCommand | 
-
-// Update a Unit of Measure.
-UnitsAPI.unitsPut(id: id, updateUnitCommand: updateUnitCommand) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** |  | 
- **updateUnitCommand** | [**UpdateUnitCommand**](UpdateUnitCommand.md) |  | 
-
-### Return type
-
-**URL**
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -314,6 +264,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PaginationResponseOfUnitDto**](PaginationResponseOfUnitDto.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **unitsUpdate**
+```swift
+    open class func unitsUpdate(id: Int64, updateUnitCommand: UpdateUnitCommand, completion: @escaping (_ data: Int64?, _ error: Error?) -> Void)
+```
+
+Update a Unit of Measure.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let id = 987 // Int64 | 
+let updateUnitCommand = UpdateUnitCommand(id: 123, name: "name_example", abbreviation: "abbreviation_example") // UpdateUnitCommand | 
+
+// Update a Unit of Measure.
+UnitsAPI.unitsUpdate(id: id, updateUnitCommand: updateUnitCommand) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int64** |  | 
+ **updateUnitCommand** | [**UpdateUnitCommand**](UpdateUnitCommand.md) |  | 
+
+### Return type
+
+**Int64**
 
 ### Authorization
 

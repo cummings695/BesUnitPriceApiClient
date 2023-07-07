@@ -24,14 +24,14 @@ public struct UserDetailsDto: Codable, JSONEncodable, Hashable {
     public var phoneNumber: String?
     public var createdDate: Date?
     public var merchantGatewayId: String?
-    public var pricingOverride: Double?
+    public var monthlyPrice: Double?
     public var normalizedUserName: String?
     public var normalizedEmail: String?
     public var configuration: String?
     public var lockoutEnd: Date?
     public var selectedRestaurantId: Int64?
 
-    public init(friendlyName: String? = nil, fullName: String? = nil, id: String? = nil, userName: String? = nil, firstName: String? = nil, lastName: String? = nil, email: String? = nil, isEnabled: Bool? = nil, emailConfirmed: Bool? = nil, phoneNumber: String? = nil, createdDate: Date? = nil, merchantGatewayId: String? = nil, pricingOverride: Double? = nil, normalizedUserName: String? = nil, normalizedEmail: String? = nil, configuration: String? = nil, lockoutEnd: Date? = nil, selectedRestaurantId: Int64? = nil) {
+    public init(friendlyName: String? = nil, fullName: String? = nil, id: String? = nil, userName: String? = nil, firstName: String? = nil, lastName: String? = nil, email: String? = nil, isEnabled: Bool? = nil, emailConfirmed: Bool? = nil, phoneNumber: String? = nil, createdDate: Date? = nil, merchantGatewayId: String? = nil, monthlyPrice: Double? = nil, normalizedUserName: String? = nil, normalizedEmail: String? = nil, configuration: String? = nil, lockoutEnd: Date? = nil, selectedRestaurantId: Int64? = nil) {
         self.friendlyName = friendlyName
         self.fullName = fullName
         self.id = id
@@ -44,7 +44,7 @@ public struct UserDetailsDto: Codable, JSONEncodable, Hashable {
         self.phoneNumber = phoneNumber
         self.createdDate = createdDate
         self.merchantGatewayId = merchantGatewayId
-        self.pricingOverride = pricingOverride
+        self.monthlyPrice = monthlyPrice
         self.normalizedUserName = normalizedUserName
         self.normalizedEmail = normalizedEmail
         self.configuration = configuration
@@ -65,7 +65,7 @@ public struct UserDetailsDto: Codable, JSONEncodable, Hashable {
         case phoneNumber
         case createdDate
         case merchantGatewayId
-        case pricingOverride
+        case monthlyPrice
         case normalizedUserName
         case normalizedEmail
         case configuration
@@ -89,7 +89,7 @@ public struct UserDetailsDto: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(phoneNumber, forKey: .phoneNumber)
         try container.encodeIfPresent(createdDate, forKey: .createdDate)
         try container.encodeIfPresent(merchantGatewayId, forKey: .merchantGatewayId)
-        try container.encodeIfPresent(pricingOverride, forKey: .pricingOverride)
+        try container.encodeIfPresent(monthlyPrice, forKey: .monthlyPrice)
         try container.encodeIfPresent(normalizedUserName, forKey: .normalizedUserName)
         try container.encodeIfPresent(normalizedEmail, forKey: .normalizedEmail)
         try container.encodeIfPresent(configuration, forKey: .configuration)

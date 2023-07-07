@@ -1,6 +1,6 @@
 # InvitationsAPI
 
-All URIs are relative to *https://zwr8hzk4-5001.use.devtunnels.ms*
+All URIs are relative to *https://db27h38l-5001.use.devtunnels.ms*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 # **invitationsAcceptInvitation**
 ```swift
-    open class func invitationsAcceptInvitation(id: String, acceptInvitationPostViewModel: AcceptInvitationPostViewModel, apiVersion: String? = nil, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func invitationsAcceptInvitation(id: String, acceptInvitationCommand: AcceptInvitationCommand, completion: @escaping (_ data: InvitationDto?, _ error: Error?) -> Void)
 ```
 
 
@@ -22,10 +22,9 @@ Method | HTTP request | Description
 import OpenAPIClient
 
 let id = "id_example" // String | 
-let acceptInvitationPostViewModel = AcceptInvitationPostViewModel(invitationId: "invitationId_example", firstName: "firstName_example", lastName: "lastName_example", phoneNumber: "phoneNumber_example", password: "password_example") // AcceptInvitationPostViewModel | 
-let apiVersion = "apiVersion_example" // String |  (optional)
+let acceptInvitationCommand = AcceptInvitationCommand(invitationId: "invitationId_example", firstName: "firstName_example", lastName: "lastName_example", phoneNumber: "phoneNumber_example", password: "password_example") // AcceptInvitationCommand | 
 
-InvitationsAPI.invitationsAcceptInvitation(id: id, acceptInvitationPostViewModel: acceptInvitationPostViewModel, apiVersion: apiVersion) { (response, error) in
+InvitationsAPI.invitationsAcceptInvitation(id: id, acceptInvitationCommand: acceptInvitationCommand) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -42,12 +41,11 @@ InvitationsAPI.invitationsAcceptInvitation(id: id, acceptInvitationPostViewModel
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String** |  | 
- **acceptInvitationPostViewModel** | [**AcceptInvitationPostViewModel**](AcceptInvitationPostViewModel.md) |  | 
- **apiVersion** | **String** |  | [optional] 
+ **acceptInvitationCommand** | [**AcceptInvitationCommand**](AcceptInvitationCommand.md) |  | 
 
 ### Return type
 
-**URL**
+[**InvitationDto**](InvitationDto.md)
 
 ### Authorization
 
@@ -56,13 +54,13 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/octet-stream
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **invitationsCreateInvitation**
 ```swift
-    open class func invitationsCreateInvitation(createInvitationPostViewModel: CreateInvitationPostViewModel, apiVersion: String? = nil, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func invitationsCreateInvitation(createInvitationCommand: CreateInvitationCommand, completion: @escaping (_ data: InvitationDto?, _ error: Error?) -> Void)
 ```
 
 
@@ -72,10 +70,9 @@ No authorization required
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let createInvitationPostViewModel = CreateInvitationPostViewModel(restaurantId: 123, email: "email_example") // CreateInvitationPostViewModel | 
-let apiVersion = "apiVersion_example" // String |  (optional)
+let createInvitationCommand = CreateInvitationCommand(restaurantId: 123, email: "email_example", role: "role_example", vendor: 123) // CreateInvitationCommand | 
 
-InvitationsAPI.invitationsCreateInvitation(createInvitationPostViewModel: createInvitationPostViewModel, apiVersion: apiVersion) { (response, error) in
+InvitationsAPI.invitationsCreateInvitation(createInvitationCommand: createInvitationCommand) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -91,12 +88,11 @@ InvitationsAPI.invitationsCreateInvitation(createInvitationPostViewModel: create
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createInvitationPostViewModel** | [**CreateInvitationPostViewModel**](CreateInvitationPostViewModel.md) |  | 
- **apiVersion** | **String** |  | [optional] 
+ **createInvitationCommand** | [**CreateInvitationCommand**](CreateInvitationCommand.md) |  | 
 
 ### Return type
 
-**URL**
+[**InvitationDto**](InvitationDto.md)
 
 ### Authorization
 
@@ -105,13 +101,13 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/octet-stream
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **invitationsGet**
 ```swift
-    open class func invitationsGet(id: String, apiVersion: String? = nil, completion: @escaping (_ data: InvitationViewModel?, _ error: Error?) -> Void)
+    open class func invitationsGet(id: String, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
 ```
 
 
@@ -122,9 +118,8 @@ Name | Type | Description  | Notes
 import OpenAPIClient
 
 let id = "id_example" // String | 
-let apiVersion = "apiVersion_example" // String |  (optional)
 
-InvitationsAPI.invitationsGet(id: id, apiVersion: apiVersion) { (response, error) in
+InvitationsAPI.invitationsGet(id: id) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -141,11 +136,10 @@ InvitationsAPI.invitationsGet(id: id, apiVersion: apiVersion) { (response, error
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String** |  | 
- **apiVersion** | **String** |  | [optional] 
 
 ### Return type
 
-[**InvitationViewModel**](InvitationViewModel.md)
+Void (empty response body)
 
 ### Authorization
 

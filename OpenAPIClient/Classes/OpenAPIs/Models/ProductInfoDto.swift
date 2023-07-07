@@ -24,11 +24,12 @@ public struct ProductInfoDto: Codable, JSONEncodable, Hashable {
     public var deselected: Bool?
     public var price: Double?
     public var unitPrice: Double?
+    public var priceType: Int?
     public var isPreferred: Bool?
     public var manufacturerCode: String?
     public var lastModifiedOn: Date?
 
-    public init(id: Int64? = nil, orderCode: String? = nil, brand: String? = nil, quantity: Double? = nil, description: String? = nil, vendorDescription: String? = nil, count: Double? = nil, unitOfMeasureId: Int64? = nil, unitOfMeasure: ProductInfoDtoUnitOfMeasure? = nil, deselected: Bool? = nil, price: Double? = nil, unitPrice: Double? = nil, isPreferred: Bool? = nil, manufacturerCode: String? = nil, lastModifiedOn: Date? = nil) {
+    public init(id: Int64? = nil, orderCode: String? = nil, brand: String? = nil, quantity: Double? = nil, description: String? = nil, vendorDescription: String? = nil, count: Double? = nil, unitOfMeasureId: Int64? = nil, unitOfMeasure: ProductInfoDtoUnitOfMeasure? = nil, deselected: Bool? = nil, price: Double? = nil, unitPrice: Double? = nil, priceType: Int? = nil, isPreferred: Bool? = nil, manufacturerCode: String? = nil, lastModifiedOn: Date? = nil) {
         self.id = id
         self.orderCode = orderCode
         self.brand = brand
@@ -41,6 +42,7 @@ public struct ProductInfoDto: Codable, JSONEncodable, Hashable {
         self.deselected = deselected
         self.price = price
         self.unitPrice = unitPrice
+        self.priceType = priceType
         self.isPreferred = isPreferred
         self.manufacturerCode = manufacturerCode
         self.lastModifiedOn = lastModifiedOn
@@ -59,6 +61,7 @@ public struct ProductInfoDto: Codable, JSONEncodable, Hashable {
         case deselected
         case price
         case unitPrice
+        case priceType
         case isPreferred
         case manufacturerCode
         case lastModifiedOn
@@ -80,6 +83,7 @@ public struct ProductInfoDto: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(deselected, forKey: .deselected)
         try container.encodeIfPresent(price, forKey: .price)
         try container.encodeIfPresent(unitPrice, forKey: .unitPrice)
+        try container.encodeIfPresent(priceType, forKey: .priceType)
         try container.encodeIfPresent(isPreferred, forKey: .isPreferred)
         try container.encodeIfPresent(manufacturerCode, forKey: .manufacturerCode)
         try container.encodeIfPresent(lastModifiedOn, forKey: .lastModifiedOn)

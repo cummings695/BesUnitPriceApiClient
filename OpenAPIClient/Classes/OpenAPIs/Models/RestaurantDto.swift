@@ -20,8 +20,9 @@ public struct RestaurantDto: Codable, JSONEncodable, Hashable {
     public var state: String?
     public var zipCode: String?
     public var geoCached: Bool?
+    public var showInactiveVendors: Bool?
 
-    public init(id: Int64? = nil, name: String? = nil, addressLine1: String? = nil, addressLine2: String? = nil, city: String? = nil, state: String? = nil, zipCode: String? = nil, geoCached: Bool? = nil) {
+    public init(id: Int64? = nil, name: String? = nil, addressLine1: String? = nil, addressLine2: String? = nil, city: String? = nil, state: String? = nil, zipCode: String? = nil, geoCached: Bool? = nil, showInactiveVendors: Bool? = nil) {
         self.id = id
         self.name = name
         self.addressLine1 = addressLine1
@@ -30,6 +31,7 @@ public struct RestaurantDto: Codable, JSONEncodable, Hashable {
         self.state = state
         self.zipCode = zipCode
         self.geoCached = geoCached
+        self.showInactiveVendors = showInactiveVendors
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -41,6 +43,7 @@ public struct RestaurantDto: Codable, JSONEncodable, Hashable {
         case state
         case zipCode
         case geoCached
+        case showInactiveVendors
     }
 
     // Encodable protocol methods
@@ -55,6 +58,7 @@ public struct RestaurantDto: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(state, forKey: .state)
         try container.encodeIfPresent(zipCode, forKey: .zipCode)
         try container.encodeIfPresent(geoCached, forKey: .geoCached)
+        try container.encodeIfPresent(showInactiveVendors, forKey: .showInactiveVendors)
     }
 }
 

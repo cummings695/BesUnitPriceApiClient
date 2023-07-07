@@ -17,16 +17,15 @@ open class RestaurantUsersAPI {
 
     /**
 
-     - parameter createInvitationPostViewModel: (body)  
-     - parameter apiVersion: (query)  (optional)
-     - returns: AnyPublisher<URL, Error>
+     - parameter createInvitationCommand: (body)  
+     - returns: AnyPublisher<InvitationDto, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func restaurantUsersCreateInvitation(createInvitationPostViewModel: CreateInvitationPostViewModel, apiVersion: String? = nil) -> AnyPublisher<URL, Error> {
-        let requestBuilder = restaurantUsersCreateInvitationWithRequestBuilder(createInvitationPostViewModel: createInvitationPostViewModel, apiVersion: apiVersion)
+    open class func restaurantUsersCreateInvitation(createInvitationCommand: CreateInvitationCommand) -> AnyPublisher<InvitationDto, Error> {
+        let requestBuilder = restaurantUsersCreateInvitationWithRequestBuilder(createInvitationCommand: createInvitationCommand)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<InvitationDto, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -48,19 +47,15 @@ open class RestaurantUsersAPI {
      - BASIC:
        - type: http
        - name: Bearer
-     - parameter createInvitationPostViewModel: (body)  
-     - parameter apiVersion: (query)  (optional)
-     - returns: RequestBuilder<URL> 
+     - parameter createInvitationCommand: (body)  
+     - returns: RequestBuilder<InvitationDto> 
      */
-    open class func restaurantUsersCreateInvitationWithRequestBuilder(createInvitationPostViewModel: CreateInvitationPostViewModel, apiVersion: String? = nil) -> RequestBuilder<URL> {
+    open class func restaurantUsersCreateInvitationWithRequestBuilder(createInvitationCommand: CreateInvitationCommand) -> RequestBuilder<InvitationDto> {
         let localVariablePath = "/api/restaurantusers/invite"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createInvitationPostViewModel)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createInvitationCommand)
 
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "api-version": (wrappedValue: apiVersion?.encodeToJSON(), isExplode: true),
-        ])
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
             :
@@ -68,7 +63,7 @@ open class RestaurantUsersAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<InvitationDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -77,13 +72,12 @@ open class RestaurantUsersAPI {
 
      - parameter id: (path)  
      - parameter restaurantId: (query)  (optional)
-     - parameter apiVersion: (query)  (optional)
      - returns: AnyPublisher<URL, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func restaurantUsersDelete(id: String, restaurantId: Int64? = nil, apiVersion: String? = nil) -> AnyPublisher<URL, Error> {
-        let requestBuilder = restaurantUsersDeleteWithRequestBuilder(id: id, restaurantId: restaurantId, apiVersion: apiVersion)
+    open class func restaurantUsersDelete(id: String, restaurantId: Int64? = nil) -> AnyPublisher<URL, Error> {
+        let requestBuilder = restaurantUsersDeleteWithRequestBuilder(id: id, restaurantId: restaurantId)
         let requestTask = requestBuilder.requestTask
         return Future<URL, Error> { promise in
             requestBuilder.execute { result in
@@ -109,10 +103,9 @@ open class RestaurantUsersAPI {
        - name: Bearer
      - parameter id: (path)  
      - parameter restaurantId: (query)  (optional)
-     - parameter apiVersion: (query)  (optional)
      - returns: RequestBuilder<URL> 
      */
-    open class func restaurantUsersDeleteWithRequestBuilder(id: String, restaurantId: Int64? = nil, apiVersion: String? = nil) -> RequestBuilder<URL> {
+    open class func restaurantUsersDeleteWithRequestBuilder(id: String, restaurantId: Int64? = nil) -> RequestBuilder<URL> {
         var localVariablePath = "/api/restaurantusers/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -123,7 +116,6 @@ open class RestaurantUsersAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "restaurantId": (wrappedValue: restaurantId?.encodeToJSON(), isExplode: true),
-            "api-version": (wrappedValue: apiVersion?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -140,15 +132,14 @@ open class RestaurantUsersAPI {
     /**
 
      - parameter restaurantId: (query)  (optional)
-     - parameter apiVersion: (query)  (optional)
-     - returns: AnyPublisher<UserViewModel, Error>
+     - returns: AnyPublisher<[RestaurantUserDto], Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func restaurantUsersGet(restaurantId: Int64? = nil, apiVersion: String? = nil) -> AnyPublisher<UserViewModel, Error> {
-        let requestBuilder = restaurantUsersGetWithRequestBuilder(restaurantId: restaurantId, apiVersion: apiVersion)
+    open class func restaurantUsersGet(restaurantId: Int64? = nil) -> AnyPublisher<[RestaurantUserDto], Error> {
+        let requestBuilder = restaurantUsersGetWithRequestBuilder(restaurantId: restaurantId)
         let requestTask = requestBuilder.requestTask
-        return Future<UserViewModel, Error> { promise in
+        return Future<[RestaurantUserDto], Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -171,10 +162,9 @@ open class RestaurantUsersAPI {
        - type: http
        - name: Bearer
      - parameter restaurantId: (query)  (optional)
-     - parameter apiVersion: (query)  (optional)
-     - returns: RequestBuilder<UserViewModel> 
+     - returns: RequestBuilder<[RestaurantUserDto]> 
      */
-    open class func restaurantUsersGetWithRequestBuilder(restaurantId: Int64? = nil, apiVersion: String? = nil) -> RequestBuilder<UserViewModel> {
+    open class func restaurantUsersGetWithRequestBuilder(restaurantId: Int64? = nil) -> RequestBuilder<[RestaurantUserDto]> {
         let localVariablePath = "/api/restaurantusers"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -182,7 +172,6 @@ open class RestaurantUsersAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "restaurantId": (wrappedValue: restaurantId?.encodeToJSON(), isExplode: true),
-            "api-version": (wrappedValue: apiVersion?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -191,7 +180,7 @@ open class RestaurantUsersAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[RestaurantUserDto]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -200,13 +189,12 @@ open class RestaurantUsersAPI {
 
      - parameter restaurantId: (query)  (optional)
      - parameter userId: (query)  (optional)
-     - parameter apiVersion: (query)  (optional)
      - returns: AnyPublisher<URL, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func restaurantUsersPost(restaurantId: Int64? = nil, userId: String? = nil, apiVersion: String? = nil) -> AnyPublisher<URL, Error> {
-        let requestBuilder = restaurantUsersPostWithRequestBuilder(restaurantId: restaurantId, userId: userId, apiVersion: apiVersion)
+    open class func restaurantUsersPost(restaurantId: Int64? = nil, userId: String? = nil) -> AnyPublisher<URL, Error> {
+        let requestBuilder = restaurantUsersPostWithRequestBuilder(restaurantId: restaurantId, userId: userId)
         let requestTask = requestBuilder.requestTask
         return Future<URL, Error> { promise in
             requestBuilder.execute { result in
@@ -232,10 +220,9 @@ open class RestaurantUsersAPI {
        - name: Bearer
      - parameter restaurantId: (query)  (optional)
      - parameter userId: (query)  (optional)
-     - parameter apiVersion: (query)  (optional)
      - returns: RequestBuilder<URL> 
      */
-    open class func restaurantUsersPostWithRequestBuilder(restaurantId: Int64? = nil, userId: String? = nil, apiVersion: String? = nil) -> RequestBuilder<URL> {
+    open class func restaurantUsersPostWithRequestBuilder(restaurantId: Int64? = nil, userId: String? = nil) -> RequestBuilder<URL> {
         let localVariablePath = "/api/restaurantusers"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -244,7 +231,6 @@ open class RestaurantUsersAPI {
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "restaurantId": (wrappedValue: restaurantId?.encodeToJSON(), isExplode: true),
             "userId": (wrappedValue: userId?.encodeToJSON(), isExplode: true),
-            "api-version": (wrappedValue: apiVersion?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [

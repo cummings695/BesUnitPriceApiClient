@@ -341,14 +341,14 @@ open class OrdersAPI {
      - parameter id: (path)  
      - parameter status: (path)  
      - parameter apiVersion: (query)  (optional)
-     - returns: AnyPublisher<URL, Error>
+     - returns: AnyPublisher<OrderDto, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func ordersUpdateStatus(id: Int64, status: OrderStatus, apiVersion: String? = nil) -> AnyPublisher<URL, Error> {
+    open class func ordersUpdateStatus(id: Int64, status: OrderStatus, apiVersion: String? = nil) -> AnyPublisher<OrderDto, Error> {
         let requestBuilder = ordersUpdateStatusWithRequestBuilder(id: id, status: status, apiVersion: apiVersion)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<OrderDto, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -373,9 +373,9 @@ open class OrdersAPI {
      - parameter id: (path)  
      - parameter status: (path)  
      - parameter apiVersion: (query)  (optional)
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<OrderDto> 
      */
-    open class func ordersUpdateStatusWithRequestBuilder(id: Int64, status: OrderStatus, apiVersion: String? = nil) -> RequestBuilder<URL> {
+    open class func ordersUpdateStatusWithRequestBuilder(id: Int64, status: OrderStatus, apiVersion: String? = nil) -> RequestBuilder<OrderDto> {
         var localVariablePath = "/api/orders/{id}/status/{status}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -397,7 +397,7 @@ open class OrdersAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<OrderDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

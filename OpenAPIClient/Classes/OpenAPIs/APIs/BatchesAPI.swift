@@ -209,7 +209,7 @@ open class BatchesAPI {
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func batchesGet(status: Int64? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> AnyPublisher<PaginationResponseOfBatchListDto, Error> {
+    open class func batchesGet(status: [Int]? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> AnyPublisher<PaginationResponseOfBatchListDto, Error> {
         let requestBuilder = batchesGetWithRequestBuilder(status: status, page: page, pageSize: pageSize, orderBy: orderBy, advancedSearchFields: advancedSearchFields, advancedSearchKeyword: advancedSearchKeyword, keyword: keyword, advancedFilterLogic: advancedFilterLogic, advancedFilterFilters: advancedFilterFilters, advancedFilterField: advancedFilterField, advancedFilterOperator: advancedFilterOperator, advancedFilterValue: advancedFilterValue)
         let requestTask = requestBuilder.requestTask
         return Future<PaginationResponseOfBatchListDto, Error> { promise in
@@ -249,7 +249,7 @@ open class BatchesAPI {
      - parameter advancedFilterValue: (query)  (optional)
      - returns: RequestBuilder<PaginationResponseOfBatchListDto> 
      */
-    open class func batchesGetWithRequestBuilder(status: Int64? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> RequestBuilder<PaginationResponseOfBatchListDto> {
+    open class func batchesGetWithRequestBuilder(status: [Int]? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> RequestBuilder<PaginationResponseOfBatchListDto> {
         let localVariablePath = "/api/batches"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -451,15 +451,14 @@ open class BatchesAPI {
 
     /**
 
-     - parameter hydrationLevel: (query)  (optional, default to 2)
-     - returns: AnyPublisher<BatchViewModel, Error>
+     - returns: AnyPublisher<BatchDto, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func batchesGetPending(hydrationLevel: Int? = nil) -> AnyPublisher<BatchViewModel, Error> {
-        let requestBuilder = batchesGetPendingWithRequestBuilder(hydrationLevel: hydrationLevel)
+    open class func batchesGetPending() -> AnyPublisher<BatchDto, Error> {
+        let requestBuilder = batchesGetPendingWithRequestBuilder()
         let requestTask = requestBuilder.requestTask
-        return Future<BatchViewModel, Error> { promise in
+        return Future<BatchDto, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -481,18 +480,14 @@ open class BatchesAPI {
      - BASIC:
        - type: http
        - name: Bearer
-     - parameter hydrationLevel: (query)  (optional, default to 2)
-     - returns: RequestBuilder<BatchViewModel> 
+     - returns: RequestBuilder<BatchDto> 
      */
-    open class func batchesGetPendingWithRequestBuilder(hydrationLevel: Int? = nil) -> RequestBuilder<BatchViewModel> {
+    open class func batchesGetPendingWithRequestBuilder() -> RequestBuilder<BatchDto> {
         let localVariablePath = "/api/batches/pending"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "hydrationLevel": (wrappedValue: hydrationLevel?.encodeToJSON(), isExplode: true),
-        ])
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
             :
@@ -500,7 +495,7 @@ open class BatchesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BatchViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BatchDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -733,14 +728,14 @@ open class BatchesAPI {
 
      - parameter id: (path)  
      - parameter statusCode: (path)  
-     - returns: AnyPublisher<BatchViewModel, Error>
+     - returns: AnyPublisher<BatchDto, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func batchesUpdateStatus(id: Int64, statusCode: String) -> AnyPublisher<BatchViewModel, Error> {
+    open class func batchesUpdateStatus(id: Int64, statusCode: String) -> AnyPublisher<BatchDto, Error> {
         let requestBuilder = batchesUpdateStatusWithRequestBuilder(id: id, statusCode: statusCode)
         let requestTask = requestBuilder.requestTask
-        return Future<BatchViewModel, Error> { promise in
+        return Future<BatchDto, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -764,9 +759,9 @@ open class BatchesAPI {
        - name: Bearer
      - parameter id: (path)  
      - parameter statusCode: (path)  
-     - returns: RequestBuilder<BatchViewModel> 
+     - returns: RequestBuilder<BatchDto> 
      */
-    open class func batchesUpdateStatusWithRequestBuilder(id: Int64, statusCode: String) -> RequestBuilder<BatchViewModel> {
+    open class func batchesUpdateStatusWithRequestBuilder(id: Int64, statusCode: String) -> RequestBuilder<BatchDto> {
         var localVariablePath = "/api/batches/{id}/status/{statusCode}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -785,7 +780,7 @@ open class BatchesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BatchViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BatchDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

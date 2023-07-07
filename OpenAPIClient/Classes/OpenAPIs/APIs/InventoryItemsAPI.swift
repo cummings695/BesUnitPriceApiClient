@@ -70,17 +70,17 @@ open class InventoryItemsAPI {
 
     /**
 
-     - parameter id: (path)  
+     - parameter inventoryItemId: (path)  
      - parameter vendorId: (path)  
      - parameter createInventoryItemVendorPriceCommand: (body)  
-     - returns: AnyPublisher<URL, Error>
+     - returns: AnyPublisher<InventoryItemDto, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func inventoryItemsAddVendor(id: String, vendorId: String, createInventoryItemVendorPriceCommand: CreateInventoryItemVendorPriceCommand) -> AnyPublisher<URL, Error> {
-        let requestBuilder = inventoryItemsAddVendorWithRequestBuilder(id: id, vendorId: vendorId, createInventoryItemVendorPriceCommand: createInventoryItemVendorPriceCommand)
+    open class func inventoryItemsAddVendor(inventoryItemId: Int64, vendorId: Int64, createInventoryItemVendorPriceCommand: CreateInventoryItemVendorPriceCommand) -> AnyPublisher<InventoryItemDto, Error> {
+        let requestBuilder = inventoryItemsAddVendorWithRequestBuilder(inventoryItemId: inventoryItemId, vendorId: vendorId, createInventoryItemVendorPriceCommand: createInventoryItemVendorPriceCommand)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<InventoryItemDto, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -98,20 +98,20 @@ open class InventoryItemsAPI {
     #endif
 
     /**
-     - POST /api/inventoryitems/{id}/vendor/{vendorId}
+     - POST /api/inventoryitems/{inventoryItemId}/vendor/{vendorId}
      - BASIC:
        - type: http
        - name: Bearer
-     - parameter id: (path)  
+     - parameter inventoryItemId: (path)  
      - parameter vendorId: (path)  
      - parameter createInventoryItemVendorPriceCommand: (body)  
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<InventoryItemDto> 
      */
-    open class func inventoryItemsAddVendorWithRequestBuilder(id: String, vendorId: String, createInventoryItemVendorPriceCommand: CreateInventoryItemVendorPriceCommand) -> RequestBuilder<URL> {
-        var localVariablePath = "/api/inventoryitems/{id}/vendor/{vendorId}"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+    open class func inventoryItemsAddVendorWithRequestBuilder(inventoryItemId: Int64, vendorId: Int64, createInventoryItemVendorPriceCommand: CreateInventoryItemVendorPriceCommand) -> RequestBuilder<InventoryItemDto> {
+        var localVariablePath = "/api/inventoryitems/{inventoryItemId}/vendor/{vendorId}"
+        let inventoryItemIdPreEscape = "\(APIHelper.mapValueToPathItem(inventoryItemId))"
+        let inventoryItemIdPostEscape = inventoryItemIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{inventoryItemId}", with: inventoryItemIdPostEscape, options: .literal, range: nil)
         let vendorIdPreEscape = "\(APIHelper.mapValueToPathItem(vendorId))"
         let vendorIdPostEscape = vendorIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{vendorId}", with: vendorIdPostEscape, options: .literal, range: nil)
@@ -126,7 +126,62 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<InventoryItemDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Create a new Inventory Item.
+     
+     - parameter createInventoryItemCommand: (body)  
+     - returns: AnyPublisher<InventoryItemDto, Error>
+     */
+    #if canImport(Combine)
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func inventoryItemsCreate(createInventoryItemCommand: CreateInventoryItemCommand) -> AnyPublisher<InventoryItemDto, Error> {
+        let requestBuilder = inventoryItemsCreateWithRequestBuilder(createInventoryItemCommand: createInventoryItemCommand)
+        let requestTask = requestBuilder.requestTask
+        return Future<InventoryItemDto, Error> { promise in
+            requestBuilder.execute { result in
+                switch result {
+                case let .success(response):
+                    promise(.success(response.body))
+                case let .failure(error):
+                    promise(.failure(error))
+                }
+            }
+        }
+        .handleEvents(receiveCancel: {
+            requestTask.cancel()
+        })
+        .eraseToAnyPublisher()
+    }
+    #endif
+
+    /**
+     Create a new Inventory Item.
+     - POST /api/inventoryitems
+     - BASIC:
+       - type: http
+       - name: Bearer
+     - parameter createInventoryItemCommand: (body)  
+     - returns: RequestBuilder<InventoryItemDto> 
+     */
+    open class func inventoryItemsCreateWithRequestBuilder(createInventoryItemCommand: CreateInventoryItemCommand) -> RequestBuilder<InventoryItemDto> {
+        let localVariablePath = "/api/inventoryitems"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createInventoryItemCommand)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InventoryItemDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -191,14 +246,14 @@ open class InventoryItemsAPI {
 
      - parameter id: (path)  
      - parameter productPriceId: (path)  
-     - returns: AnyPublisher<URL, Error>
+     - returns: AnyPublisher<InventoryItemDto, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func inventoryItemsDeleteVendor(id: Int64, productPriceId: Int64) -> AnyPublisher<URL, Error> {
+    open class func inventoryItemsDeleteVendor(id: Int64, productPriceId: Int64) -> AnyPublisher<InventoryItemDto, Error> {
         let requestBuilder = inventoryItemsDeleteVendorWithRequestBuilder(id: id, productPriceId: productPriceId)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<InventoryItemDto, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -222,9 +277,9 @@ open class InventoryItemsAPI {
        - name: Bearer
      - parameter id: (path)  
      - parameter productPriceId: (path)  
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<InventoryItemDto> 
      */
-    open class func inventoryItemsDeleteVendorWithRequestBuilder(id: Int64, productPriceId: Int64) -> RequestBuilder<URL> {
+    open class func inventoryItemsDeleteVendorWithRequestBuilder(id: Int64, productPriceId: Int64) -> RequestBuilder<InventoryItemDto> {
         var localVariablePath = "/api/inventoryitems/{id}/vendor/{productPriceId}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -243,7 +298,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<InventoryItemDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -259,18 +314,18 @@ open class InventoryItemsAPI {
      - parameter page: (query)  (optional)
      - parameter pageSize: (query)  (optional)
      - parameter sort: (query)  (optional)
-     - returns: AnyPublisher<PaginatedListViewModelOfInventoryItemDto, Error>
+     - returns: AnyPublisher<Void, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func inventoryItemsFind(zoneId: Int64? = nil, name: String? = nil, orderCode: String? = nil, restaurantId: Int64? = nil, hydrationLevel: Int? = nil, active: Bool? = nil, page: Int? = nil, pageSize: Int? = nil, sort: String? = nil) -> AnyPublisher<PaginatedListViewModelOfInventoryItemDto, Error> {
+    open class func inventoryItemsFind(zoneId: Int64? = nil, name: String? = nil, orderCode: String? = nil, restaurantId: Int64? = nil, hydrationLevel: Int? = nil, active: Bool? = nil, page: Int? = nil, pageSize: Int? = nil, sort: String? = nil) -> AnyPublisher<Void, Error> {
         let requestBuilder = inventoryItemsFindWithRequestBuilder(zoneId: zoneId, name: name, orderCode: orderCode, restaurantId: restaurantId, hydrationLevel: hydrationLevel, active: active, page: page, pageSize: pageSize, sort: sort)
         let requestTask = requestBuilder.requestTask
-        return Future<PaginatedListViewModelOfInventoryItemDto, Error> { promise in
+        return Future<Void, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
-                case let .success(response):
-                    promise(.success(response.body))
+                case .success:
+                    promise(.success(()))
                 case let .failure(error):
                     promise(.failure(error))
                 }
@@ -297,9 +352,9 @@ open class InventoryItemsAPI {
      - parameter page: (query)  (optional)
      - parameter pageSize: (query)  (optional)
      - parameter sort: (query)  (optional)
-     - returns: RequestBuilder<PaginatedListViewModelOfInventoryItemDto> 
+     - returns: RequestBuilder<Void> 
      */
-    open class func inventoryItemsFindWithRequestBuilder(zoneId: Int64? = nil, name: String? = nil, orderCode: String? = nil, restaurantId: Int64? = nil, hydrationLevel: Int? = nil, active: Bool? = nil, page: Int? = nil, pageSize: Int? = nil, sort: String? = nil) -> RequestBuilder<PaginatedListViewModelOfInventoryItemDto> {
+    open class func inventoryItemsFindWithRequestBuilder(zoneId: Int64? = nil, name: String? = nil, orderCode: String? = nil, restaurantId: Int64? = nil, hydrationLevel: Int? = nil, active: Bool? = nil, page: Int? = nil, pageSize: Int? = nil, sort: String? = nil) -> RequestBuilder<Void> {
         let localVariablePath = "/api/inventoryitems"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -323,7 +378,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedListViewModelOfInventoryItemDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -387,14 +442,14 @@ open class InventoryItemsAPI {
     /**
 
      - parameter id: (path)  
-     - returns: AnyPublisher<URL, Error>
+     - returns: AnyPublisher<VendorSuggestionsViewModel, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func inventoryItemsGetAveragePricing(id: Int64) -> AnyPublisher<URL, Error> {
+    open class func inventoryItemsGetAveragePricing(id: Int64) -> AnyPublisher<VendorSuggestionsViewModel, Error> {
         let requestBuilder = inventoryItemsGetAveragePricingWithRequestBuilder(id: id)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<VendorSuggestionsViewModel, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -417,9 +472,9 @@ open class InventoryItemsAPI {
        - type: http
        - name: Bearer
      - parameter id: (path)  
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<VendorSuggestionsViewModel> 
      */
-    open class func inventoryItemsGetAveragePricingWithRequestBuilder(id: Int64) -> RequestBuilder<URL> {
+    open class func inventoryItemsGetAveragePricingWithRequestBuilder(id: Int64) -> RequestBuilder<VendorSuggestionsViewModel> {
         var localVariablePath = "/api/inventoryitems/{id}/price/average"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -435,7 +490,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<VendorSuggestionsViewModel>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -443,12 +498,12 @@ open class InventoryItemsAPI {
     /**
 
      - parameter id: (path)  
-     - parameter vendorId: (query)  (optional)
+     - parameter vendorId: (path)  
      - returns: AnyPublisher<URL, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func inventoryItemsGetAverageVendorPricing(id: Int64, vendorId: Int64? = nil) -> AnyPublisher<URL, Error> {
+    open class func inventoryItemsGetAverageVendorPricing(id: Int64, vendorId: Int64) -> AnyPublisher<URL, Error> {
         let requestBuilder = inventoryItemsGetAverageVendorPricingWithRequestBuilder(id: id, vendorId: vendorId)
         let requestTask = requestBuilder.requestTask
         return Future<URL, Error> { promise in
@@ -469,26 +524,26 @@ open class InventoryItemsAPI {
     #endif
 
     /**
-     - GET /api/inventoryitems/{id}/vendor/price/average
+     - GET /api/inventoryitems/{id}/vendor/{vendorId}/price/average
      - BASIC:
        - type: http
        - name: Bearer
      - parameter id: (path)  
-     - parameter vendorId: (query)  (optional)
+     - parameter vendorId: (path)  
      - returns: RequestBuilder<URL> 
      */
-    open class func inventoryItemsGetAverageVendorPricingWithRequestBuilder(id: Int64, vendorId: Int64? = nil) -> RequestBuilder<URL> {
-        var localVariablePath = "/api/inventoryitems/{id}/vendor/price/average"
+    open class func inventoryItemsGetAverageVendorPricingWithRequestBuilder(id: Int64, vendorId: Int64) -> RequestBuilder<URL> {
+        var localVariablePath = "/api/inventoryitems/{id}/vendor/{vendorId}/price/average"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let vendorIdPreEscape = "\(APIHelper.mapValueToPathItem(vendorId))"
+        let vendorIdPostEscape = vendorIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{vendorId}", with: vendorIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "vendorId": (wrappedValue: vendorId?.encodeToJSON(), isExplode: true),
-        ])
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
             :
@@ -554,16 +609,16 @@ open class InventoryItemsAPI {
 
     /**
 
-     - parameter id: (path)  
-     - parameter vendorId: (path)  
-     - returns: AnyPublisher<URL, Error>
+     - parameter inventoryItemId: (path)  
+     - parameter productPriceId: (path)  
+     - returns: AnyPublisher<[ProductPriceHistoryDto], Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func inventoryItemsGetProductVendorPriceHistory(id: Int64, vendorId: Int64) -> AnyPublisher<URL, Error> {
-        let requestBuilder = inventoryItemsGetProductVendorPriceHistoryWithRequestBuilder(id: id, vendorId: vendorId)
+    open class func inventoryItemsGetProductVendorPriceHistory(inventoryItemId: Int64, productPriceId: Int64) -> AnyPublisher<[ProductPriceHistoryDto], Error> {
+        let requestBuilder = inventoryItemsGetProductVendorPriceHistoryWithRequestBuilder(inventoryItemId: inventoryItemId, productPriceId: productPriceId)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<[ProductPriceHistoryDto], Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -581,22 +636,22 @@ open class InventoryItemsAPI {
     #endif
 
     /**
-     - GET /api/inventoryitems/{id}/vendor/{vendorId}/price/history
+     - GET /api/inventoryitems/{InventoryItemId}/price/{ProductPriceId}/history
      - BASIC:
        - type: http
        - name: Bearer
-     - parameter id: (path)  
-     - parameter vendorId: (path)  
-     - returns: RequestBuilder<URL> 
+     - parameter inventoryItemId: (path)  
+     - parameter productPriceId: (path)  
+     - returns: RequestBuilder<[ProductPriceHistoryDto]> 
      */
-    open class func inventoryItemsGetProductVendorPriceHistoryWithRequestBuilder(id: Int64, vendorId: Int64) -> RequestBuilder<URL> {
-        var localVariablePath = "/api/inventoryitems/{id}/vendor/{vendorId}/price/history"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let vendorIdPreEscape = "\(APIHelper.mapValueToPathItem(vendorId))"
-        let vendorIdPostEscape = vendorIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{vendorId}", with: vendorIdPostEscape, options: .literal, range: nil)
+    open class func inventoryItemsGetProductVendorPriceHistoryWithRequestBuilder(inventoryItemId: Int64, productPriceId: Int64) -> RequestBuilder<[ProductPriceHistoryDto]> {
+        var localVariablePath = "/api/inventoryitems/{InventoryItemId}/price/{ProductPriceId}/history"
+        let inventoryItemIdPreEscape = "\(APIHelper.mapValueToPathItem(inventoryItemId))"
+        let inventoryItemIdPostEscape = inventoryItemIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{InventoryItemId}", with: inventoryItemIdPostEscape, options: .literal, range: nil)
+        let productPriceIdPreEscape = "\(APIHelper.mapValueToPathItem(productPriceId))"
+        let productPriceIdPostEscape = productPriceIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{ProductPriceId}", with: productPriceIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
@@ -608,7 +663,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[ProductPriceHistoryDto]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -678,59 +733,6 @@ open class InventoryItemsAPI {
 
     /**
 
-     - parameter createInventoryItemCommand: (body)  
-     - returns: AnyPublisher<URL, Error>
-     */
-    #if canImport(Combine)
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func inventoryItemsPost(createInventoryItemCommand: CreateInventoryItemCommand) -> AnyPublisher<URL, Error> {
-        let requestBuilder = inventoryItemsPostWithRequestBuilder(createInventoryItemCommand: createInventoryItemCommand)
-        let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
-            requestBuilder.execute { result in
-                switch result {
-                case let .success(response):
-                    promise(.success(response.body))
-                case let .failure(error):
-                    promise(.failure(error))
-                }
-            }
-        }
-        .handleEvents(receiveCancel: {
-            requestTask.cancel()
-        })
-        .eraseToAnyPublisher()
-    }
-    #endif
-
-    /**
-     - POST /api/inventoryitems
-     - BASIC:
-       - type: http
-       - name: Bearer
-     - parameter createInventoryItemCommand: (body)  
-     - returns: RequestBuilder<URL> 
-     */
-    open class func inventoryItemsPostWithRequestBuilder(createInventoryItemCommand: CreateInventoryItemCommand) -> RequestBuilder<URL> {
-        let localVariablePath = "/api/inventoryitems"
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createInventoryItemCommand)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
      - parameter searchTerm: (query)  (optional)
      - parameter page: (query)  (optional)
      - parameter pageSize: (query)  (optional)
@@ -743,18 +745,18 @@ open class InventoryItemsAPI {
      - parameter advancedFilterField: (query)  (optional)
      - parameter advancedFilterOperator: (query)  (optional)
      - parameter advancedFilterValue: (query)  (optional)
-     - returns: AnyPublisher<PaginationResponseOfInventoryItemDto, Error>
+     - returns: AnyPublisher<Void, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func inventoryItemsSearchGET(searchTerm: String? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> AnyPublisher<PaginationResponseOfInventoryItemDto, Error> {
+    open class func inventoryItemsSearchGET(searchTerm: String? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> AnyPublisher<Void, Error> {
         let requestBuilder = inventoryItemsSearchGETWithRequestBuilder(searchTerm: searchTerm, page: page, pageSize: pageSize, orderBy: orderBy, advancedSearchFields: advancedSearchFields, advancedSearchKeyword: advancedSearchKeyword, keyword: keyword, advancedFilterLogic: advancedFilterLogic, advancedFilterFilters: advancedFilterFilters, advancedFilterField: advancedFilterField, advancedFilterOperator: advancedFilterOperator, advancedFilterValue: advancedFilterValue)
         let requestTask = requestBuilder.requestTask
-        return Future<PaginationResponseOfInventoryItemDto, Error> { promise in
+        return Future<Void, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
-                case let .success(response):
-                    promise(.success(response.body))
+                case .success:
+                    promise(.success(()))
                 case let .failure(error):
                     promise(.failure(error))
                 }
@@ -784,9 +786,9 @@ open class InventoryItemsAPI {
      - parameter advancedFilterField: (query)  (optional)
      - parameter advancedFilterOperator: (query)  (optional)
      - parameter advancedFilterValue: (query)  (optional)
-     - returns: RequestBuilder<PaginationResponseOfInventoryItemDto> 
+     - returns: RequestBuilder<Void> 
      */
-    open class func inventoryItemsSearchGETWithRequestBuilder(searchTerm: String? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> RequestBuilder<PaginationResponseOfInventoryItemDto> {
+    open class func inventoryItemsSearchGETWithRequestBuilder(searchTerm: String? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil) -> RequestBuilder<Void> {
         let localVariablePath = "/api/inventoryitems/search"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -797,9 +799,9 @@ open class InventoryItemsAPI {
             "Page": (wrappedValue: page?.encodeToJSON(), isExplode: true),
             "PageSize": (wrappedValue: pageSize?.encodeToJSON(), isExplode: true),
             "OrderBy": (wrappedValue: orderBy?.encodeToJSON(), isExplode: true),
-//            "AdvancedSearch.Fields": (wrappedValue: advancedSearchFields?.encodeToJSON(), isExplode: true),
-//            "AdvancedSearch.Keyword": (wrappedValue: advancedSearchKeyword?.encodeToJSON(), isExplode: true),
-//            "Keyword": (wrappedValue: keyword?.encodeToJSON(), isExplode: true),
+            "AdvancedSearch.Fields": (wrappedValue: advancedSearchFields?.encodeToJSON(), isExplode: true),
+            "AdvancedSearch.Keyword": (wrappedValue: advancedSearchKeyword?.encodeToJSON(), isExplode: true),
+            "Keyword": (wrappedValue: keyword?.encodeToJSON(), isExplode: true),
 //            "AdvancedFilter.Logic": (wrappedValue: advancedFilterLogic?.encodeToJSON(), isExplode: true),
 //            "AdvancedFilter.Filters": (wrappedValue: advancedFilterFilters?.encodeToJSON(), isExplode: true),
 //            "AdvancedFilter.Field": (wrappedValue: advancedFilterField?.encodeToJSON(), isExplode: true),
@@ -813,7 +815,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginationResponseOfInventoryItemDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -933,17 +935,17 @@ open class InventoryItemsAPI {
 
     /**
 
-     - parameter id: (path)  
-     - parameter vendorId: (path)  
+     - parameter inventoryItemId: (path)  
+     - parameter productPriceId: (path)  
      - parameter updateInventoryItemVendorPriceCommand: (body)  
-     - returns: AnyPublisher<URL, Error>
+     - returns: AnyPublisher<InventoryItemDto, Error>
      */
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func inventoryItemsUpdateVendor(id: String, vendorId: String, updateInventoryItemVendorPriceCommand: UpdateInventoryItemVendorPriceCommand) -> AnyPublisher<URL, Error> {
-        let requestBuilder = inventoryItemsUpdateVendorWithRequestBuilder(id: id, vendorId: vendorId, updateInventoryItemVendorPriceCommand: updateInventoryItemVendorPriceCommand)
+    open class func inventoryItemsUpdateVendor(inventoryItemId: Int64, productPriceId: Int64, updateInventoryItemVendorPriceCommand: UpdateInventoryItemVendorPriceCommand) -> AnyPublisher<InventoryItemDto, Error> {
+        let requestBuilder = inventoryItemsUpdateVendorWithRequestBuilder(inventoryItemId: inventoryItemId, productPriceId: productPriceId, updateInventoryItemVendorPriceCommand: updateInventoryItemVendorPriceCommand)
         let requestTask = requestBuilder.requestTask
-        return Future<URL, Error> { promise in
+        return Future<InventoryItemDto, Error> { promise in
             requestBuilder.execute { result in
                 switch result {
                 case let .success(response):
@@ -961,23 +963,23 @@ open class InventoryItemsAPI {
     #endif
 
     /**
-     - PUT /api/inventoryitems/{id}/vendor/{vendorId}
+     - PUT /api/inventoryitems/{inventoryItemId}/vendor/{productPriceId}
      - BASIC:
        - type: http
        - name: Bearer
-     - parameter id: (path)  
-     - parameter vendorId: (path)  
+     - parameter inventoryItemId: (path)  
+     - parameter productPriceId: (path)  
      - parameter updateInventoryItemVendorPriceCommand: (body)  
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<InventoryItemDto> 
      */
-    open class func inventoryItemsUpdateVendorWithRequestBuilder(id: String, vendorId: String, updateInventoryItemVendorPriceCommand: UpdateInventoryItemVendorPriceCommand) -> RequestBuilder<URL> {
-        var localVariablePath = "/api/inventoryitems/{id}/vendor/{vendorId}"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let vendorIdPreEscape = "\(APIHelper.mapValueToPathItem(vendorId))"
-        let vendorIdPostEscape = vendorIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{vendorId}", with: vendorIdPostEscape, options: .literal, range: nil)
+    open class func inventoryItemsUpdateVendorWithRequestBuilder(inventoryItemId: Int64, productPriceId: Int64, updateInventoryItemVendorPriceCommand: UpdateInventoryItemVendorPriceCommand) -> RequestBuilder<InventoryItemDto> {
+        var localVariablePath = "/api/inventoryitems/{inventoryItemId}/vendor/{productPriceId}"
+        let inventoryItemIdPreEscape = "\(APIHelper.mapValueToPathItem(inventoryItemId))"
+        let inventoryItemIdPostEscape = inventoryItemIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{inventoryItemId}", with: inventoryItemIdPostEscape, options: .literal, range: nil)
+        let productPriceIdPreEscape = "\(APIHelper.mapValueToPathItem(productPriceId))"
+        let productPriceIdPostEscape = productPriceIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{productPriceId}", with: productPriceIdPostEscape, options: .literal, range: nil)
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateInventoryItemVendorPriceCommand)
 
@@ -989,7 +991,7 @@ open class InventoryItemsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<InventoryItemDto>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -1,6 +1,6 @@
 # BatchesAPI
 
-All URIs are relative to *https://zwr8hzk4-5001.use.devtunnels.ms*
+All URIs are relative to *https://db27h38l-5001.use.devtunnels.ms*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 # **batchesGet**
 ```swift
-    open class func batchesGet(status: Int64? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil, completion: @escaping (_ data: PaginationResponseOfBatchListDto?, _ error: Error?) -> Void)
+    open class func batchesGet(status: [Int]? = nil, page: Int? = nil, pageSize: Int? = nil, orderBy: [String]? = nil, advancedSearchFields: [String]? = nil, advancedSearchKeyword: String? = nil, keyword: String? = nil, advancedFilterLogic: String? = nil, advancedFilterFilters: [Filter]? = nil, advancedFilterField: String? = nil, advancedFilterOperator: String? = nil, advancedFilterValue: AnyCodable? = nil, completion: @escaping (_ data: PaginationResponseOfBatchListDto?, _ error: Error?) -> Void)
 ```
 
 Search Batches using available filters.
@@ -176,7 +176,7 @@ Search Batches using available filters.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let status = 987 // Int64 |  (optional)
+let status = [123] // [Int] |  (optional)
 let page = 987 // Int |  (optional)
 let pageSize = 987 // Int |  (optional)
 let orderBy = ["inner_example"] // [String] |  (optional)
@@ -206,7 +206,7 @@ BatchesAPI.batchesGet(status: status, page: page, pageSize: pageSize, orderBy: o
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **Int64** |  | [optional] 
+ **status** | [**[Int]**](Int.md) |  | [optional] 
  **page** | **Int** |  | [optional] 
  **pageSize** | **Int** |  | [optional] 
  **orderBy** | [**[String]**](String.md) |  | [optional] 
@@ -377,7 +377,7 @@ Name | Type | Description  | Notes
 
 # **batchesGetPending**
 ```swift
-    open class func batchesGetPending(hydrationLevel: Int? = nil, completion: @escaping (_ data: BatchViewModel?, _ error: Error?) -> Void)
+    open class func batchesGetPending(completion: @escaping (_ data: BatchDto?, _ error: Error?) -> Void)
 ```
 
 
@@ -387,9 +387,8 @@ Name | Type | Description  | Notes
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let hydrationLevel = 987 // Int |  (optional) (default to 2)
 
-BatchesAPI.batchesGetPending(hydrationLevel: hydrationLevel) { (response, error) in
+BatchesAPI.batchesGetPending() { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -402,14 +401,11 @@ BatchesAPI.batchesGetPending(hydrationLevel: hydrationLevel) { (response, error)
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **hydrationLevel** | **Int** |  | [optional] [default to 2]
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**BatchViewModel**](BatchViewModel.md)
+[**BatchDto**](BatchDto.md)
 
 ### Authorization
 
@@ -434,7 +430,7 @@ Name | Type | Description  | Notes
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let batchViewModel = BatchViewModel(id: 123, number: "number_example", orders: [OrderViewModel(createdDate: Date(), totalPrice: 123, estimatedPrice: 123, items: [OrderItemViewModel(name: "name_example", brand: "brand_example", unitPrice: 123, quantity: 123, receivedQuantity: 123, itemPrice: 123, receivedPrice: 123, receivedUnitPrice: 123, orderCode: "orderCode_example", totalPrice: 123, receivedTotal: 123, productId: 123, product: ProductViewModel(name: "name_example", notes: "notes_example", prices: [ProductPriceViewModel(comparison: 123, vendorId: 123, vendor: VendorViewModel(name: "name_example", contactName: "contactName_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", email: "email_example", phone1: "phone1_example", phone2: "phone2_example", fax: "fax_example", cellPhone: "cellPhone_example", notes: "notes_example", minimumOrder: 123, accountNumber: "accountNumber_example", orderTotal: 123, incentivePercentage: 123, color: "color_example", sortOrder: 123, active: false, website: "website_example", contactEmail: "contactEmail_example", geoCached: false, deliveryRange: 123, locations: [VendorLocationViewModel(name: "name_example", contactName: "contactName_example", website: "website_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", latitude: 123, longitude: 123, deliveryRange: 123, active: false, isGeoCoded: false, id: 123)], id: 123), productInfoId: 123, productInfo: ProductInfoViewModel(id: 123, orderCode: "orderCode_example", brand: "brand_example", quantity: 123, description: "description_example", vendorDescription: "vendorDescription_example", count: 123, unitOfMeasureId: 123, unitOfMeasure: UnitViewModel(name: "name_example", abbreviation: "abbreviation_example", locked: false, id: 123), deselected: false, price: 123, unitPrice: 123, isPreferred: false, manufacturerCode: "manufacturerCode_example", lastModifiedOn: Date()), deleted: false, vendorDeleted: false, id: 123)], defaultUnitOfMeasureId: 123, defaultUnitOfMeasure: nil, defaultQuantity: 123, defaultCount: 123, id: 123), inventoryItemId: 123, inventoryItem: InventoryItemViewModel(name: "name_example", notes: "notes_example", prices: [nil], defaultUnitOfMeasureId: 123, defaultUnitOfMeasure: nil, defaultQuantity: 123, defaultCount: 123, baseQuantity: 123, currentQuantity: 123, orderAmount: 123, zone: ZoneViewModel(name: "name_example", sortOrder: 123, shelvingUnits: [ShelvingUnitViewModel(unitNumber: 123, shelfAmount: 123, id: 123)], id: 123), shelvingUnit: nil, shelfNumber: 123, active: false, ownerId: 123, zoneId: 123, shelvingUnitId: 123, id: 123), productPriceId: 123, currentInventory: 123, orderId: 123, createdBy: "createdBy_example", lastModifiedBy: "lastModifiedBy_example", createDate: Date(), lastModifiedOn: Date(), previousVendors: [nil], lostSavings: 123, received: false, id: 123)], itemsCount: 123, vendorId: 123, vendor: nil, active: false, statusId: 123, status: OrderStatus(), batchId: 123, invoice: "invoice_example", deliveryDate: Date(), orderDate: Date(), number: "number_example", id: 123)], owner: BatchViewModel_owner(name: "name_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", geoCached: false, id: 123), status: BatchStatus(), deactivatedVendors: [nil], costSavings: BatchViewModel_costSavings(found: 123, lost: 123, net: 123, netPercent: 123, total: 123), active: false, orderDate: Date(), createDate: Date()) // BatchViewModel | 
+let batchViewModel = BatchViewModel(id: 123, number: "number_example", orders: [OrderViewModel(createdDate: Date(), totalPrice: 123, estimatedPrice: 123, items: [OrderItemViewModel(name: "name_example", brand: "brand_example", unitPrice: 123, quantity: 123, receivedQuantity: 123, itemPrice: 123, receivedPrice: 123, receivedUnitPrice: 123, orderCode: "orderCode_example", totalPrice: 123, receivedTotal: 123, productId: 123, product: ProductViewModel(name: "name_example", notes: "notes_example", prices: [ProductPriceViewModel(comparison: 123, vendorId: 123, vendor: VendorViewModel(name: "name_example", contactName: "contactName_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", email: "email_example", phone1: "phone1_example", phone2: "phone2_example", fax: "fax_example", cellPhone: "cellPhone_example", notes: "notes_example", minimumOrder: 123, accountNumber: "accountNumber_example", orderTotal: 123, incentivePercentage: 123, color: "color_example", sortOrder: 123, active: false, website: "website_example", contactEmail: "contactEmail_example", geoCached: false, deliveryRange: 123, locations: [VendorLocationViewModel(name: "name_example", contactName: "contactName_example", website: "website_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", latitude: 123, longitude: 123, deliveryRange: 123, active: false, isGeoCoded: false, id: 123)], id: 123), productInfoId: 123, productInfo: ProductInfoViewModel(id: 123, orderCode: "orderCode_example", brand: "brand_example", quantity: 123, description: "description_example", vendorDescription: "vendorDescription_example", count: 123, unitOfMeasureId: 123, unitOfMeasure: UnitViewModel(name: "name_example", abbreviation: "abbreviation_example", locked: false, id: 123), deselected: false, price: 123, unitPrice: 123, priceType: ProductPriceHistoryType(), isPreferred: false, manufacturerCode: "manufacturerCode_example", lastModifiedOn: Date()), deleted: false, vendorDeleted: false, id: 123)], defaultUnitOfMeasureId: 123, defaultUnitOfMeasure: nil, defaultQuantity: 123, defaultCount: 123, id: 123), inventoryItemId: 123, inventoryItem: InventoryItemViewModel(name: "name_example", notes: "notes_example", prices: [nil], defaultUnitOfMeasureId: 123, defaultUnitOfMeasure: nil, defaultQuantity: 123, defaultCount: 123, baseQuantity: 123, currentQuantity: 123, orderAmount: 123, zone: ZoneViewModel(name: "name_example", sortOrder: 123, shelvingUnits: [ShelvingUnitViewModel(unitNumber: 123, shelfAmount: 123, id: 123)], id: 123), shelvingUnit: nil, shelfNumber: 123, active: false, ownerId: 123, zoneId: 123, shelvingUnitId: 123, id: 123), productPriceId: 123, currentInventory: 123, orderId: 123, createdBy: "createdBy_example", lastModifiedBy: "lastModifiedBy_example", createDate: Date(), lastModifiedOn: Date(), previousVendors: [nil], lostSavings: 123, received: false, id: 123)], itemsCount: 123, vendorId: 123, vendor: nil, active: false, statusId: 123, status: OrderStatus(), batchId: 123, invoice: "invoice_example", deliveryDate: Date(), orderDate: Date(), number: "number_example", id: 123)], owner: BatchViewModel_owner(name: "name_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", geoCached: false, id: 123), status: BatchStatus(), deactivatedVendors: [nil], costSavings: BatchViewModel_costSavings(found: 123, lost: 123, net: 123, netPercent: 123, total: 123), active: false, orderDate: Date(), createDate: Date()) // BatchViewModel | 
 
 BatchesAPI.batchesPost(batchViewModel: batchViewModel) { (response, error) in
     guard error == nil else {
@@ -482,7 +478,7 @@ Name | Type | Description  | Notes
 import OpenAPIClient
 
 let id = 987 // Int | 
-let batchViewModel = BatchViewModel(id: 123, number: "number_example", orders: [OrderViewModel(createdDate: Date(), totalPrice: 123, estimatedPrice: 123, items: [OrderItemViewModel(name: "name_example", brand: "brand_example", unitPrice: 123, quantity: 123, receivedQuantity: 123, itemPrice: 123, receivedPrice: 123, receivedUnitPrice: 123, orderCode: "orderCode_example", totalPrice: 123, receivedTotal: 123, productId: 123, product: ProductViewModel(name: "name_example", notes: "notes_example", prices: [ProductPriceViewModel(comparison: 123, vendorId: 123, vendor: VendorViewModel(name: "name_example", contactName: "contactName_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", email: "email_example", phone1: "phone1_example", phone2: "phone2_example", fax: "fax_example", cellPhone: "cellPhone_example", notes: "notes_example", minimumOrder: 123, accountNumber: "accountNumber_example", orderTotal: 123, incentivePercentage: 123, color: "color_example", sortOrder: 123, active: false, website: "website_example", contactEmail: "contactEmail_example", geoCached: false, deliveryRange: 123, locations: [VendorLocationViewModel(name: "name_example", contactName: "contactName_example", website: "website_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", latitude: 123, longitude: 123, deliveryRange: 123, active: false, isGeoCoded: false, id: 123)], id: 123), productInfoId: 123, productInfo: ProductInfoViewModel(id: 123, orderCode: "orderCode_example", brand: "brand_example", quantity: 123, description: "description_example", vendorDescription: "vendorDescription_example", count: 123, unitOfMeasureId: 123, unitOfMeasure: UnitViewModel(name: "name_example", abbreviation: "abbreviation_example", locked: false, id: 123), deselected: false, price: 123, unitPrice: 123, isPreferred: false, manufacturerCode: "manufacturerCode_example", lastModifiedOn: Date()), deleted: false, vendorDeleted: false, id: 123)], defaultUnitOfMeasureId: 123, defaultUnitOfMeasure: nil, defaultQuantity: 123, defaultCount: 123, id: 123), inventoryItemId: 123, inventoryItem: InventoryItemViewModel(name: "name_example", notes: "notes_example", prices: [nil], defaultUnitOfMeasureId: 123, defaultUnitOfMeasure: nil, defaultQuantity: 123, defaultCount: 123, baseQuantity: 123, currentQuantity: 123, orderAmount: 123, zone: ZoneViewModel(name: "name_example", sortOrder: 123, shelvingUnits: [ShelvingUnitViewModel(unitNumber: 123, shelfAmount: 123, id: 123)], id: 123), shelvingUnit: nil, shelfNumber: 123, active: false, ownerId: 123, zoneId: 123, shelvingUnitId: 123, id: 123), productPriceId: 123, currentInventory: 123, orderId: 123, createdBy: "createdBy_example", lastModifiedBy: "lastModifiedBy_example", createDate: Date(), lastModifiedOn: Date(), previousVendors: [nil], lostSavings: 123, received: false, id: 123)], itemsCount: 123, vendorId: 123, vendor: nil, active: false, statusId: 123, status: OrderStatus(), batchId: 123, invoice: "invoice_example", deliveryDate: Date(), orderDate: Date(), number: "number_example", id: 123)], owner: BatchViewModel_owner(name: "name_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", geoCached: false, id: 123), status: BatchStatus(), deactivatedVendors: [nil], costSavings: BatchViewModel_costSavings(found: 123, lost: 123, net: 123, netPercent: 123, total: 123), active: false, orderDate: Date(), createDate: Date()) // BatchViewModel | 
+let batchViewModel = BatchViewModel(id: 123, number: "number_example", orders: [OrderViewModel(createdDate: Date(), totalPrice: 123, estimatedPrice: 123, items: [OrderItemViewModel(name: "name_example", brand: "brand_example", unitPrice: 123, quantity: 123, receivedQuantity: 123, itemPrice: 123, receivedPrice: 123, receivedUnitPrice: 123, orderCode: "orderCode_example", totalPrice: 123, receivedTotal: 123, productId: 123, product: ProductViewModel(name: "name_example", notes: "notes_example", prices: [ProductPriceViewModel(comparison: 123, vendorId: 123, vendor: VendorViewModel(name: "name_example", contactName: "contactName_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", email: "email_example", phone1: "phone1_example", phone2: "phone2_example", fax: "fax_example", cellPhone: "cellPhone_example", notes: "notes_example", minimumOrder: 123, accountNumber: "accountNumber_example", orderTotal: 123, incentivePercentage: 123, color: "color_example", sortOrder: 123, active: false, website: "website_example", contactEmail: "contactEmail_example", geoCached: false, deliveryRange: 123, locations: [VendorLocationViewModel(name: "name_example", contactName: "contactName_example", website: "website_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", latitude: 123, longitude: 123, deliveryRange: 123, active: false, isGeoCoded: false, id: 123)], id: 123), productInfoId: 123, productInfo: ProductInfoViewModel(id: 123, orderCode: "orderCode_example", brand: "brand_example", quantity: 123, description: "description_example", vendorDescription: "vendorDescription_example", count: 123, unitOfMeasureId: 123, unitOfMeasure: UnitViewModel(name: "name_example", abbreviation: "abbreviation_example", locked: false, id: 123), deselected: false, price: 123, unitPrice: 123, priceType: ProductPriceHistoryType(), isPreferred: false, manufacturerCode: "manufacturerCode_example", lastModifiedOn: Date()), deleted: false, vendorDeleted: false, id: 123)], defaultUnitOfMeasureId: 123, defaultUnitOfMeasure: nil, defaultQuantity: 123, defaultCount: 123, id: 123), inventoryItemId: 123, inventoryItem: InventoryItemViewModel(name: "name_example", notes: "notes_example", prices: [nil], defaultUnitOfMeasureId: 123, defaultUnitOfMeasure: nil, defaultQuantity: 123, defaultCount: 123, baseQuantity: 123, currentQuantity: 123, orderAmount: 123, zone: ZoneViewModel(name: "name_example", sortOrder: 123, shelvingUnits: [ShelvingUnitViewModel(unitNumber: 123, shelfAmount: 123, id: 123)], id: 123), shelvingUnit: nil, shelfNumber: 123, active: false, ownerId: 123, zoneId: 123, shelvingUnitId: 123, id: 123), productPriceId: 123, currentInventory: 123, orderId: 123, createdBy: "createdBy_example", lastModifiedBy: "lastModifiedBy_example", createDate: Date(), lastModifiedOn: Date(), previousVendors: [nil], lostSavings: 123, received: false, id: 123)], itemsCount: 123, vendorId: 123, vendor: nil, active: false, statusId: 123, status: OrderStatus(), batchId: 123, invoice: "invoice_example", deliveryDate: Date(), orderDate: Date(), number: "number_example", id: 123)], owner: BatchViewModel_owner(name: "name_example", addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", city: "city_example", state: "state_example", zipCode: "zipCode_example", geoCached: false, id: 123), status: BatchStatus(), deactivatedVendors: [nil], costSavings: BatchViewModel_costSavings(found: 123, lost: 123, net: 123, netPercent: 123, total: 123), active: false, orderDate: Date(), createDate: Date()) // BatchViewModel | 
 
 BatchesAPI.batchesPut(id: id, batchViewModel: batchViewModel) { (response, error) in
     guard error == nil else {
@@ -530,7 +526,7 @@ Search Batches using available filters.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let getBatchListPagedQuery = GetBatchListPagedQuery(advancedSearch: BaseFilter_advancedSearch(fields: ["fields_example"], keyword: "keyword_example"), keyword: "keyword_example", advancedFilter: BaseFilter_advancedFilter(logic: "logic_example", filters: [Filter(logic: "logic_example", filters: [nil], field: "field_example", _operator: "_operator_example", value: 123)], field: "field_example", _operator: "_operator_example", value: 123), page: 123, pageSize: 123, orderBy: ["orderBy_example"], status: 123) // GetBatchListPagedQuery | 
+let getBatchListPagedQuery = GetBatchListPagedQuery(advancedSearch: BaseFilter_advancedSearch(fields: ["fields_example"], keyword: "keyword_example"), keyword: "keyword_example", advancedFilter: BaseFilter_advancedFilter(logic: "logic_example", filters: [Filter(logic: "logic_example", filters: [nil], field: "field_example", _operator: "_operator_example", value: 123)], field: "field_example", _operator: "_operator_example", value: 123), page: 123, pageSize: 123, orderBy: ["orderBy_example"], status: [123]) // GetBatchListPagedQuery | 
 
 // Search Batches using available filters.
 BatchesAPI.batchesSearch(getBatchListPagedQuery: getBatchListPagedQuery) { (response, error) in
@@ -617,7 +613,7 @@ Name | Type | Description  | Notes
 
 # **batchesUpdateStatus**
 ```swift
-    open class func batchesUpdateStatus(id: Int64, statusCode: String, completion: @escaping (_ data: BatchViewModel?, _ error: Error?) -> Void)
+    open class func batchesUpdateStatus(id: Int64, statusCode: String, completion: @escaping (_ data: BatchDto?, _ error: Error?) -> Void)
 ```
 
 
@@ -651,7 +647,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BatchViewModel**](BatchViewModel.md)
+[**BatchDto**](BatchDto.md)
 
 ### Authorization
 

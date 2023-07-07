@@ -28,10 +28,10 @@ public struct InventoryItemDto: Codable, JSONEncodable, Hashable {
     public var prices: [ProductPriceDto]?
     public var defaultUnitOfMeasureId: Int64?
     public var defaultUnitOfMeasure: UnitDto?
-    public var defaultQuantity: Int?
+    public var defaultQuantity: Double?
     public var defaultCount: Double?
 
-    public init(id: Int64? = nil, baseQuantity: Int? = nil, currentQuantity: Int? = nil, orderAmount: Int? = nil, zone: InventoryItemDtoZone? = nil, shelvingUnit: InventoryItemDtoShelvingUnit? = nil, shelfNumber: Int? = nil, active: Bool? = nil, ownerId: Int64? = nil, zoneId: Int64? = nil, shelvingUnitId: Int64? = nil, name: String? = nil, notes: String? = nil, prices: [ProductPriceDto]? = nil, defaultUnitOfMeasureId: Int64? = nil, defaultUnitOfMeasure: UnitDto? = nil, defaultQuantity: Int? = nil, defaultCount: Double? = nil) {
+    public init(id: Int64? = nil, baseQuantity: Int? = nil, currentQuantity: Int? = nil, orderAmount: Int? = nil, zone: InventoryItemDtoZone? = nil, shelvingUnit: InventoryItemDtoShelvingUnit? = nil, shelfNumber: Int? = nil, active: Bool? = nil, ownerId: Int64? = nil, zoneId: Int64? = nil, shelvingUnitId: Int64? = nil, name: String? = nil, notes: String? = nil, prices: [ProductPriceDto]? = nil, defaultUnitOfMeasureId: Int64? = nil, defaultUnitOfMeasure: UnitDto? = nil, defaultQuantity: Double? = nil, defaultCount: Double? = nil) {
         self.id = id
         self.baseQuantity = baseQuantity
         self.currentQuantity = currentQuantity

@@ -12,7 +12,7 @@ import AnyCodable
 
 public struct UpdateInventoryItemVendorPriceCommand: Codable, JSONEncodable, Hashable {
 
-    public var id: Int64?
+    public var productPriceId: Int64?
     public var inventoryItemId: Int64?
     public var vendorId: Int64?
     public var deleted: Bool?
@@ -30,8 +30,8 @@ public struct UpdateInventoryItemVendorPriceCommand: Codable, JSONEncodable, Has
     public var productInfoIsPreferred: Bool?
     public var productInfoManufacturerCode: String?
 
-    public init(id: Int64? = nil, inventoryItemId: Int64? = nil, vendorId: Int64? = nil, deleted: Bool? = nil, productInfoId: Int64? = nil, productInfoOrderCode: String? = nil, productInfoBrand: String? = nil, productInfoQuantity: Double? = nil, productInfoDescription: String? = nil, productInfoVendorDescription: String? = nil, productInfoCount: Double? = nil, productInfoUnitOfMeasureId: Int64? = nil, productInfoDeselected: Bool? = nil, productInfoPrice: Double? = nil, productInfoUnitPrice: Double? = nil, productInfoIsPreferred: Bool? = nil, productInfoManufacturerCode: String? = nil) {
-        self.id = id
+    public init(productPriceId: Int64? = nil, inventoryItemId: Int64? = nil, vendorId: Int64? = nil, deleted: Bool? = nil, productInfoId: Int64? = nil, productInfoOrderCode: String? = nil, productInfoBrand: String? = nil, productInfoQuantity: Double? = nil, productInfoDescription: String? = nil, productInfoVendorDescription: String? = nil, productInfoCount: Double? = nil, productInfoUnitOfMeasureId: Int64? = nil, productInfoDeselected: Bool? = nil, productInfoPrice: Double? = nil, productInfoUnitPrice: Double? = nil, productInfoIsPreferred: Bool? = nil, productInfoManufacturerCode: String? = nil) {
+        self.productPriceId = productPriceId
         self.inventoryItemId = inventoryItemId
         self.vendorId = vendorId
         self.deleted = deleted
@@ -51,7 +51,7 @@ public struct UpdateInventoryItemVendorPriceCommand: Codable, JSONEncodable, Has
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case id
+        case productPriceId
         case inventoryItemId
         case vendorId
         case deleted
@@ -74,7 +74,7 @@ public struct UpdateInventoryItemVendorPriceCommand: Codable, JSONEncodable, Has
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(id, forKey: .id)
+        try container.encodeIfPresent(productPriceId, forKey: .productPriceId)
         try container.encodeIfPresent(inventoryItemId, forKey: .inventoryItemId)
         try container.encodeIfPresent(vendorId, forKey: .vendorId)
         try container.encodeIfPresent(deleted, forKey: .deleted)
